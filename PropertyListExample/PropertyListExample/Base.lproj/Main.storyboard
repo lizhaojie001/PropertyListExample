@@ -726,6 +726,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="qpz-Mi-KHo" name="value" keyPath="selection.personName" id="LPO-2X-xYQ"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-uk-RAY">
                                 <rect key="frame" x="55" y="268" width="99" height="17"/>
@@ -804,6 +807,11 @@
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <objectController id="qpz-Mi-KHo">
+                    <connections>
+                        <outlet property="content" destination="agG-QX-WIC" id="Rpy-Gg-mwZ"/>
+                    </connections>
+                </objectController>
                 <customObject id="agG-QX-WIC" customClass="Controller" customModule="PropertyListExample" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="75" y="738"/>

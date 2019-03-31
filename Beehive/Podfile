@@ -1,0 +1,16 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Beehive' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Beehive
+  pod 'FoldingTabBar'
+  pod 'SnapKit', '~> 4.2.0'
+  pod 'XRCarouselView'
+  pod 'UIColor_Hex_Swift'
+  pod "ViewAnimator"
+
+
+end

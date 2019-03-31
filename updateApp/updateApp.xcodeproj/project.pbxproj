@@ -14,6 +14,13 @@
 		1F53FE0A2237A0160059675F /* updateAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53FE092237A0160059675F /* updateAppTests.swift */; };
 		1F53FE152237A0160059675F /* updateAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53FE142237A0160059675F /* updateAppUITests.swift */; };
 		2327F17D60A59D7D58E8B14B /* Pods_updateAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9F359E9AECB551C0F5B681 /* Pods_updateAppUITests.framework */; };
+		521345A1224F478B002D7EA6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52134569224F07C7002D7EA6 /* Cocoa.framework */; };
+		521345A4224F478B002D7EA6 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521345A3224F478B002D7EA6 /* SafariExtensionHandler.swift */; };
+		521345A6224F478B002D7EA6 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521345A5224F478B002D7EA6 /* SafariExtensionViewController.swift */; };
+		521345A9224F478B002D7EA6 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 521345A7224F478B002D7EA6 /* SafariExtensionViewController.xib */; };
+		521345AC224F478B002D7EA6 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 521345AB224F478B002D7EA6 /* script.js */; };
+		521345AE224F478B002D7EA6 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 521345AD224F478B002D7EA6 /* ToolbarItemIcon.pdf */; };
+		521345B2224F478B002D7EA6 /* Safari.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 521345A0224F478B002D7EA6 /* Safari.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7B15CCDBBF17FD9407974142 /* Pods_updateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A1FA0662DAAEE670B0A5DB /* Pods_updateApp.framework */; };
 		F9D8B19630D372F15C8405B9 /* Pods_updateAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EDA7BBA45CD0774BD5F1A4 /* Pods_updateAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +40,28 @@
 			remoteGlobalIDString = 1F53FDF22237A0140059675F;
 			remoteInfo = updateApp;
 		};
+		521345B0224F478B002D7EA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F53FDEB2237A0140059675F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5213459F224F478B002D7EA6;
+			remoteInfo = Safari;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5213457F224F07C7002D7EA6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				521345B2224F478B002D7EA6 /* Safari.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00B539443E03274B124BBFC4 /* Pods-updateAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-updateAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-updateAppUITests/Pods-updateAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +80,16 @@
 		1F53FE162237A0160059675F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F138B307BE0151A98FE12B2 /* Pods-updateAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-updateAppUITests.release.xcconfig"; path = "Target Support Files/Pods-updateAppUITests/Pods-updateAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		37A1FA0662DAAEE670B0A5DB /* Pods_updateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_updateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52134569224F07C7002D7EA6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		5213459A224F3AAA002D7EA6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		521345A0224F478B002D7EA6 /* Safari.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Safari.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		521345A3224F478B002D7EA6 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		521345A5224F478B002D7EA6 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		521345A8224F478B002D7EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		521345AA224F478B002D7EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		521345AB224F478B002D7EA6 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		521345AD224F478B002D7EA6 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		521345AF224F478B002D7EA6 /* Safari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Safari.entitlements; sourceTree = "<group>"; };
 		6C9F359E9AECB551C0F5B681 /* Pods_updateAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_updateAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E618C6DEF7435FFB73E1395 /* Pods-updateAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-updateAppTests.release.xcconfig"; path = "Target Support Files/Pods-updateAppTests/Pods-updateAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8B075ADFB631492FD1293C9B /* Pods-updateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-updateApp.debug.xcconfig"; path = "Target Support Files/Pods-updateApp/Pods-updateApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +123,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5213459D224F478B002D7EA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521345A1224F478B002D7EA6 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,6 +140,7 @@
 				1F53FDF52237A0140059675F /* updateApp */,
 				1F53FE082237A0160059675F /* updateAppTests */,
 				1F53FE132237A0160059675F /* updateAppUITests */,
+				521345A2224F478B002D7EA6 /* Safari */,
 				1F53FDF42237A0140059675F /* Products */,
 				D3D3132B4C45547F10141281 /* Pods */,
 				49F246A0CC4B126E908FB70E /* Frameworks */,
@@ -106,6 +153,7 @@
 				1F53FDF32237A0140059675F /* updateApp.app */,
 				1F53FE052237A0160059675F /* updateAppTests.xctest */,
 				1F53FE102237A0160059675F /* updateAppUITests.xctest */,
+				521345A0224F478B002D7EA6 /* Safari.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,11 +192,27 @@
 		49F246A0CC4B126E908FB70E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5213459A224F3AAA002D7EA6 /* AppKit.framework */,
 				37A1FA0662DAAEE670B0A5DB /* Pods_updateApp.framework */,
 				C6EDA7BBA45CD0774BD5F1A4 /* Pods_updateAppTests.framework */,
 				6C9F359E9AECB551C0F5B681 /* Pods_updateAppUITests.framework */,
+				52134569224F07C7002D7EA6 /* Cocoa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		521345A2224F478B002D7EA6 /* Safari */ = {
+			isa = PBXGroup;
+			children = (
+				521345A3224F478B002D7EA6 /* SafariExtensionHandler.swift */,
+				521345A5224F478B002D7EA6 /* SafariExtensionViewController.swift */,
+				521345A7224F478B002D7EA6 /* SafariExtensionViewController.xib */,
+				521345AA224F478B002D7EA6 /* Info.plist */,
+				521345AB224F478B002D7EA6 /* script.js */,
+				521345AD224F478B002D7EA6 /* ToolbarItemIcon.pdf */,
+				521345AF224F478B002D7EA6 /* Safari.entitlements */,
+			);
+			path = Safari;
 			sourceTree = "<group>";
 		};
 		D3D3132B4C45547F10141281 /* Pods */ = {
@@ -161,7 +225,6 @@
 				00B539443E03274B124BBFC4 /* Pods-updateAppUITests.debug.xcconfig */,
 				2F138B307BE0151A98FE12B2 /* Pods-updateAppUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -177,10 +240,12 @@
 				1F53FDF02237A0140059675F /* Frameworks */,
 				1F53FDF12237A0140059675F /* Resources */,
 				D8C986508E8CABF92AF98741 /* [CP] Embed Pods Frameworks */,
+				5213457F224F07C7002D7EA6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				521345B1224F478B002D7EA6 /* PBXTargetDependency */,
 			);
 			name = updateApp;
 			productName = updateApp;
@@ -225,6 +290,23 @@
 			productReference = 1F53FE102237A0160059675F /* updateAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5213459F224F478B002D7EA6 /* Safari */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 521345B3224F478B002D7EA6 /* Build configuration list for PBXNativeTarget "Safari" */;
+			buildPhases = (
+				5213459C224F478B002D7EA6 /* Sources */,
+				5213459D224F478B002D7EA6 /* Frameworks */,
+				5213459E224F478B002D7EA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Safari;
+			productName = Safari;
+			productReference = 521345A0224F478B002D7EA6 /* Safari.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -246,6 +328,14 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 1F53FDF22237A0140059675F;
 					};
+					5213459F224F478B002D7EA6 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = 1F53FDEE2237A0140059675F /* Build configuration list for PBXProject "updateApp" */;
@@ -264,6 +354,7 @@
 				1F53FDF22237A0140059675F /* updateApp */,
 				1F53FE042237A0160059675F /* updateAppTests */,
 				1F53FE0F2237A0160059675F /* updateAppUITests */,
+				5213459F224F478B002D7EA6 /* Safari */,
 			);
 		};
 /* End PBXProject section */
@@ -289,6 +380,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5213459E224F478B002D7EA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521345AE224F478B002D7EA6 /* ToolbarItemIcon.pdf in Resources */,
+				521345A9224F478B002D7EA6 /* SafariExtensionViewController.xib in Resources */,
+				521345AC224F478B002D7EA6 /* script.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +514,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5213459C224F478B002D7EA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				521345A6224F478B002D7EA6 /* SafariExtensionViewController.swift in Sources */,
+				521345A4224F478B002D7EA6 /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -426,6 +536,11 @@
 			target = 1F53FDF22237A0140059675F /* updateApp */;
 			targetProxy = 1F53FE112237A0160059675F /* PBXContainerItemProxy */;
 		};
+		521345B1224F478B002D7EA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5213459F224F478B002D7EA6 /* Safari */;
+			targetProxy = 521345B0224F478B002D7EA6 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -435,6 +550,14 @@
 				1F53FDFD2237A0160059675F /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		521345A7224F478B002D7EA6 /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				521345A8224F478B002D7EA6 /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -559,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B075ADFB631492FD1293C9B /* Pods-updateApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = updateApp/updateApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -578,6 +702,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5A67D5DB45B1C52CDE4860E /* Pods-updateApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = updateApp/updateApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -675,6 +800,42 @@
 			};
 			name = Release;
 		};
+		521345B4224F478B002D7EA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Safari/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.updateApp.Safari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		521345B5224F478B002D7EA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Safari/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.updateApp.Safari;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -710,6 +871,15 @@
 			buildConfigurations = (
 				1F53FE202237A0160059675F /* Debug */,
 				1F53FE212237A0160059675F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		521345B3224F478B002D7EA6 /* Build configuration list for PBXNativeTarget "Safari" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				521345B4224F478B002D7EA6 /* Debug */,
+				521345B5224F478B002D7EA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
