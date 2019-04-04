@@ -7,21 +7,24 @@
 //
 
 import Cocoa
-
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
 
+class AppDelegate: NSObject, NSApplicationDelegate {
   
-    lazy var currentController: NSWindowController = {
-        let windowController = NSWindowController()
+    lazy var currentController: WindowController = {
+        let windowController = WindowController()
         return windowController
     }()
     var mainController :NSWindowController?
     
+    func applicationWillFinishLaunching(_ notification: Notification) {
+        debugPrint(notification)
+    }
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-mainController = self.currentController
+        let windowController = WindowController()
 
+        windowController.showWindow(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

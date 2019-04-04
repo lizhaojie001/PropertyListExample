@@ -16,6 +16,7 @@ class PopoverButton: NSButton {
         let pop = NSPopover()
         pop.contentViewController =  PopoverContenController()
         pop.behavior = .semitransient
+        pop.animates = false
         return pop
     }()
 
@@ -46,5 +47,25 @@ class PopoverButton: NSButton {
     
     override func mouseExited(with event: NSEvent) {
         popover.close()
+    }
+}
+
+
+class  Person{
+}
+extension Person{
+   @objc func eat(){
+        print("eat some food")
+    }
+}
+
+
+class student: Person {
+
+}
+
+extension student{
+    override func eat() {
+        
     }
 }

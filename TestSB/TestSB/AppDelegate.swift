@@ -20,6 +20,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         currentController.showWindow(nil)
+        let icons =  Bundle.main.infoDictionary
+        debugPrint(icons)
+        let image = NSImage(named: "AppIcon")
+        debugPrint(image?.name())
+        
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -10,7 +10,6 @@
 		1FAF76D7223A4A0A006905A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF76D6223A4A0A006905A9 /* AppDelegate.swift */; };
 		1FAF76D9223A4A0C006905A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF76D8223A4A0C006905A9 /* Assets.xcassets */; };
 		1FAF76DC223A4A0C006905A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF76DA223A4A0C006905A9 /* MainMenu.xib */; };
-		1FAF76E5223A4A48006905A9 /* PopoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF76E4223A4A48006905A9 /* PopoverButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		1FAF76DB223A4A0C006905A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1FAF76DD223A4A0C006905A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FAF76DE223A4A0C006905A9 /* PopoverButton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PopoverButton.entitlements; sourceTree = "<group>"; };
-		1FAF76E4223A4A48006905A9 /* PopoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +54,6 @@
 				1FAF76D6223A4A0A006905A9 /* AppDelegate.swift */,
 				1FAF76D8223A4A0C006905A9 /* Assets.xcassets */,
 				1FAF76DA223A4A0C006905A9 /* MainMenu.xib */,
-				1FAF76E4223A4A48006905A9 /* PopoverButton.swift */,
 				1FAF76DD223A4A0C006905A9 /* Info.plist */,
 				1FAF76DE223A4A0C006905A9 /* PopoverButton.entitlements */,
 			);
@@ -134,7 +131,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FAF76D7223A4A0A006905A9 /* AppDelegate.swift in Sources */,
-				1FAF76E5223A4A48006905A9 /* PopoverButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

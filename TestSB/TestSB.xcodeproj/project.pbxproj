@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2D458B223F3E1300437D33 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D458A223F3E1300437D33 /* Media.xcassets */; };
+		1F2D458D223F3E1300437D33 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D458C223F3E1300437D33 /* icon.icns */; };
+		1F2D4590223F3E1300437D33 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D458F223F3E1300437D33 /* ActionViewController.m */; };
+		1F2D4593223F3E1300437D33 /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D4591223F3E1300437D33 /* ActionViewController.xib */; };
+		1F2D4598223F3E1300437D33 /* action.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F2D4588223F3E1200437D33 /* action.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1F2D45A5223F3E3900437D33 /* audioAudioUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D45A4223F3E3900437D33 /* audioAudioUnit.m */; };
+		1F2D45A8223F3E3900437D33 /* AudioUnitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D45A7223F3E3900437D33 /* AudioUnitViewController.m */; };
+		1F2D45AB223F3E3900437D33 /* AudioUnitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D45A9223F3E3900437D33 /* AudioUnitViewController.xib */; };
+		1F2D45B0223F3E3900437D33 /* audio.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F2D45A1223F3E3900437D33 /* audio.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1F2D45BB223F3E5F00437D33 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2D45BA223F3E5F00437D33 /* Cocoa.framework */; };
+		1F2D45BE223F3E5F00437D33 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D45BD223F3E5F00437D33 /* blockerList.json */; };
+		1F2D45C1223F3E5F00437D33 /* ContentBlockerRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D45C0223F3E5F00437D33 /* ContentBlockerRequestHandler.m */; };
+		1F2D45C6223F3E5F00437D33 /* block.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F2D45B8223F3E5F00437D33 /* block.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1FAF7715223A594D006905A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF7714223A594D006905A9 /* AppDelegate.swift */; };
 		1FAF7717223A594E006905A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF7716223A594E006905A9 /* Assets.xcassets */; };
 		1FAF771A223A594E006905A9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAF7718223A594E006905A9 /* MainMenu.xib */; };
@@ -16,7 +29,70 @@
 		1FAF7729223A599D006905A9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAF7725223A599C006905A9 /* WindowController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1F2D4596223F3E1300437D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FAF7709223A594D006905A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F2D4587223F3E1200437D33;
+			remoteInfo = action;
+		};
+		1F2D45AE223F3E3900437D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FAF7709223A594D006905A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F2D45A0223F3E3900437D33;
+			remoteInfo = audio;
+		};
+		1F2D45C4223F3E5F00437D33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FAF7709223A594D006905A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F2D45B7223F3E5F00437D33;
+			remoteInfo = block;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F2D459C223F3E1300437D33 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1F2D45C6223F3E5F00437D33 /* block.appex in Embed App Extensions */,
+				1F2D4598223F3E1300437D33 /* action.appex in Embed App Extensions */,
+				1F2D45B0223F3E3900437D33 /* audio.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1F2D4588223F3E1200437D33 /* action.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = action.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2D458A223F3E1300437D33 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		1F2D458C223F3E1300437D33 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		1F2D458E223F3E1300437D33 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		1F2D458F223F3E1300437D33 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		1F2D4592223F3E1300437D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ActionViewController.xib; sourceTree = "<group>"; };
+		1F2D4594223F3E1300437D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2D4595223F3E1300437D33 /* action.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = action.entitlements; sourceTree = "<group>"; };
+		1F2D45A1223F3E3900437D33 /* audio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = audio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2D45A3223F3E3900437D33 /* audioAudioUnit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audioAudioUnit.h; sourceTree = "<group>"; };
+		1F2D45A4223F3E3900437D33 /* audioAudioUnit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = audioAudioUnit.m; sourceTree = "<group>"; };
+		1F2D45A6223F3E3900437D33 /* AudioUnitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUnitViewController.h; sourceTree = "<group>"; };
+		1F2D45A7223F3E3900437D33 /* AudioUnitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioUnitViewController.m; sourceTree = "<group>"; };
+		1F2D45AA223F3E3900437D33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AudioUnitViewController.xib; sourceTree = "<group>"; };
+		1F2D45AC223F3E3900437D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2D45AD223F3E3900437D33 /* audio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = audio.entitlements; sourceTree = "<group>"; };
+		1F2D45B8223F3E5F00437D33 /* block.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = block.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2D45BA223F3E5F00437D33 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1F2D45BD223F3E5F00437D33 /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		1F2D45BF223F3E5F00437D33 /* ContentBlockerRequestHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentBlockerRequestHandler.h; sourceTree = "<group>"; };
+		1F2D45C0223F3E5F00437D33 /* ContentBlockerRequestHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentBlockerRequestHandler.m; sourceTree = "<group>"; };
+		1F2D45C2223F3E5F00437D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2D45C3223F3E5F00437D33 /* block.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = block.entitlements; sourceTree = "<group>"; };
 		1FAF7711223A594D006905A9 /* TestSB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAF7714223A594D006905A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FAF7716223A594E006905A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,6 +106,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F2D4585223F3E1200437D33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D459E223F3E3900437D33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D45B5223F3E5F00437D33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D45BB223F3E5F00437D33 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FAF770E223A594D006905A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,10 +138,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2D4589223F3E1300437D33 /* action */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D458A223F3E1300437D33 /* Media.xcassets */,
+				1F2D458C223F3E1300437D33 /* icon.icns */,
+				1F2D458E223F3E1300437D33 /* ActionViewController.h */,
+				1F2D458F223F3E1300437D33 /* ActionViewController.m */,
+				1F2D4591223F3E1300437D33 /* ActionViewController.xib */,
+				1F2D4594223F3E1300437D33 /* Info.plist */,
+				1F2D4595223F3E1300437D33 /* action.entitlements */,
+			);
+			path = action;
+			sourceTree = "<group>";
+		};
+		1F2D45A2223F3E3900437D33 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D45A3223F3E3900437D33 /* audioAudioUnit.h */,
+				1F2D45A4223F3E3900437D33 /* audioAudioUnit.m */,
+				1F2D45A6223F3E3900437D33 /* AudioUnitViewController.h */,
+				1F2D45A7223F3E3900437D33 /* AudioUnitViewController.m */,
+				1F2D45A9223F3E3900437D33 /* AudioUnitViewController.xib */,
+				1F2D45AC223F3E3900437D33 /* Info.plist */,
+				1F2D45AD223F3E3900437D33 /* audio.entitlements */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		1F2D45B9223F3E5F00437D33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D45BA223F3E5F00437D33 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F2D45BC223F3E5F00437D33 /* block */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D45BD223F3E5F00437D33 /* blockerList.json */,
+				1F2D45BF223F3E5F00437D33 /* ContentBlockerRequestHandler.h */,
+				1F2D45C0223F3E5F00437D33 /* ContentBlockerRequestHandler.m */,
+				1F2D45C2223F3E5F00437D33 /* Info.plist */,
+				1F2D45C3223F3E5F00437D33 /* block.entitlements */,
+			);
+			path = block;
+			sourceTree = "<group>";
+		};
 		1FAF7708223A594D006905A9 = {
 			isa = PBXGroup;
 			children = (
 				1FAF7713223A594D006905A9 /* TestSB */,
+				1F2D4589223F3E1300437D33 /* action */,
+				1F2D45A2223F3E3900437D33 /* audio */,
+				1F2D45BC223F3E5F00437D33 /* block */,
+				1F2D45B9223F3E5F00437D33 /* Frameworks */,
 				1FAF7712223A594D006905A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				1FAF7711223A594D006905A9 /* TestSB.app */,
+				1F2D4588223F3E1200437D33 /* action.appex */,
+				1F2D45A1223F3E3900437D33 /* audio.appex */,
+				1F2D45B8223F3E5F00437D33 /* block.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +228,57 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1F2D4587223F3E1200437D33 /* action */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2D459B223F3E1300437D33 /* Build configuration list for PBXNativeTarget "action" */;
+			buildPhases = (
+				1F2D4584223F3E1200437D33 /* Sources */,
+				1F2D4585223F3E1200437D33 /* Frameworks */,
+				1F2D4586223F3E1200437D33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = action;
+			productName = action;
+			productReference = 1F2D4588223F3E1200437D33 /* action.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		1F2D45A0223F3E3900437D33 /* audio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2D45B1223F3E3900437D33 /* Build configuration list for PBXNativeTarget "audio" */;
+			buildPhases = (
+				1F2D459D223F3E3900437D33 /* Sources */,
+				1F2D459E223F3E3900437D33 /* Frameworks */,
+				1F2D459F223F3E3900437D33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = audio;
+			productName = audio;
+			productReference = 1F2D45A1223F3E3900437D33 /* audio.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		1F2D45B7223F3E5F00437D33 /* block */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2D45C7223F3E5F00437D33 /* Build configuration list for PBXNativeTarget "block" */;
+			buildPhases = (
+				1F2D45B4223F3E5F00437D33 /* Sources */,
+				1F2D45B5223F3E5F00437D33 /* Frameworks */,
+				1F2D45B6223F3E5F00437D33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = block;
+			productName = block;
+			productReference = 1F2D45B8223F3E5F00437D33 /* block.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1FAF7710223A594D006905A9 /* TestSB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FAF771F223A594E006905A9 /* Build configuration list for PBXNativeTarget "TestSB" */;
@@ -82,10 +286,14 @@
 				1FAF770D223A594D006905A9 /* Sources */,
 				1FAF770E223A594D006905A9 /* Frameworks */,
 				1FAF770F223A594D006905A9 /* Resources */,
+				1F2D459C223F3E1300437D33 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1F2D4597223F3E1300437D33 /* PBXTargetDependency */,
+				1F2D45AF223F3E3900437D33 /* PBXTargetDependency */,
+				1F2D45C5223F3E5F00437D33 /* PBXTargetDependency */,
 			);
 			name = TestSB;
 			productName = TestSB;
@@ -102,6 +310,20 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = xdf_yanqing;
 				TargetAttributes = {
+					1F2D4587223F3E1200437D33 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					1F2D45A0223F3E3900437D33 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					1F2D45B7223F3E5F00437D33 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					1FAF7710223A594D006905A9 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -121,11 +343,40 @@
 			projectRoot = "";
 			targets = (
 				1FAF7710223A594D006905A9 /* TestSB */,
+				1F2D4587223F3E1200437D33 /* action */,
+				1F2D45A0223F3E3900437D33 /* audio */,
+				1F2D45B7223F3E5F00437D33 /* block */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F2D4586223F3E1200437D33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D458B223F3E1300437D33 /* Media.xcassets in Resources */,
+				1F2D458D223F3E1300437D33 /* icon.icns in Resources */,
+				1F2D4593223F3E1300437D33 /* ActionViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D459F223F3E3900437D33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D45AB223F3E3900437D33 /* AudioUnitViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D45B6223F3E5F00437D33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D45BE223F3E5F00437D33 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FAF770F223A594D006905A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +389,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F2D4584223F3E1200437D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D4590223F3E1300437D33 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D459D223F3E3900437D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D45A5223F3E3900437D33 /* audioAudioUnit.m in Sources */,
+				1F2D45A8223F3E3900437D33 /* AudioUnitViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F2D45B4223F3E5F00437D33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2D45C1223F3E5F00437D33 /* ContentBlockerRequestHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FAF770D223A594D006905A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,7 +428,41 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1F2D4597223F3E1300437D33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F2D4587223F3E1200437D33 /* action */;
+			targetProxy = 1F2D4596223F3E1300437D33 /* PBXContainerItemProxy */;
+		};
+		1F2D45AF223F3E3900437D33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F2D45A0223F3E3900437D33 /* audio */;
+			targetProxy = 1F2D45AE223F3E3900437D33 /* PBXContainerItemProxy */;
+		};
+		1F2D45C5223F3E5F00437D33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F2D45B7223F3E5F00437D33 /* block */;
+			targetProxy = 1F2D45C4223F3E5F00437D33 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		1F2D4591223F3E1300437D33 /* ActionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F2D4592223F3E1300437D33 /* Base */,
+			);
+			name = ActionViewController.xib;
+			sourceTree = "<group>";
+		};
+		1F2D45A9223F3E3900437D33 /* AudioUnitViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F2D45AA223F3E3900437D33 /* Base */,
+			);
+			name = AudioUnitViewController.xib;
+			sourceTree = "<group>";
+		};
 		1FAF7718223A594E006905A9 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -164,6 +474,110 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1F2D4599223F3E1300437D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = action/action.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = action/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.action;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F2D459A223F3E1300437D33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = action/action.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = action/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.action;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1F2D45B2223F3E3900437D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = audio/audio.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = audio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.audio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F2D45B3223F3E3900437D33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = audio/audio.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = audio/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.audio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1F2D45C8223F3E5F00437D33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = block/block.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = block/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.block;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F2D45C9223F3E5F00437D33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = block/block.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = block/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xdf.TestSB.block;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		1FAF771D223A594E006905A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -318,6 +732,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F2D459B223F3E1300437D33 /* Build configuration list for PBXNativeTarget "action" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2D4599223F3E1300437D33 /* Debug */,
+				1F2D459A223F3E1300437D33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F2D45B1223F3E3900437D33 /* Build configuration list for PBXNativeTarget "audio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2D45B2223F3E3900437D33 /* Debug */,
+				1F2D45B3223F3E3900437D33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F2D45C7223F3E5F00437D33 /* Build configuration list for PBXNativeTarget "block" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2D45C8223F3E5F00437D33 /* Debug */,
+				1F2D45C9223F3E5F00437D33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1FAF770C223A594D006905A9 /* Build configuration list for PBXProject "TestSB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
