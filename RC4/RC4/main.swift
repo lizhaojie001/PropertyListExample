@@ -15,16 +15,16 @@ let key = "l102A1D18EE79"
 @discardableResult
 func rc4_init(_ key : [UInt8], S : [uint8] , len : Int) -> [UInt8] {
     var S = S
-    var i  = 0
+//    var i  = 0
     var j  = 0
-    var K : [Int] = Array.init(repeating: 0, count: 256)
+    var K : [uint8] = Array.init(repeating: UInt8(0), count: 256)
     for i in 0...255{
         S[i] = uint8(i)
-        K[i] = Int(key[i%len])
+        K[i] = key[i%len]
     }
 
     for i in 0...255{
-        j = (j + Int(S[i]) + K[i])%256
+        j =  (j + Int(S[i] + K[i]))%256
         S.swapAt(i, j)
     }
 
@@ -37,17 +37,18 @@ func rc4_crypt(S : [uint8], data : Data , len : CLong) -> Data {
     var j = 0
     var t = 0
     var S = S
-    var data = data
+    var data = [uint8](data)
 
 
-    for k in 0...len {
+    for k in 0...len-1 {
         i = (i + 1)%256
         j = (j + Int(S[i]))%256
         S.swapAt(i, j)
-        t = Int(S[i] + S[j])%256
+        t = (Int(S[i]) + Int(S[j]))%256
         data[k] = data[k]^S[t]
     }
-    return data
+    let s = Data.init(bytes: data)
+    return s
 }
 @discardableResult
 func filter(_ bytes : [UInt8]) -> [UInt8] {
@@ -60,12 +61,29 @@ func filter(_ bytes : [UInt8]) -> [UInt8] {
 
 func main(key:[uint8],data:Data) {
     var S : [UInt8] = Array(repeating: 0, count: 256)
-    var S2 = Array(repeating: 0, count: 256)
+    var S2 = Array(repeating: uint8(0), count: 256)
+    var data = data
+
     var key = key
-    let len = data.count
+    var len = data.count
     var i  = 0
     S = rc4_init(key, S: S, len: len)
-    debugPrint(S)
+    for i in 0...255 {
+        S2[i] = S[i]
+    }
+    var bytes = [UInt8](data)
+    bytes = filter(bytes)
+    data = Data.init(bytes: bytes)
+    len = data.count
+  data =  rc4_crypt(S: S, data: data, len: len)
+//  data =  rc4_crypt(S: S2, data: data, len: len)
+    do {
+        try     data.write(to: URL.init(fileURLWithPath: "/Users/macbookpro/Downloads/《加密与解密（第4版）》PDF+光盘/123.png"))
+
+    } catch  {
+
+    }
+
 }
 
 
@@ -139,5 +157,9 @@ debugPrint(a.count)
 
 let path = "/Users/macbookpro/Downloads/images/ddz_game/waiting/1.png"
 let Key = key.data(using: String.Encoding.utf16)
-main(key: [UInt8](Key!), data: try Data.init(contentsOf: URL.init(fileURLWithPath: path)))
+var Keys = Array.init(repeating:UInt8(0), count: 256)
+for i in 0...(Key!.count - 1){
+    Keys[i] = (Key![i])
+}
+main(key:(Keys), data: try Data.init(contentsOf: URL.init(fileURLWithPath: path)))
 

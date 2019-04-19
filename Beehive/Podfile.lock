@@ -1,32 +1,62 @@
 PODS:
+  - Alamofire (4.8.2)
   - FoldingTabBar (1.2.1)
+  - HandyJSON (5.0.0-beta.1)
+  - Kingfisher (5.3.1)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Result (4.1.0)
   - SnapKit (4.2.0)
+  - SVProgressHUD (2.2.5)
+  - SwipeCellKit (2.5.3)
   - UIColor_Hex_Swift (4.2.0)
   - ViewAnimator (2.4.0)
   - XRCarouselView (2.6.1)
 
 DEPENDENCIES:
   - FoldingTabBar
+  - HandyJSON (~> 5.0.0-beta.1)
+  - Kingfisher (~> 5.0)
+  - Moya
   - SnapKit (~> 4.2.0)
+  - SVProgressHUD
+  - SwipeCellKit (= 2.5.3)
   - UIColor_Hex_Swift
   - ViewAnimator
   - XRCarouselView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - FoldingTabBar
+    - HandyJSON
+    - Kingfisher
+    - Moya
+    - Result
     - SnapKit
+    - SVProgressHUD
+    - SwipeCellKit
     - UIColor_Hex_Swift
     - ViewAnimator
     - XRCarouselView
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   FoldingTabBar: b1817b36d15eedefd8e42f66abbd36fe4feabcf2
+  HandyJSON: 582477127ab3ab65bd2e471815f1a7b846856978
+  Kingfisher: d9e7e0b209b59b8f9873aa2f37654e81a7beea51
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwipeCellKit: 827c95e9e3e62c191c358c6aeb53d65c41732a80
   UIColor_Hex_Swift: bc07fc197421ee896b9ed6dcfa2054b7fbf75145
   ViewAnimator: 28b9ef703e280a02852b1271ef36295ea96eae4b
   XRCarouselView: d3f949d1601e7de51604cdabd6e2f35a770e0f99
 
-PODFILE CHECKSUM: 2635a8f168d5de33d040a6902f9a0c4dfdfff416
+PODFILE CHECKSUM: a8584fd989a4b1fd793236305585b7248b699338
 
 COCOAPODS: 1.5.3

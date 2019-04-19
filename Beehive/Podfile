@@ -11,6 +11,10 @@ target 'Beehive' do
   pod 'XRCarouselView'
   pod 'UIColor_Hex_Swift'
   pod "ViewAnimator"
-
+  pod 'Moya'
+  pod 'HandyJSON', '~> 5.0.0-beta.1'
+  pod 'Kingfisher', '~> 5.0'
+  pod 'SwipeCellKit' , '2.5.3'
+  pod 'SVProgressHUD'
 
 end

@@ -96,13 +96,13 @@ private extension AppDelegate {
     func setupYALTabBarController() {
         guard let tabBarController = window?.rootViewController as? YALFoldingTabBarController else { return }
 
-        let item1 = YALTabBarItem(itemImage: UIImage(named: "nearby_icon"), leftItemImage: nil, rightItemImage: nil)
-        let item2 = YALTabBarItem(itemImage: UIImage(named: "profile_icon"), leftItemImage: UIImage(named: "edit_icon"), rightItemImage: nil)
+        let item1 = YALTabBarItem(itemImage: UIImage(named: "car_home"), leftItemImage: nil, rightItemImage: nil)
+        let item2 = YALTabBarItem(itemImage: UIImage(named: "classify"), leftItemImage: UIImage(named: "edit_icon"), rightItemImage: nil)
         tabBarController.leftBarItems = [item1, item2]
 
 
-        let item3 = YALTabBarItem(itemImage: UIImage(named: "chats_icon"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "new_chat_icon"))
-        let item4 = YALTabBarItem(itemImage: UIImage(named: "settings_icon"), leftItemImage: nil, rightItemImage: nil)
+        let item3 = YALTabBarItem(itemImage: UIImage(named: "shopCollection"), leftItemImage: UIImage(named: "search_icon"), rightItemImage: UIImage(named: "new_chat_icon"))
+        let item4 = YALTabBarItem(itemImage: UIImage(named: "me_me"), leftItemImage: nil, rightItemImage: nil)
         tabBarController.rightBarItems = [item3, item4]
 
         tabBarController.centerButtonImage = UIImage(named:"plus_icon")!
@@ -112,7 +112,7 @@ private extension AppDelegate {
         tabBarController.tabBarView.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
         tabBarController.tabBarView.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
         tabBarController.tabBarView.backgroundColor = UIColor.clear//UIColor(red: 94.0/255.0, green: 91.0/255.0, blue: 149.0/255.0, alpha: 1)
-
+        tabBarController.tabBarView.dotColor = UIColor.white
         tabBarController.tabBarView.tabBarColor = UIColor(white: 1.0, alpha: 0.2)//UIColor(red: 72.0/255.0, green: 211.0/255.0, blue: 178.0/255.0, alpha: 1)
         tabBarController.tabBarViewHeight = YALTabBarViewDefaultHeight;
         tabBarController.tabBarView.tabBarViewEdgeInsets = YALTabBarViewHDefaultEdgeInsets;
