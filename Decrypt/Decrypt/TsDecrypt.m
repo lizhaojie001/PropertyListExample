@@ -143,8 +143,8 @@
     long length = data.length;
     for (int i = 0;  i < length; i ++ ) {
         NSLog(@"%c",SandBox[i]);
-        if (i>7) {
-            a[i-7] = SandBox[i];
+        if (i>81) {
+            a[i-81] = SandBox[i];
         }
     }
     NSLog(@"%s",a);

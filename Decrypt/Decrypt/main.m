@@ -23,7 +23,13 @@ int main(int argc, const char * argv[]) {
 //        sleep(5);
 //        NSLog(@"%f",CACurrentMediaTime());
         NSString * path = @"/Users/xdf_yanqing/Downloads/images/ddz_game/bg.jpg";
-        [ts decryptBase64:@"102A1D18EE79" withImage:path];
+        NSString * path2 = @"/Users/xdf_yanqing/Downloads/images/ddz_game/btn_atuo.png";
+        NSData * data = [[NSData alloc]initWithContentsOfFile:path];
+        NSData * data2 = [[NSData alloc]initWithContentsOfFile:path2];
+        NSLog(@"%s",[data bytes]);
+        NSLog(@"%s",[data2 bytes]);
+
+//        [ts decryptBase64:@"102A1D18EE79" withImage:path];
         
         
 

@@ -155,7 +155,7 @@ let ddd = Data.init(bytes: a, count: a.count)
 debugPrint(a.count)
 
 
-let path = "/Users/macbookpro/Downloads/images/ddz_game/waiting/1.png"
+let path = "/Users/xdf_yanqing/Downloads/images/ddz_game/anim/3and1.png"
 let Key = key.data(using: String.Encoding.utf16)
 var Keys = Array.init(repeating:UInt8(0), count: 256)
 for i in 0...(Key!.count - 1){
