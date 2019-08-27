@@ -1,0 +1,6 @@
+framework module Pods_LocalServer_1 {
+  umbrella header "Pods-LocalServer-1-umbrella.h"
+
+  export *
+  module * { export * }
+}

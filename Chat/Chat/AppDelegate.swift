@@ -11,12 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    @IBOutlet weak var scrollview: NSScrollView!
+    @IBOutlet var textView: NSTextView!
     @IBOutlet weak var window: NSWindow!
     var current :NSWindowController?
     
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        debugPrint((Bundle.main.executablePath as! NSString).deletingLastPathComponent)
+        debugPrint((Bundle.main.bundlePath as! NSString).pathComponents)
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -24,8 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func handleClickButton(_ sender: NSButton) {
-        self.current = ChatWindowController()
-        self.current?.showWindow(sender)
+//        self.current = ChatWindowController()
+//        self.current?.showWindow(sender)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            NSWorkspace.shared.openFile(Bundle.main.bundlePath)
+        }
     }
     
 }

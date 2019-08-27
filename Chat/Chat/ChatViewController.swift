@@ -21,6 +21,13 @@ class ChatViewController: NSViewController {
         self.view = NSView.init(frame: NSRect.init(x: 0, y: 0, width: 500, height: 500))
        
     }
+    lazy var tableView: ChatTableView = {
+        let tableView = ChatTableView(frame: self.view.bounds)
+        tableView.autoresizingMask = [.width,.height]
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("NSTableColumn"))
+        tableView.addTableColumn(column)
+        return tableView
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -29,7 +36,6 @@ class ChatViewController: NSViewController {
         tableView.autoresizingMask = [.width,.height]
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(<#T##nib: NSNib?##NSNib?#>, forIdentifier: <#T##NSUserInterfaceItemIdentifier#>)
         view.addSubview(tableView)
         reloadData()
     }
