@@ -6,3 +6,13 @@
   Copyright © 2019 macbook pro. All rights reserved.
 */
 "Delete.button.title" = "删除";
+"PhoneNil" = "手机号或者密码不能为空";
+"PasswordError" = "密码前后不一致";
+"UserNamePlaceholder" = "请输入用户名";
+"PhoneNumberPlaceholder" = "请输入手机号";
+"passwordPlaceholder" = "请输入密码";
+"Login.button.title" = "登 录";
+"Register.button.title" = "注 册";
+"Account.tip.text" = "账号已存在";
+"Login.error" = "登录失败";
+"Account.create.title" = "创建账号";

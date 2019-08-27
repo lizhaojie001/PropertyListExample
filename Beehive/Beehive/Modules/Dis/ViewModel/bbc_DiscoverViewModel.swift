@@ -26,11 +26,12 @@ class bbc_DiscoverViewModel: NSObject {
     }
 
    public func loadData() {
+    SVProgressHUD.show()
         self.provider.request(DiscoverAPI.shoplist) {[weak self] (result) in
             switch result{
             case let .failure(error):
                 debugPrint(error)
-                break
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 if let jsonString  = String.init(data: data, encoding: String.Encoding.utf8){
@@ -38,6 +39,7 @@ class bbc_DiscoverViewModel: NSObject {
                     self?.tableViewData = json as? [bbc_Shop]
                     self?.tableView?.reloadData()
                 }
+                SVProgressHUD.dismiss()
             }
         }
     }

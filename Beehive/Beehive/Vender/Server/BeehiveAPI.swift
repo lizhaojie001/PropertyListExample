@@ -130,6 +130,7 @@ extension CollectionAPI: TargetType {
 //MARK:用户登录注册
 public enum UserAPI {
     case regier(userName:String,password:String,usphone:String)
+    case login(userName:String,password:String)
 }
 
 extension UserAPI: TargetType {
@@ -137,29 +138,17 @@ extension UserAPI: TargetType {
         switch self {
         case .regier(_,_,_):
             return "carlive/zhuce.php"
+        case .login(_,_):
+            return "carlive/denglu_login.php"
         }
     }
 
     public var task: Task {
         var encoding : ParameterEncoding =  JSONEncoding.default
-        switch self.method {
-        case .get:
-            encoding = JSONEncoding.default
-        case .options:
-            fallthrough
-        case .head:
-            fallthrough
-        case .post:
-            fallthrough
-        case .put:
-            fallthrough
-        case .patch:
-            fallthrough
-        case .delete:
-            fallthrough
-        case .trace:
-            fallthrough
-        case .connect: break
+
+        switch self {
+        case .login(_,_),.regier(_,_,_):
+            encoding = URLEncoding.default
         }
         if let requestParmeters = parameters{
             return .requestParameters(parameters: requestParmeters, encoding: encoding)
@@ -178,7 +167,7 @@ extension UserAPI: TargetType {
 
     public var method: Moya.Method{
         switch self {
-        case  .regier(_,_,_):
+        case  .regier(_,_,_),.login(_,_):
             return .get
         }
     }
@@ -194,7 +183,10 @@ extension UserAPI: TargetType {
         case let .regier(userName, password, usphone):
             parameters = parameters.merging(["uname": userName,"passwd":password,"usphone":usphone], uniquingKeysWith: { (current , _)  in current })
 
+        case .login(let userName, let password):
+            parameters = parameters.merging(["uname":userName,"usepwd":password], uniquingKeysWith: { (current , _)  in current })
         }
+        debugPrint(parameters)
         return parameters
     }
 

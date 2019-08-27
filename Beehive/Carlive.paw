@@ -184,7 +184,7 @@
     </object>
     <object type="LMREQUEST" id="z114">
         <attribute name="uuid" type="string">1B586CDA-5155-4395-8CB1-880303806B39</attribute>
-        <attribute name="url" type="string">http://148.70.235.75/carlive/zhuce.php?passwd=1111\u2600uname=11113\u2600usphone=11111111111%20</attribute>
+        <attribute name="url" type="string">http://148.70.235.75/carlive/zhuce.php?passwd=1111\u2600uname=1111232\u2600usphone=11111111122</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>

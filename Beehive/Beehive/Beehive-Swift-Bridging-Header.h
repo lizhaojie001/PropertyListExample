@@ -13,3 +13,6 @@
 //helpers
 //#import <YALAnimatingTabBarConstants.h>
 #import <XRCarouselView/XRCarouselView.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+

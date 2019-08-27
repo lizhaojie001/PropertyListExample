@@ -22,6 +22,13 @@ class bbc_CollectioinViewController: ViewController {
         table.backgroundView?.backgroundColor = UIColor.clear
         return table
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.tableView.superview != nil{
+            viewModel?.getshopcarList()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

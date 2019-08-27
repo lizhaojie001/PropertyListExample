@@ -17,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupYALTabBarController()
+
+
+        //设置 SVP
+        SVProgressHUD.setBackgroundColor(themeColor)
+        SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.flat)
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+
         return true
     }
 
@@ -90,11 +98,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
-private extension AppDelegate {
+ extension AppDelegate {
 
     func setupYALTabBarController() {
-        guard let tabBarController = window?.rootViewController as? YALFoldingTabBarController else { return }
+        guard let tabBarController = window?.rootViewController as? bbc_BaseViewController else { return }
 
         let item1 = YALTabBarItem(itemImage: UIImage(named: "car_home"), leftItemImage: nil, rightItemImage: nil)
         let item2 = YALTabBarItem(itemImage: UIImage(named: "classify"), leftItemImage: UIImage(named: "edit_icon"), rightItemImage: nil)

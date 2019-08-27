@@ -26,10 +26,12 @@ class bbc_CollectionViewModel: NSObject {
 
     }
 
-   public func getshopcarList() {
-    self.provider.request(CollectionAPI.shoplist(userid: 18)) { (result) in
+    public func getshopcarList() {
+        SVProgressHUD.show()
+    self.provider.request(CollectionAPI.shoplist(userid: User.customs_id )) { (result) in
         switch result{
         case let .failure(error):
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
             debugPrint(error)
         case let .success(moyaResponse):
             let data = moyaResponse.data
@@ -41,6 +43,7 @@ class bbc_CollectionViewModel: NSObject {
                     self.tableViewData.append(contentsOf: (json as? [bbc_ShopcarModel])!)
                     self.tableView?.reloadData()
                 }}
+            SVProgressHUD.dismiss()
         }
     }
     }

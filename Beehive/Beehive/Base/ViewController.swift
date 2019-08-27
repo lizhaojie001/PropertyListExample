@@ -21,6 +21,8 @@ class ViewController: UIViewController {
    public func setupView() {
 
     }
-
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
 }
 

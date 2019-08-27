@@ -1,0 +1,33 @@
+PODS:
+  - CCLHTTPServer (0.9.0):
+    - CCLHTTPServer/Interface (= 0.9.0)
+    - CCLHTTPServer/Response (= 0.9.0)
+    - CCLHTTPServer/Server (= 0.9.0)
+    - CCLHTTPServer/View (= 0.9.0)
+  - CCLHTTPServer/Interface (0.9.0)
+  - CCLHTTPServer/Response (0.9.0):
+    - CCLHTTPServer/Interface
+  - CCLHTTPServer/Server (0.9.0):
+    - CCLHTTPServer/Interface
+    - CCLHTTPServer/Response
+    - CocoaAsyncSocket
+  - CCLHTTPServer/View (0.9.0):
+    - CCLHTTPServer/Interface
+    - CCLHTTPServer/Response
+  - CocoaAsyncSocket (7.6.3)
+
+DEPENDENCIES:
+  - CCLHTTPServer
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CCLHTTPServer
+    - CocoaAsyncSocket
+
+SPEC CHECKSUMS:
+  CCLHTTPServer: 9b8ca3ae097de1aad32908ecba4b0263b2c7a27f
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+
+PODFILE CHECKSUM: 3123155855167f3ec306a4aa3d8f1dd82d962353
+
+COCOAPODS: 1.5.3

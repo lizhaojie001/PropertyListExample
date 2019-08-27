@@ -21,6 +21,7 @@ class bbc_BaseNavigationController: UINavigationController {
             debugPrint(error)
         }
         self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
      }
 
 

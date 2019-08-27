@@ -7,3 +7,13 @@
 */
 
 "Delete.button.title" = "delete";
+"PhoneNil" = "phone or username or password must be not empty";
+"PasswordError" = "The passwords are inconsistent";
+"UserNamePlaceholder" = "please input userName";
+"PhoneNumberPlaceholder" = "please input phonenumber";
+"passwordPlaceholder" = "please input password";
+"Login.button.title" = "Login";
+"Register.button.title" = "Register";
+"Account.tip.text" = "Account is exist";
+"Login.error" = "Login error";
+"Account.create.title" = "Create Account";
