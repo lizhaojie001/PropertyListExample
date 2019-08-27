@@ -28,23 +28,26 @@ class ViewController: NSViewController {
             return item.contains(".app")
         })
         let imagePaths = paths?.map({ (item) -> [String : String] in
-            let imageName = item.replacingOccurrences(of: ".app", with: "")
-            let imagePath =  applicationPath.appendingFormat("/%@/Contents/Resources/%@.icns", item,imageName)
-            if FileManager.default.fileExists(atPath: imagePath) {
-                return [imagePath : imageName ]
-            }
-            return [applicationPath.appendingFormat("/%@/Contents/Resources/AppIcon.icns", item) : imageName]
+            let infoPlist = applicationPath.appendingFormat("/%@/Contents/info.plist", item)
+            guard let dict = NSDictionary.init(contentsOfFile: infoPlist) else {return [:]}
+            guard var icon = dict["CFBundleIconFile"] as? String else { return [:]}
+            if icon == "AppIcon" { icon = "AppIcon.icns"}
+           let imagePath =  applicationPath.appendingFormat("/%@/Contents/Resources/%@", item,icon)
+            return [imagePath : icon]
+            
         })
-        let appIconPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
+        guard let appIconPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first else { return }
         imagePaths?.forEach({ (dict) in
-            let path = dict.keys.first
-            let imageName = dict.values.first
-            let arg = " -s format png -z 256 256 " + "\"\(path!)\"" + " --out " + "\"\(appIconPath?.appendingFormat("%@.png", imageName!))\""
+            guard let path = dict.keys.first else {return}
+            guard let imageName = dict.values.first?.replacingOccurrences(of: ".icns", with: ".png") else { return }
+            let arg = " -s format png -z 256 256 "  + path  + " --out "  + imageName
             Script.runScript(path: "/usr/bin/sips", arguments: [arg])
         })
    
         
     }
+    
+    
     
     
     
