@@ -31,18 +31,22 @@ class ViewController: NSViewController {
             let infoPlist = applicationPath.appendingFormat("/%@/Contents/info.plist", item)
             guard let dict = NSDictionary.init(contentsOfFile: infoPlist) else {return [:]}
             guard var icon = dict["CFBundleIconFile"] as? String else { return [:]}
-            if icon == "AppIcon" { icon = "AppIcon.icns"}
+            if !icon.contains("icns") { icon = icon + ".icns"}
            let imagePath =  applicationPath.appendingFormat("/%@/Contents/Resources/%@", item,icon)
             return [imagePath : icon]
             
         })
         guard let appIconPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first else { return }
         imagePaths?.forEach({ (dict) in
-            guard let path = dict.keys.first else {return}
-            guard let imageName = dict.values.first?.replacingOccurrences(of: ".icns", with: ".png") else { return }
-            let arg = " -s format png -z 256 256 "  + path  + " --out "  + imageName
-            Script.runScript(path: "/usr/bin/sips", arguments: [arg])
+            guard let path = dict.keys.first else { return }
+            guard var imageName = dict.values.first else { return }
+            imageName = imageName.replacingOccurrences(of: ".icns", with: ".png")
+            let arg = ["-s","format","png" ,"-z","256","256",path , "--out"  , appIconPath.appendingFormat("/%@", imageName)]
+            let a =  Script.runScript(path: "/usr/bin/sips", arguments: arg)
+            debugPrint(a)
         })
+ 
+
    
         
     }
