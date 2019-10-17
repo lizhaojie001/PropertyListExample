@@ -12,43 +12,56 @@ class ViewController: NSViewController {
 
     static let identifier = NSUserInterfaceItemIdentifier("item")
     var lastIndexPath : IndexPath?
+    lazy var apps: [App] = {
+        let apps = [App]()
+        return apps
+    }()
     
+    convenience init() {
+        self.init()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setData()
         setupView()
         // Do any additional setup after loading the view.
         
-        setData()
     }
     
     func setData() {
         guard let applicationPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationDirectory, FileManager.SearchPathDomainMask.systemDomainMask, true).first else { return  }
-        let paths = try? FileManager.default.contentsOfDirectory(atPath: applicationPath).filter({ (item) -> Bool in
+        var apps = try? FileManager.default.contentsOfDirectory(atPath: applicationPath).filter({ (item) -> Bool in
             return item.contains(".app")
-        })
-        let imagePaths = paths?.map({ (item) -> [String : String] in
-            let infoPlist = applicationPath.appendingFormat("/%@/Contents/info.plist", item)
-            guard let dict = NSDictionary.init(contentsOfFile: infoPlist) else {return [:]}
-            guard var icon = dict["CFBundleIconFile"] as? String else { return [:]}
+        }).map({ (appName) -> App in
+            let infoPlist = applicationPath.appendingFormat("/%@/Contents/info.plist", appName)
+            guard let dict = NSDictionary.init(contentsOfFile: infoPlist) else {return App()}
+            guard var icon = dict["CFBundleIconFile"] as? String else { return App()}
             if !icon.contains("icns") { icon = icon + ".icns"}
-           let imagePath =  applicationPath.appendingFormat("/%@/Contents/Resources/%@", item,icon)
-            return [imagePath : icon]
-            
+            let imagePath =  applicationPath.appendingFormat("/%@/Contents/Resources/%@", appName,icon)
+            let app = App()
+            app.appName = appName
+            app.iconName = icon
+            app.iconPath = imagePath
+            return app
         })
         guard let appIconPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first else { return }
-        imagePaths?.forEach({ (dict) in
-            guard let path = dict.keys.first else { return }
-            guard var imageName = dict.values.first else { return }
-            imageName = imageName.replacingOccurrences(of: ".icns", with: ".png")
-            let arg = ["-s","format","png" ,"-z","256","256",path , "--out"  , appIconPath.appendingFormat("/%@", imageName)]
+        apps?.forEach({ (app) in
+            guard var imageName = app.iconName else { return }
+            guard let path = app.iconPath else { return }
+            guard let appName = app.appName else { return }
+            app.pngPath = appIconPath.appendingFormat("/%@.png", appName)
+            let arg : [String] = ["-s","format","png" ,"-z","256","256",path , "--out"  ,  app.pngPath!]
             let a =  Script.runScript(path: "/usr/bin/sips", arguments: arg)
             debugPrint(a)
         })
- 
-
-   
+        apps = apps?.filter({ (app) -> Bool in
+            return app.iconPath != nil
+        })
         
+        self.apps.removeAll()
+        self.apps.append(contentsOf: apps!)
+ 
     }
     
     
@@ -57,7 +70,7 @@ class ViewController: NSViewController {
     
 
     func setupView(){
-        let scroll = NSScrollView.init(frame: NSRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 360, height: 120)))
+        let scroll = NSScrollView.init(frame: self.view.bounds)
         scroll.drawsBackground = false
         scroll.contentView.copiesOnScroll = false
         scroll.contentView.backgroundColor = NSColor.clear
@@ -92,26 +105,42 @@ class ViewController: NSViewController {
 
 extension ViewController :  NSCollectionViewDelegate , NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.apps.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-         let item = collectionView.makeItem(withIdentifier: ViewController.identifier, for: indexPath)
+         let item = collectionView.makeItem(withIdentifier: ViewController.identifier, for: indexPath) as! CollectionViewItem
+        item.app = self.apps[indexPath.item]
         return item
     }
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         debugPrint(indexPaths)
         if let indexPath = self.lastIndexPath {
             collectionView.deselectItems(at: [indexPath])
-            let item = collectionView.item(at: indexPath)
-            item?.view.layer?.backgroundColor = NSColor.red.cgColor
+//            let item = collectionView.item(at: indexPath)
+//            item?.view.layer?.backgroundColor = NSColor.red.cgColor
         }
         
         indexPaths.forEach { (indexPath) in
-            let item = collectionView.item(at: indexPath)
-            item?.view.layer?.backgroundColor = NSColor.blue.cgColor
+//            let item = collectionView.item(at: indexPath)
+//            item?.view.layer?.backgroundColor = NSColor.blue.cgColor
             self.lastIndexPath = indexPath
         }
+        
+        guard let item = self.lastIndexPath?.item else { return }
+        let app = self.apps[item]
+        guard let appName = app.appName else { return }
+        guard  let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationDirectory, FileManager.SearchPathDomainMask.systemDomainMask, true).first else { return }
+        let application = path + "/" +  appName
+        Script.runScript(path: "/usr/bin/open", arguments: ["-n", application])
     }
     
+}
+
+
+class App: NSObject {
+    var iconName : String?
+    var appName : String?
+    var iconPath : String?
+    var pngPath : String?
 }
