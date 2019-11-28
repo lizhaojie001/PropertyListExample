@@ -67,7 +67,7 @@ class XDFUploadManager: NSObject {
     }
 }
 
-extension XDFUploadManager : URLSessionTaskDelegate , URLSessionDelegate, {
+extension XDFUploadManager : URLSessionTaskDelegate , URLSessionDelegate {
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
         

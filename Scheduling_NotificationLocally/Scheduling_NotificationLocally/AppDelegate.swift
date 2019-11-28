@@ -27,17 +27,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let userNotification = NSUserNotification()
         
         userNotification.title = "传统方式"
-//        userNotification.subtitle = "old"
-//        userNotification.informativeText = "我是一个传统的方式"
-//
-//        userNotification.hasActionButton = true
-//        userNotification.otherButtonTitle = "关闭"
-//        userNotification.actionButtonTitle = "显示"
-//        let uuidString = UUID().uuidString
-//        userNotification.identifier = uuidString
-//        userNotification.userInfo = ["method": "old"]
+        userNotification.subtitle = "old"
+        userNotification.informativeText = "我是一个传统的方式"
+
+        userNotification.hasActionButton = true
+        userNotification.otherButtonTitle = "关闭"
+        userNotification.actionButtonTitle = "显示"
+        let uuidString = UUID().uuidString
+        userNotification.identifier = uuidString
+        userNotification.userInfo = ["method": "old"]
         
-//        userNotification.soundName = NSUserNotificationDefaultSoundName
+        userNotification.soundName = NSUserNotificationDefaultSoundName
          let date1 = Date(timeIntervalSinceNow: 5)
 //        debugPrint(date,date1)
         userNotification.deliveryDate = date1

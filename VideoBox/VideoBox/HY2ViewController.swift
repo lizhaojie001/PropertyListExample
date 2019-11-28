@@ -33,6 +33,9 @@ class HY2ViewController: ViewController {
 }
 
 extension HY2ViewController : UITabBarDelegate , UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -41,5 +44,16 @@ extension HY2ViewController : UITabBarDelegate , UITableViewDataSource {
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "触觉强度"
+        case 1:
+            return "触觉速度"
+        default:
+            return "震动速度"
+            
+        }
+    }
     
 }
