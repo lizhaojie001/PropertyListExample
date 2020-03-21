@@ -21,6 +21,8 @@
 		1FEE730F23586322007FF773 /* HYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE730E23586322007FF773 /* HYButton.swift */; };
 		1FEE73162358688E007FF773 /* HYTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE73152358688E007FF773 /* HYTool.swift */; };
 		1FEE731823586BBB007FF773 /* HYLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE731723586BBB007FF773 /* HYLabel.swift */; };
+		520A62E4238585170011937A /* HYModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520A62E3238585170011937A /* HYModeTableViewCell.swift */; };
+		526A109523A26AD50053638A /* HYTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A109423A26AD50053638A /* HYTypeButton.swift */; };
 		F4E7DA67DAC9E69F16642817 /* Pods_VideoBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D4933922CA21D151964C2 /* Pods_VideoBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +46,8 @@
 		1FEE73152358688E007FF773 /* HYTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYTool.swift; sourceTree = "<group>"; };
 		1FEE731723586BBB007FF773 /* HYLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYLabel.swift; sourceTree = "<group>"; };
 		508D0F8A289F2D1DCECCCE12 /* Pods-VideoBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoBox.debug.xcconfig"; path = "Target Support Files/Pods-VideoBox/Pods-VideoBox.debug.xcconfig"; sourceTree = "<group>"; };
+		520A62E3238585170011937A /* HYModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYModeTableViewCell.swift; sourceTree = "<group>"; };
+		526A109423A26AD50053638A /* HYTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYTypeButton.swift; sourceTree = "<group>"; };
 		E16D4933922CA21D151964C2 /* Pods_VideoBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8F238738E843936265FA17 /* Pods-VideoBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoBox.release.xcconfig"; path = "Target Support Files/Pods-VideoBox/Pods-VideoBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +96,8 @@
 				1FEE730B23586026007FF773 /* UIDevice+XMUtils.h */,
 				1FEE730C23586026007FF773 /* UIDevice+XMUtils.m */,
 				1FEE730E23586322007FF773 /* HYButton.swift */,
+				520A62E3238585170011937A /* HYModeTableViewCell.swift */,
+				526A109423A26AD50053638A /* HYTypeButton.swift */,
 				1FEE731723586BBB007FF773 /* HYLabel.swift */,
 				1F37326F2358009300E10EA1 /* Main.storyboard */,
 				1F3732722358009500E10EA1 /* Assets.xcassets */,
@@ -244,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FEE730323583250007FF773 /* HY3ViewController.swift in Sources */,
+				520A62E4238585170011937A /* HYModeTableViewCell.swift in Sources */,
 				1FEE731823586BBB007FF773 /* HYLabel.swift in Sources */,
 				1FEE730123583246007FF773 /* HY2ViewController.swift in Sources */,
 				1FEE730923583475007FF773 /* HYTabbarViewController.swift in Sources */,
@@ -252,6 +259,7 @@
 				1F37326E2358009300E10EA1 /* ViewController.swift in Sources */,
 				1FEE73162358688E007FF773 /* HYTool.swift in Sources */,
 				1FEE730F23586322007FF773 /* HYButton.swift in Sources */,
+				526A109523A26AD50053638A /* HYTypeButton.swift in Sources */,
 				1FEE72FF2358323A007FF773 /* HY1ViewController.swift in Sources */,
 				1F37326C2358009300E10EA1 /* AppDelegate.swift in Sources */,
 			);

@@ -17,9 +17,39 @@ class HY2ViewController: ViewController {
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
+        setupView()
     }
     
+    private func setupView(){
+        let switchView = UISegmentedControl(items: ["温柔","正常","急促"])
+        if #available(iOS 13.0, *) {
+            switchView.selectedSegmentTintColor = UIColor.white
+        } else {
+            // Fallback on earlier versions
+        }
+        let bgView = UIView()
+        bgView.backgroundColor = UIColor.red
+        self.tableView.addSubview(bgView)
+        
+        self.tableView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        bgView.snp.makeConstraints { (maker) in
+            maker.centerX.equalToSuperview()
+            maker.width.equalToSuperview()
+            maker.height.equalTo(50)
+            maker.top.equalTo(-50)
+        }
+        
+        bgView.addSubview(switchView)
+        switchView.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
 
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
     /*
     // MARK: - Navigation
 
@@ -41,7 +71,7 @@ extension HY2ViewController : UITabBarDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        return HYModeTableViewCell()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
