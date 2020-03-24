@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="24px" viewBox="0 0 96 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>topbar_icon_window-close</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="前端切图（连图）" transform="translate(-803.000000, -639.000000)">
+            <g id="topbar_icon_window-close" transform="translate(803.000000, 639.000000)">
+                <g id="topbar_icon_window-close_normal" transform="translate(27.000000, 3.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="18" height="18" rx="8"></rect>
+                    <path d="M10,8 L13,8 C13.5522847,8 14,8.44771525 14,9 C14,9.55228475 13.5522847,10 13,10 L10,10 L10,13 C10,13.5522847 9.55228475,14 9,14 C8.44771525,14 8,13.5522847 8,13 L8,10 L5,10 C4.44771525,10 4,9.55228475 4,9 C4,8.44771525 4.44771525,8 5,8 L8,8 L8,5 C8,4.44771525 8.44771525,4 9,4 C9.55228475,4 10,4.44771525 10,5 L10,8 Z" id="合并形状" fill="#FFFFFF" opacity="0.699999988" transform="translate(9.000000, 9.000000) rotate(-315.000000) translate(-9.000000, -9.000000) "></path>
+                </g>
+                <g id="topbar_icon_window-close_hover" transform="translate(51.000000, 3.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="18" height="18" rx="8"></rect>
+                    <path d="M10,8 L13,8 C13.5522847,8 14,8.44771525 14,9 C14,9.55228475 13.5522847,10 13,10 L10,10 L10,13 C10,13.5522847 9.55228475,14 9,14 C8.44771525,14 8,13.5522847 8,13 L8,10 L5,10 C4.44771525,10 4,9.55228475 4,9 C4,8.44771525 4.44771525,8 5,8 L8,8 L8,5 C8,4.44771525 8.44771525,4 9,4 C9.55228475,4 10,4.44771525 10,5 L10,8 Z" id="合并形状" fill="#FFFFFF" opacity="0.300000012" transform="translate(9.000000, 9.000000) rotate(-315.000000) translate(-9.000000, -9.000000) "></path>
+                </g>
+                <g id="topbar_icon_window-close_active" transform="translate(75.000000, 3.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="18" height="18" rx="8"></rect>
+                    <path d="M10,8 L13,8 C13.5522847,8 14,8.44771525 14,9 C14,9.55228475 13.5522847,10 13,10 L10,10 L10,13 C10,13.5522847 9.55228475,14 9,14 C8.44771525,14 8,13.5522847 8,13 L8,10 L5,10 C4.44771525,10 4,9.55228475 4,9 C4,8.44771525 4.44771525,8 5,8 L8,8 L8,5 C8,4.44771525 8.44771525,4 9,4 C9.55228475,4 10,4.44771525 10,5 L10,8 Z" id="合并形状" fill="#FFFFFF" opacity="0.05" transform="translate(9.000000, 9.000000) rotate(-315.000000) translate(-9.000000, -9.000000) "></path>
+                </g>
+                <g id="topbar_icon_window-close_disabled" transform="translate(3.000000, 3.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="18" height="18" rx="8"></rect>
+                    <path d="M10,8 L13,8 C13.5522847,8 14,8.44771525 14,9 C14,9.55228475 13.5522847,10 13,10 L10,10 L10,13 C10,13.5522847 9.55228475,14 9,14 C8.44771525,14 8,13.5522847 8,13 L8,10 L5,10 C4.44771525,10 4,9.55228475 4,9 C4,8.44771525 4.44771525,8 5,8 L8,8 L8,5 C8,4.44771525 8.44771525,4 9,4 C9.55228475,4 10,4.44771525 10,5 L10,8 Z" id="合并形状" fill="#FFFFFF" opacity="0.300000012" transform="translate(9.000000, 9.000000) rotate(-315.000000) translate(-9.000000, -9.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -8,7 +8,7 @@
 
 import Cocoa
 import WebKit
-
+let host = "myhost"
 class ViewController: NSViewController {
     
     private var preferences:WKPreferences {
@@ -46,7 +46,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.webView)
-        self.webView.load(URLRequest(url: URL(string: "https://www.baidu.com/")!))
+        guard let url = URL(string: "http://myhost/index.html") else { return }
+        self.webView.load(URLRequest(url: url))
         // Do any additional setup after loading the view.
 //        self.webView.value(forKeyPath: "browsingContextController")
         self.webView.navigationDelegate = self

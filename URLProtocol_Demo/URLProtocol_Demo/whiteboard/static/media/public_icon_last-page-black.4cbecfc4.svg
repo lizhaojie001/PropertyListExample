@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192px" height="48px" viewBox="0 0 192 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>public_icon_last-page-black</title>
+    <desc>Created with Sketch.</desc>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="临时" transform="translate(-31.000000, -182.000000)">
+            <g id="public_icon_last-page-black" transform="translate(31.000000, 182.000000)">
+                <g id="public/icon/public-24px/last-page_black/public_icon_last-page_black_normal">
+                    <g id="public_icon_last-page_normal">
+                        <g id="icon-mark/bg-24x24" opacity="0">
+                            <g id="24x24">
+                                <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" stroke-width="2" x="1" y="1" width="46" height="46"></rect>
+                                <rect id="Rectangle-3" stroke="#A7A7A7" stroke-width="2" x="13" y="13" width="22" height="22"></rect>
+                                <path d="M2,2 L46,46" id="Line" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                                <path d="M45,3 L3,45" id="Line-2" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                            </g>
+                        </g>
+                        <rect id="Rectangle-9" fill="#FFFFFF" opacity="0.300000012" x="0" y="0" width="48" height="48" rx="24"></rect>
+                        <path d="M21.6568542,24.1421356 L28.7279221,31.2132034 C29.5089706,31.994252 29.5089706,33.260582 28.7279221,34.0416306 C27.9468735,34.8226791 26.6805435,34.8226791 25.8994949,34.0416306 L17.4142136,25.5563492 C16.633165,24.7753006 16.633165,23.5089706 17.4142136,22.7279221 L25.8994949,14.2426407 C26.6805435,13.4615921 27.9468735,13.4615921 28.7279221,14.2426407 C29.5089706,15.0236893 29.5089706,16.2900192 28.7279221,17.0710678 L21.6568542,24.1421356 Z" id="路径" fill="#000000" opacity="0.699999988"></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/last-page_black/public_icon_last-page_black_hover" transform="translate(48.000000, 0.000000)">
+                    <g id="public_icon_last-page_hover">
+                        <g id="icon-mark/bg-24x24" opacity="0">
+                            <g id="24x24">
+                                <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" stroke-width="2" x="1" y="1" width="46" height="46"></rect>
+                                <rect id="Rectangle-3" stroke="#A7A7A7" stroke-width="2" x="13" y="13" width="22" height="22"></rect>
+                                <path d="M2,2 L46,46" id="Line" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                                <path d="M45,3 L3,45" id="Line-2" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                            </g>
+                        </g>
+                        <rect id="Rectangle-9" fill="#FFFFFF" opacity="0.300000012" x="0" y="0" width="48" height="48" rx="24"></rect>
+                        <path d="M21.6568542,24.1421356 L28.7279221,31.2132034 C29.5089706,31.994252 29.5089706,33.260582 28.7279221,34.0416306 C27.9468735,34.8226791 26.6805435,34.8226791 25.8994949,34.0416306 L17.4142136,25.5563492 C16.633165,24.7753006 16.633165,23.5089706 17.4142136,22.7279221 L25.8994949,14.2426407 C26.6805435,13.4615921 27.9468735,13.4615921 28.7279221,14.2426407 C29.5089706,15.0236893 29.5089706,16.2900192 28.7279221,17.0710678 L21.6568542,24.1421356 Z" id="路径" fill="#000000" opacity="0.900000036"></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/last-page_black/public_icon_last-page_black_active" transform="translate(96.000000, 0.000000)">
+                    <g id="public_icon_last-page_active">
+                        <g id="icon-mark/bg-24x24" opacity="0">
+                            <g id="24x24">
+                                <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" stroke-width="2" x="1" y="1" width="46" height="46"></rect>
+                                <rect id="Rectangle-3" stroke="#A7A7A7" stroke-width="2" x="13" y="13" width="22" height="22"></rect>
+                                <path d="M2,2 L46,46" id="Line" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                                <path d="M45,3 L3,45" id="Line-2" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                            </g>
+                        </g>
+                        <rect id="Rectangle-9" fill="#FFFFFF" opacity="0.300000012" x="0" y="0" width="48" height="48" rx="24"></rect>
+                        <path d="M21.6568542,24.1421356 L28.7279221,31.2132034 C29.5089706,31.994252 29.5089706,33.260582 28.7279221,34.0416306 C27.9468735,34.8226791 26.6805435,34.8226791 25.8994949,34.0416306 L17.4142136,25.5563492 C16.633165,24.7753006 16.633165,23.5089706 17.4142136,22.7279221 L25.8994949,14.2426407 C26.6805435,13.4615921 27.9468735,13.4615921 28.7279221,14.2426407 C29.5089706,15.0236893 29.5089706,16.2900192 28.7279221,17.0710678 L21.6568542,24.1421356 Z" id="路径" fill="#000000" opacity="0.699999988"></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/last-page_black/public_icon_last-page_black_disabled" transform="translate(144.000000, 0.000000)" opacity="0.200000003">
+                    <g id="public_icon_last-page_disabled">
+                        <g id="icon-mark/bg-24x24" opacity="0">
+                            <g id="24x24">
+                                <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" stroke-width="2" x="1" y="1" width="46" height="46"></rect>
+                                <rect id="Rectangle-3" stroke="#A7A7A7" stroke-width="2" x="13" y="13" width="22" height="22"></rect>
+                                <path d="M2,2 L46,46" id="Line" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                                <path d="M45,3 L3,45" id="Line-2" stroke="#A9A9A9" stroke-width="2" stroke-linecap="square"></path>
+                            </g>
+                        </g>
+                        <rect id="Rectangle-9" fill="#FFFFFF" opacity="0.300000012" x="0" y="0" width="48" height="48" rx="24"></rect>
+                        <path d="M21.6568542,24.1421356 L28.7279221,31.2132034 C29.5089706,31.994252 29.5089706,33.260582 28.7279221,34.0416306 C27.9468735,34.8226791 26.6805435,34.8226791 25.8994949,34.0416306 L17.4142136,25.5563492 C16.633165,24.7753006 16.633165,23.5089706 17.4142136,22.7279221 L25.8994949,14.2426407 C26.6805435,13.4615921 27.9468735,13.4615921 28.7279221,14.2426407 C29.5089706,15.0236893 29.5089706,16.2900192 28.7279221,17.0710678 L21.6568542,24.1421356 Z" id="路径" fill="#000000" opacity="0.699999988"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

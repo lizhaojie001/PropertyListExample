@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="24px" viewBox="0 0 96 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>public_icon_remind</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="19.3228435%" y1="0%" x2="29.1249628%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#CDFCFF" offset="0%"></stop>
+            <stop stop-color="#99EEF3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="19.3228435%" y1="0%" x2="98.316483%" y2="109.607519%" id="linearGradient-2">
+            <stop stop-color="#E0FFFF" offset="0%"></stop>
+            <stop stop-color="#00CE88" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="直播平台通用版切图（连图）" transform="translate(-1075.000000, -1004.000000)">
+            <g id="public_icon_remind" transform="translate(1075.000000, 1003.000000)">
+                <g id="public/icon/public-24px/remind/public_icon_remind_normal" transform="translate(0.000000, 1.000000)">
+                    <g id="icon-mark/bg-24x24" opacity="0">
+                        <g id="24x24">
+                            <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" x="0.5" y="0.5" width="23" height="23"></rect>
+                            <rect id="Rectangle-3" stroke="#A7A7A7" x="6.5" y="6.5" width="11" height="11"></rect>
+                            <path d="M1,1 L23,23" id="Line" stroke="#A9A9A9" stroke-linecap="square"></path>
+                            <path d="M22.5,1.5 L1.5,22.5" id="Line-2" stroke="#A9A9A9" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                    <g id="手" transform="translate(12.000000, 12.000000) scale(1, -1) rotate(-90.000000) translate(-12.000000, -12.000000) translate(-0.500000, -0.500000)" stroke="url(#linearGradient-1)">
+                        <path d="M11.0737782,19.75 L17.1567174,19.75 C18.0035053,19.75 18.6967668,19.0680839 18.7022786,18.2369806 L18.75,11.7344161 C18.75,11.125189 18.2875081,10.6232976 17.6603821,10.5619383 L13.2011915,10.1777242 L13.2080096,9.48279346 L13.2442778,5.78614884 C13.2481516,5.3759868 13.0908472,4.99320304 12.7984269,4.70200429 C12.5039283,4.40952703 12.1151236,4.25 11.6914039,4.25 C10.8337303,4.25 10.1388808,4.93530809 10.1388808,5.77065907 L10.1388808,13.4765799 L8.90644148,12.4411653 C8.35235194,11.9756556 7.44001292,11.9650007 6.91618791,12.3877311 L6.81724192,12.4798038 C6.21719679,12.993864 6.07598884,13.8372194 6.43850703,14.4534961 L9.74184252,19.0010935 C10.0151773,19.4606583 10.5276908,19.75 11.0737782,19.75 Z" id="路径" stroke-width="1.5" transform="translate(12.500000, 12.000000) rotate(-360.000000) translate(-12.500000, -12.000000) "></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/remind/public_icon_remind_hover" transform="translate(24.000000, 1.000000)">
+                    <g id="icon-mark/bg-24x24" opacity="0">
+                        <g id="24x24">
+                            <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" x="0.5" y="0.5" width="23" height="23"></rect>
+                            <rect id="Rectangle-3" stroke="#A7A7A7" x="6.5" y="6.5" width="11" height="11"></rect>
+                            <path d="M1,1 L23,23" id="Line" stroke="#A9A9A9" stroke-linecap="square"></path>
+                            <path d="M22.5,1.5 L1.5,22.5" id="Line-2" stroke="#A9A9A9" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                    <g id="手" transform="translate(12.000000, 12.000000) scale(1, -1) rotate(-90.000000) translate(-12.000000, -12.000000) translate(-0.500000, -0.500000)" stroke="url(#linearGradient-2)">
+                        <path d="M11.0737782,19.75 L17.1567174,19.75 C18.0035053,19.75 18.6967668,19.0680839 18.7022786,18.2369806 L18.75,11.7344161 C18.75,11.125189 18.2875081,10.6232976 17.6603821,10.5619383 L13.2011915,10.1777242 L13.2080096,9.48279346 L13.2442778,5.78614884 C13.2481516,5.3759868 13.0908472,4.99320304 12.7984269,4.70200429 C12.5039283,4.40952703 12.1151236,4.25 11.6914039,4.25 C10.8337303,4.25 10.1388808,4.93530809 10.1388808,5.77065907 L10.1388808,13.4765799 L8.90644148,12.4411653 C8.35235194,11.9756556 7.44001292,11.9650007 6.91618791,12.3877311 L6.81724192,12.4798038 C6.21719679,12.993864 6.07598884,13.8372194 6.43850703,14.4534961 L9.74184252,19.0010935 C10.0151773,19.4606583 10.5276908,19.75 11.0737782,19.75 Z" id="路径" stroke-width="1.5" transform="translate(12.500000, 12.000000) rotate(-360.000000) translate(-12.500000, -12.000000) "></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/remind/public_icon_remind_active" transform="translate(48.000000, 1.000000)">
+                    <g id="icon-mark/bg-24x24" opacity="0">
+                        <g id="24x24">
+                            <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" x="0.5" y="0.5" width="23" height="23"></rect>
+                            <rect id="Rectangle-3" stroke="#A7A7A7" x="6.5" y="6.5" width="11" height="11"></rect>
+                            <path d="M1,1 L23,23" id="Line" stroke="#A9A9A9" stroke-linecap="square"></path>
+                            <path d="M22.5,1.5 L1.5,22.5" id="Line-2" stroke="#A9A9A9" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                    <g id="手" transform="translate(12.000000, 12.000000) scale(1, -1) rotate(-90.000000) translate(-12.000000, -12.000000) translate(-0.500000, -0.500000)" stroke="url(#linearGradient-1)">
+                        <path d="M11.0737782,19.75 L17.1567174,19.75 C18.0035053,19.75 18.6967668,19.0680839 18.7022786,18.2369806 L18.75,11.7344161 C18.75,11.125189 18.2875081,10.6232976 17.6603821,10.5619383 L13.2011915,10.1777242 L13.2080096,9.48279346 L13.2442778,5.78614884 C13.2481516,5.3759868 13.0908472,4.99320304 12.7984269,4.70200429 C12.5039283,4.40952703 12.1151236,4.25 11.6914039,4.25 C10.8337303,4.25 10.1388808,4.93530809 10.1388808,5.77065907 L10.1388808,13.4765799 L8.90644148,12.4411653 C8.35235194,11.9756556 7.44001292,11.9650007 6.91618791,12.3877311 L6.81724192,12.4798038 C6.21719679,12.993864 6.07598884,13.8372194 6.43850703,14.4534961 L9.74184252,19.0010935 C10.0151773,19.4606583 10.5276908,19.75 11.0737782,19.75 Z" id="路径" stroke-width="1.5" transform="translate(12.500000, 12.000000) rotate(-360.000000) translate(-12.500000, -12.000000) "></path>
+                    </g>
+                </g>
+                <g id="public/icon/public-24px/remind/public_icon_remind_disabled" transform="translate(72.000000, 1.000000)">
+                    <g id="icon-mark/bg-24x24" opacity="0">
+                        <g id="24x24">
+                            <rect id="group/-icon-/-star/-normal" stroke="#A9A9A9" x="0.5" y="0.5" width="23" height="23"></rect>
+                            <rect id="Rectangle-3" stroke="#A7A7A7" x="6.5" y="6.5" width="11" height="11"></rect>
+                            <path d="M1,1 L23,23" id="Line" stroke="#A9A9A9" stroke-linecap="square"></path>
+                            <path d="M22.5,1.5 L1.5,22.5" id="Line-2" stroke="#A9A9A9" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                    <g id="手" transform="translate(12.000000, 12.000000) scale(1, -1) rotate(-90.000000) translate(-12.000000, -12.000000) translate(-0.500000, -0.500000)" fill="url(#linearGradient-1)" opacity="0.300000012">
+                        <path d="M11.0737782,20.5 C10.2638033,20.5 9.50608119,20.0718782 9.09723995,19.3844831 L5.8319507,14.8946191 C5.24359109,13.9046154 5.45437046,12.6597858 6.32929297,11.9102374 L6.40188014,11.8418488 C7.25315855,11.1506096 8.5661884,11.1757525 9.38888079,11.8669246 L9.38888079,5.77065907 C9.38888079,4.51887889 10.4216951,3.5 11.6914039,3.5 C12.3141755,3.5 12.8926513,3.73855564 13.3269275,4.16985102 C13.7631306,4.60423058 14.0000251,5.18115352 13.9942444,5.79323179 L13.9579735,9.49015144 L17.7247653,9.81470691 C18.7454969,9.9144962 19.5,10.7400319 19.5,11.7344161 L19.4522584,18.2424823 C19.4440068,19.4867531 18.4143661,20.5 17.1567174,20.5 L11.0737782,20.5 Z" id="路径" transform="translate(12.500000, 12.000000) rotate(-360.000000) translate(-12.500000, -12.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
