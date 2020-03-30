@@ -12,8 +12,6 @@
 		1FDA4AB7235084E100AB1259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA4AB6235084E100AB1259 /* Assets.xcassets */; };
 		1FDA4ABA235084E100AB1259 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FDA4AB8235084E100AB1259 /* Main.storyboard */; };
 		1FDA4ABD235084E100AB1259 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA4ABC235084E100AB1259 /* main.m */; };
-		1FDA4AC8235084F500AB1259 /* MyAudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA4AC6235084F500AB1259 /* MyAudioDevice.cpp */; };
-		1FDA4AC9235084F500AB1259 /* MyAudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA4AC7235084F500AB1259 /* MyAudioEngine.cpp */; };
 		1FDA4ACC2350850C00AB1259 /* Kernel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA4ACB2350850C00AB1259 /* Kernel.framework */; };
 		1FDA4ACE2350852000AB1259 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA4ACD2350851F00AB1259 /* IOKit.framework */; };
 /* End PBXBuildFile section */
@@ -29,10 +27,6 @@
 		1FDA4ABB235084E100AB1259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FDA4ABC235084E100AB1259 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1FDA4ABE235084E100AB1259 /* Audio_demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Audio_demo.entitlements; sourceTree = "<group>"; };
-		1FDA4AC4235084F400AB1259 /* MyAudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAudioDevice.h; sourceTree = "<group>"; };
-		1FDA4AC5235084F500AB1259 /* MyAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAudioEngine.h; sourceTree = "<group>"; };
-		1FDA4AC6235084F500AB1259 /* MyAudioDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyAudioDevice.cpp; sourceTree = "<group>"; };
-		1FDA4AC7235084F500AB1259 /* MyAudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyAudioEngine.cpp; sourceTree = "<group>"; };
 		1FDA4ACB2350850C00AB1259 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
 		1FDA4ACD2350851F00AB1259 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -70,10 +64,6 @@
 		1FDA4AAF235084DE00AB1259 /* Audio_demo */ = {
 			isa = PBXGroup;
 			children = (
-				1FDA4AC6235084F500AB1259 /* MyAudioDevice.cpp */,
-				1FDA4AC4235084F400AB1259 /* MyAudioDevice.h */,
-				1FDA4AC7235084F500AB1259 /* MyAudioEngine.cpp */,
-				1FDA4AC5235084F500AB1259 /* MyAudioEngine.h */,
 				1FDA4AB0235084DE00AB1259 /* AppDelegate.h */,
 				1FDA4AB1235084DE00AB1259 /* AppDelegate.m */,
 				1FDA4AB3235084DE00AB1259 /* ViewController.h */,
@@ -167,8 +157,6 @@
 			files = (
 				1FDA4AB5235084DE00AB1259 /* ViewController.m in Sources */,
 				1FDA4ABD235084E100AB1259 /* main.m in Sources */,
-				1FDA4AC8235084F500AB1259 /* MyAudioDevice.cpp in Sources */,
-				1FDA4AC9235084F500AB1259 /* MyAudioEngine.cpp in Sources */,
 				1FDA4AB2235084DE00AB1259 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

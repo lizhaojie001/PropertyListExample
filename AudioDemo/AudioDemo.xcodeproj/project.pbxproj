@@ -11,6 +11,7 @@
 		1FDA4A9E2350825000AB1259 /* MyAudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA4A9C2350824F00AB1259 /* MyAudioDevice.cpp */; };
 		1FDA4AA12350826A00AB1259 /* MyAudioEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA4AA02350826900AB1259 /* MyAudioEngine.cpp */; };
 		1FDA4AA3235083E400AB1259 /* Kernel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FDA4AA2235083E400AB1259 /* Kernel.framework */; };
+		1FEEB8D52421C3BB0007186B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FEEB8D42421C3BB0007186B /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		1FDA4A9F2350826900AB1259 /* MyAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAudioEngine.h; sourceTree = "<group>"; };
 		1FDA4AA02350826900AB1259 /* MyAudioEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyAudioEngine.cpp; sourceTree = "<group>"; };
 		1FDA4AA2235083E400AB1259 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = System/Library/Frameworks/Kernel.framework; sourceTree = SDKROOT; };
+		1FEEB8D42421C3BB0007186B /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FEEB8D52421C3BB0007186B /* IOKit.framework in Frameworks */,
 				1FDA4AA3235083E400AB1259 /* Kernel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +82,7 @@
 		1FDA4A97235080E900AB1259 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FEEB8D42421C3BB0007186B /* IOKit.framework */,
 				1FDA4AA2235083E400AB1259 /* Kernel.framework */,
 			);
 			name = Frameworks;

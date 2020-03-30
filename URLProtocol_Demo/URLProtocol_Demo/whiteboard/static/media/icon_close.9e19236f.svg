@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="24px" viewBox="0 0 96 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>public_icon_excet</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="4.7668457%" y1="0%" x2="19.2199707%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#CDFCFF" offset="0%"></stop>
+            <stop stop-color="#99EEF3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="4.7668457%" y1="0%" x2="121.242161%" y2="109.607519%" id="linearGradient-2">
+            <stop stop-color="#E0FFFF" offset="0%"></stop>
+            <stop stop-color="#00CE88" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="直播平台通用版切图（连图）" transform="translate(-1122.000000, -1115.000000)">
+            <g id="public_icon_excet" transform="translate(1122.000000, 1115.000000)">
+                <g id="public_icon_excet_normal" transform="translate(4.000000, 4.000000)">
+                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="16" height="16" rx="6"></rect>
+                    <path d="M9,9 L9,11 C9,11.5522847 8.55228475,12 8,12 C7.44771525,12 7,11.5522847 7,11 L7,9 L5,9 C4.44771525,9 4,8.55228475 4,8 C4,7.44771525 4.44771525,7 5,7 L7,7 L7,5 C7,4.44771525 7.44771525,4 8,4 C8.55228475,4 9,4.44771525 9,5 L9,7 L11,7 C11.5522847,7 12,7.44771525 12,8 C12,8.55228475 11.5522847,9 11,9 L9,9 Z" id="形状结合" fill="#66BFC4" transform="translate(8.000000, 8.000000) rotate(-315.000000) translate(-8.000000, -8.000000) "></path>
+                </g>
+                <g id="public_icon_excet_normal复制" transform="translate(28.000000, 4.000000)">
+                    <rect id="矩形" fill="url(#linearGradient-2)" x="0" y="0" width="16" height="16" rx="6"></rect>
+                    <path d="M9,9 L9,11 C9,11.5522847 8.55228475,12 8,12 C7.44771525,12 7,11.5522847 7,11 L7,9 L5,9 C4.44771525,9 4,8.55228475 4,8 C4,7.44771525 4.44771525,7 5,7 L7,7 L7,5 C7,4.44771525 7.44771525,4 8,4 C8.55228475,4 9,4.44771525 9,5 L9,7 L11,7 C11.5522847,7 12,7.44771525 12,8 C12,8.55228475 11.5522847,9 11,9 L9,9 Z" id="形状结合" fill="#25C18D" transform="translate(8.000000, 8.000000) rotate(-315.000000) translate(-8.000000, -8.000000) "></path>
+                </g>
+                <g id="public_icon_excet_normal复制-2" transform="translate(52.000000, 4.000000)">
+                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="16" height="16" rx="6"></rect>
+                    <path d="M9,9 L9,11 C9,11.5522847 8.55228475,12 8,12 C7.44771525,12 7,11.5522847 7,11 L7,9 L5,9 C4.44771525,9 4,8.55228475 4,8 C4,7.44771525 4.44771525,7 5,7 L7,7 L7,5 C7,4.44771525 7.44771525,4 8,4 C8.55228475,4 9,4.44771525 9,5 L9,7 L11,7 C11.5522847,7 12,7.44771525 12,8 C12,8.55228475 11.5522847,9 11,9 L9,9 Z" id="形状结合" fill="#66BFC4" transform="translate(8.000000, 8.000000) rotate(-315.000000) translate(-8.000000, -8.000000) "></path>
+                </g>
+                <g id="public_icon_excet_normal复制-3" opacity="0.200000003" transform="translate(76.000000, 4.000000)">
+                    <rect id="矩形" fill="url(#linearGradient-1)" x="0" y="0" width="16" height="16" rx="6"></rect>
+                    <path d="M9,9 L9,11 C9,11.5522847 8.55228475,12 8,12 C7.44771525,12 7,11.5522847 7,11 L7,9 L5,9 C4.44771525,9 4,8.55228475 4,8 C4,7.44771525 4.44771525,7 5,7 L7,7 L7,5 C7,4.44771525 7.44771525,4 8,4 C8.55228475,4 9,4.44771525 9,5 L9,7 L11,7 C11.5522847,7 12,7.44771525 12,8 C12,8.55228475 11.5522847,9 11,9 L9,9 Z" id="形状结合" fill="#66BFC4" transform="translate(8.000000, 8.000000) rotate(-315.000000) translate(-8.000000, -8.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
