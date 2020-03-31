@@ -22,7 +22,12 @@ int main(int argc, const char * argv[]) {
         AudioFileID audioFile;
         OSStatus theErr = noErr;
         theErr = AudioFileOpenURL((__bridge CFURLRef)audioURL, kAudioFileReadPermission, 0, &audioFile);
-        assert(theErr == noErr);
+//        assert(theErr == noErr);
+        if (theErr != noErr) {
+            UInt32 err4cc = CFSwapInt32HostToBig(theErr);
+            NSLog (@"audioErr = %4.4s", (char*)&err4cc);
+        }
+        
         uint32 dictionarySize = 0;
         theErr = AudioFileGetPropertyInfo(audioFile, kAudioFilePropertyInfoDictionary, &dictionarySize, 0);
         assert(theErr == noErr);

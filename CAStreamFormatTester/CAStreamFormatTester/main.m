@@ -13,13 +13,17 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         AudioFileTypeAndFormatID fileTypeAndFormat;
-        fileTypeAndFormat.mFileType = kAudioFileAIFFType;
-        fileTypeAndFormat.mFormatID = kAudioFormatLinearPCM;
+        fileTypeAndFormat.mFileType = kAudioFileMP3Type;
+        fileTypeAndFormat.mFormatID = kAudioFormatFLAC;
         OSStatus audioErr = noErr;
         UInt32 infoSize = 0;
         
         audioErr = AudioFileGetGlobalInfoSize(kAudioFileGlobalInfo_AvailableStreamDescriptionsForFormat, sizeof(fileTypeAndFormat), &fileTypeAndFormat, &infoSize);
-//        assert(infoSize == noErr);
+            if (audioErr != noErr) {
+                UInt32 err4cc = CFSwapInt32HostToBig(audioErr); NSLog (@"audioErr = %4.4s", (char*)&err4cc);
+//                kAudioFileUnsupportedDataFormatError
+            }
+//        assert(audioErr == noErr);
         
         AudioStreamBasicDescription * asbds = malloc(infoSize);
         audioErr = AudioFileGetGlobalInfo(kAudioFileGlobalInfo_AvailableStreamDescriptionsForFormat, sizeof(fileTypeAndFormat), &fileTypeAndFormat, &infoSize, asbds);
@@ -28,6 +32,7 @@ int main(int argc, const char * argv[]) {
             UInt32 formate4cc = CFSwapInt32HostToBig(asbds[i].mFormatID);
             NSLog(@"%d : mFormateId : %4.4s , mFormatFlags : %d , mBitsPerChannel : %d", i,(char *)&formate4cc,asbds[i].mFormatFlags,asbds[i].mBitsPerChannel);
         }
+        NSLog(@"end");
         free(asbds);
     }
     return 0;
