@@ -92,23 +92,23 @@ int MyComputeRecordBufferSize(
     return bytes;
     
 }
-    void MyCopyEncoderCookieToFile(AudioQueueRef queue, AudioFileID theFile) {
-        OSStatus error; UInt32 propertySize;
-        error = AudioQueueGetPropertySize(queue, kAudioConverterCompressionMagicCookie,
-                                          &propertySize);
-        if (error == noErr && propertySize > 0)
-        {
-            Byte *magicCookie = (Byte *)malloc(propertySize);
-            CheckError(AudioQueueGetProperty(queue,
-                                             kAudioQueueProperty_MagicCookie, magicCookie,
-                                             &propertySize),
-                       "Couldn't get audio queue's magic cookie");
-            CheckError(AudioFileSetProperty(theFile, kAudioFilePropertyMagicCookieData,
-                                            propertySize,
-                                            magicCookie), "Couldn't set audio file's magic cookie");
-            free(magicCookie);
-        }
-        
+void MyCopyEncoderCookieToFile(AudioQueueRef queue, AudioFileID theFile) {
+    OSStatus error; UInt32 propertySize;
+    error = AudioQueueGetPropertySize(queue, kAudioConverterCompressionMagicCookie,
+                                      &propertySize);
+    if (error == noErr && propertySize > 0)
+    {
+        Byte *magicCookie = (Byte *)malloc(propertySize);
+        CheckError(AudioQueueGetProperty(queue,
+                                         kAudioQueueProperty_MagicCookie, magicCookie,
+                                         &propertySize),
+                   "Couldn't get audio queue's magic cookie");
+        CheckError(AudioFileSetProperty(theFile, kAudioFilePropertyMagicCookieData,
+                                        propertySize,
+                                        magicCookie), "Couldn't set audio file's magic cookie");
+        free(magicCookie);
+    }
+    
 }
 #define kNumberRecordBuffers 3
 
@@ -145,6 +145,30 @@ static void AQInputCallBack(void *inUserData, AudioQueueRef inAQ, AudioQueueBuff
 
 }
 
+
+#pragma mark listener
+
+static void PropertyListenerProc(void *inUserData, AudioQueueRef inAQ, AudioQueuePropertyID inID) {
+    
+    switch (inID) {
+        case kAudioQueueProperty_IsRunning:{
+            UInt32 outDataSize = 0 ;
+            CheckError(AudioQueueGetPropertySize(inAQ, inID, &outDataSize), "AudioQueueGetPropertySize failed");
+            UInt32 isRuning = 0;
+            CheckError(AudioQueueGetProperty(inAQ, inID, &isRuning, &outDataSize), "AudioQueueGetProperty failed");
+            NSLog(@"kAudioQueueProperty_IsRunning %u", (unsigned int)isRuning);
+        }
+            break;
+        case kAudioQueueProperty_CurrentLevelMeter:
+            NSLog(@"kAudioQueueProperty_CurrentLevelMeter ");
+            break;
+        default:
+            break;
+    }
+    
+}
+
+
 int MAIN() {
         //Set up format
         //Insert Listings 4.4-4.7 here
@@ -171,6 +195,7 @@ int MAIN() {
                                       0,
                                       &queue), "AudioQueueNewInput failed");
         
+
         UInt32 size = sizeof(recordFormat);
         CheckError(AudioQueueGetProperty(queue,
                                          kAudioConverterCurrentOutputStreamDescription, &recordFormat,
@@ -198,9 +223,17 @@ int MAIN() {
                                                 &buffer), "AudioQueueAllocateBuffer failed");
             CheckError(AudioQueueEnqueueBuffer(queue, buffer,0,NULL),"AudioQueueEnqueueBuffer failed");
         }
+    //listener
+    UInt32 inData = 1;
+//    CheckError(AudioQueueSetProperty(queue, kAudioQueueProperty_EnableLevelMetering, &inData, sizeof(inData)), "kAudioQueueProperty_EnableLevelMetering failed");
+    CheckError(AudioQueueAddPropertyListener(queue, kAudioQueueProperty_IsRunning , PropertyListenerProc,&recorder), "AudioQueueAddPropertyListener failed");
+//    CheckError(AudioQueueAddPropertyListener(queue, kAudioQueueProperty_CurrentLevelMeterDB , PropertyListenerProc,&recorder), "AudioQueueAddPropertyListener failed");
+
+    
         // Start queue
         // Insert Listings 4.14-4.15 here
         recorder.running = TRUE;
+    
         CheckError(AudioQueueStart(queue,
                                    NULL), "AudioQueueStart failed");
         
@@ -213,7 +246,7 @@ int MAIN() {
         CheckError(AudioQueueStop(queue,
                                   TRUE), "AudioQueueStop failed");
         MyCopyEncoderCookieToFile(queue, recorder.recordFile);
-        
+    AudioQueueRemovePropertyListener(queue, kAudioQueueProperty_CurrentLevelMeter, PropertyListenerProc, &recorder);
         AudioQueueDispose(queue, TRUE);
         AudioFileClose(recorder.recordFile);
         
