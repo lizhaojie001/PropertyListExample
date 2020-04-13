@@ -11,7 +11,7 @@
 
 #define kNumberPlaybackBuffers 3
 
-#define kPlaybackFileLocation CFSTR("/Users/macbookpro/Downloads/12222.aifc")
+#define kPlaybackFileLocation  CFSTR("/Users/xdf_yanqing/Documents/未命名文件夹/22222.mp3")//CFSTR("/Users/macbookpro/Downloads/12222.aifc")
 static void CheckError(OSStatus error, const char *operation) {
     if (error == noErr) return;
     char errorString[20];
@@ -88,7 +88,7 @@ void CalculateBytesForTime (AudioFileID inAudioFile, AudioStreamBasicDescription
 static void MyAQOutputCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBufferRef inBuffer){
     MyPlayer *aqp = (MyPlayer*)inUserData;
     if (aqp->isDone) return;
-    UInt32 numBytes;
+//    UInt32 numBytes;
     UInt32 nPackets = aqp->numPacketsToRead;
 //    CheckError(AudioFileReadPackets(aqp->playbackFile,
 //                                    false,
@@ -96,6 +96,9 @@ static void MyAQOutputCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueB
 //                                    aqp->packetDescs, aqp->packetPosition,
 //                                    &nPackets, inBuffer->mAudioData),
 //               "AudioFileReadPackets failed");
+    //https://stackoverflow.com/questions/28443275/why-does-the-argument-ionumbytes-of-audiofilereadpacketdata-cause-a-crash
+    UInt32 numBytes = inBuffer->mAudioDataByteSize;
+
     CheckError(AudioFileReadPacketData(aqp->playbackFile,
                                        false,
                                        &numBytes,
@@ -105,7 +108,7 @@ static void MyAQOutputCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueB
                                        inBuffer->mAudioData),"AudioFileReadPacketData failed");
 
     if (nPackets > 0) {
-        inBuffer->mAudioDataByteSize = numBytes;
+//        inBuffer->mAudioDataByteSize = numBytes;
         AudioQueueEnqueueBuffer(inAQ,
                                 inBuffer, (aqp->packetDescs ? nPackets : 0), aqp->packetDescs);
         aqp->packetPosition += nPackets;
@@ -175,7 +178,9 @@ int main(int argc, const char * argv[]) {
         for (i = 0; i < kNumberPlaybackBuffers; ++i) {
             CheckError(AudioQueueAllocateBuffer(queue, bufferByteSize,
                                                 &buffers[i]), "AudioQueueAllocateBuffer failed");
+            buffers[i]->mAudioDataByteSize = bufferByteSize;
             MyAQOutputCallback(&player, queue, buffers[i]);
+            
             if (player.isDone)
                 break;
         }
