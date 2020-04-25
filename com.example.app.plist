@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   com.example.app.plist
+   testWeb
+
+   Created by macbook pro on 2020/4/25.
+   Copyright (c) 2020 macbook pro. All rights reserved.
+-->
+
+<plist version="1.0">
+    <dict>
+    <key>Label</key>
+    <string>com.example.app</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/open</string>
+        <string>-W</string>
+        <string>/Applications/Roombox.app</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ExitTimeOut</key>
+    <integer>20</integer>
+    <key>StandardInPath</key>
+    <string>/tmp/test.stdin</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/test.stdout</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/test.stderr</string>
+    </dict>
+</plist>
