@@ -11,6 +11,7 @@
 		526533F3244DDCAD004C2662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526533F2244DDCAD004C2662 /* Assets.xcassets */; };
 		526533F6244DDCAD004C2662 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 526533F4244DDCAD004C2662 /* MainMenu.xib */; };
 		52653400244DDCBC004C2662 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526533FF244DDCBC004C2662 /* WebKit.framework */; };
+		52E65C4F2454118A00CA41A4 /* com.example.app.plist in Resources */ = {isa = PBXBuildFile; fileRef = 52E65C4E2454118A00CA41A4 /* com.example.app.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		526533F7244DDCAD004C2662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		526533F8244DDCAD004C2662 /* testWeb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = testWeb.entitlements; sourceTree = "<group>"; };
 		526533FF244DDCBC004C2662 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		52E65C4E2454118A00CA41A4 /* com.example.app.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = com.example.app.plist; path = ../../../../../Library/LaunchAgents/com.example.app.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				526533F2244DDCAD004C2662 /* Assets.xcassets */,
 				526533F4244DDCAD004C2662 /* MainMenu.xib */,
 				526533F7244DDCAD004C2662 /* Info.plist */,
+				52E65C4E2454118A00CA41A4 /* com.example.app.plist */,
 				526533F8244DDCAD004C2662 /* testWeb.entitlements */,
 			);
 			path = testWeb;
@@ -132,6 +135,7 @@
 			files = (
 				526533F3244DDCAD004C2662 /* Assets.xcassets in Resources */,
 				526533F6244DDCAD004C2662 /* MainMenu.xib in Resources */,
+				52E65C4F2454118A00CA41A4 /* com.example.app.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
