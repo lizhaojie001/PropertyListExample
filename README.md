@@ -9,6 +9,6 @@ launchctl load -w ~/Library/LaunchAgents/com.example.app.plist
 ```
 ```
 //卸载进程
-launchctl unload -w ~/Library/LaunchAgents/com.example.app.plist
+launchctl unload -w -F ~/Library/LaunchAgents/com.example.app.plist
 ```
 
