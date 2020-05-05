@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F24D2D32461606800604E5A /* CustomSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24D2D22461606800604E5A /* CustomSourceView.swift */; };
 		AD0477DE1CE7C2D600AC3B4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0477DD1CE7C2D600AC3B4D /* AppDelegate.swift */; };
 		AD0477E01CE7C2D600AC3B4D /* StickerBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0477DF1CE7C2D600AC3B4D /* StickerBoardViewController.swift */; };
 		AD0477E21CE7C2D600AC3B4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD0477E11CE7C2D600AC3B4D /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F24D2D22461606800604E5A /* CustomSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceView.swift; sourceTree = "<group>"; };
 		1FB904332452978900B8F21C /* com.example.app.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.example.app.plist; sourceTree = "<group>"; };
 		AD0477DA1CE7C2D600AC3B4D /* StickerDrag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickerDrag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0477DD1CE7C2D600AC3B4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				AD0D1A741CEBC7B500C17DEA /* ImageSourceView.swift */,
 				ADEEA0A31CF47D4C009B7654 /* AppActionSourceView.swift */,
+				1F24D2D22461606800604E5A /* CustomSourceView.swift */,
 			);
 			name = "Dragging Sources";
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F24D2D32461606800604E5A /* CustomSourceView.swift in Sources */,
 				ADEEA0A41CF47D4C009B7654 /* AppActionSourceView.swift in Sources */,
 				AD0477ED1CE7C5A600AC3B4D /* DestinationView.swift in Sources */,
 				AD0477E01CE7C2D600AC3B4D /* StickerBoardViewController.swift in Sources */,

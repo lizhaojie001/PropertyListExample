@@ -48,7 +48,7 @@ class DestinationView: NSView {
   let filteringOptions = [NSPasteboard.ReadingOptionKey.urlReadingContentsConformToTypes : NSImage.imageTypes]
   
   @available(OSX 10.13, *)
-  var acceptableTypes: [NSPasteboard.PasteboardType] { return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type)] }
+  var acceptableTypes: [NSPasteboard.PasteboardType] { return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type] }
   
   @available(OSX 10.13, *)
   func setup() {
@@ -78,7 +78,7 @@ class DestinationView: NSView {
     //2.
     let pasteBoard = draggingInfo.draggingPasteboard
     
-    if (pasteBoard.availableType(from: [NSPasteboard.PasteboardType(rawValue: SparkleDrag.type)]) != nil) {
+    if (pasteBoard.availableType(from: [NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type]) != nil) {
       return true
     }
     //3.
@@ -126,6 +126,9 @@ class DestinationView: NSView {
       let action = paste.string(forType: NSPasteboard.PasteboardType(rawValue: SparkleDrag.type)) {
       delegate?.processAction(action, center:point)
       return true
+    } else if let types = paste.types, types.contains(TidiFile.type) , let data = paste.data(forType: TidiFile.type) {
+      let file = TidiFile(pasteboardPropertyList: data, ofType: TidiFile.type)
+      debugPrint(file)
     }
     
     var isOk  = false

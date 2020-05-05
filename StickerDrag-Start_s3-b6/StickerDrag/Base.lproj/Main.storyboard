@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -99,12 +99,15 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="StickerDrag" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="StickerDrag" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="642"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="480" height="642"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="DAj-QP-S2o"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -119,23 +122,23 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="StickerBoardViewController" customModule="StickerDrag" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="642"/>
+                        <rect key="frame" x="0.0" y="0.0" width="724" height="770"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zx-B3-YrK">
-                                <rect key="frame" x="0.0" y="8" width="480" height="634"/>
+                                <rect key="frame" x="0.0" y="8" width="724" height="762"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="AfD-xX-Pf6">
-                                        <rect key="frame" x="0.0" y="154" width="480" height="480"/>
+                                        <rect key="frame" x="0.0" y="154" width="724" height="608"/>
                                         <subviews>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="oCF-ir-3g1" customClass="RoundedRectView" customModule="StickerDrag" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="724" height="608"/>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="pjf-xo-OWf">
-                                                <rect key="frame" x="10" y="10" width="460" height="460"/>
+                                                <rect key="frame" x="10" y="10" width="704" height="588"/>
                                             </customView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U85-NL-6u3">
-                                                <rect key="frame" x="145" y="228" width="190" height="25"/>
+                                                <rect key="frame" x="269" y="292" width="187" height="25"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drag Images Here" id="boW-Y0-Wtm">
                                                     <font key="font" metaFont="systemHeavy" size="21"/>
                                                     <color key="textColor" red="0.4959134615384615" green="0.4959134615384615" blue="0.4959134615384615" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,7 +146,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uRT-Iy-giD" customClass="DestinationView" customModule="StickerDrag" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="10" width="460" height="460"/>
+                                                <rect key="frame" x="10" y="10" width="704" height="588"/>
                                             </customView>
                                         </subviews>
                                         <constraints>
@@ -164,13 +167,31 @@
                                         </constraints>
                                     </customView>
                                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-t1-f12">
-                                        <rect key="frame" x="0.0" y="26" width="480" height="120"/>
+                                        <rect key="frame" x="0.0" y="26" width="724" height="120"/>
                                         <subviews>
-                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1nB-4x-rsa" customClass="AppActionSourceView" customModule="StickerDrag" customModuleProvider="target">
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ymj-Y5-eDA" customClass="CustomSourceView" customModule="StickerDrag" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="236" height="120"/>
                                                 <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JiB-Mg-5Qi">
+                                                        <rect key="frame" x="90" y="52" width="57" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sparkles" id="iem-Ty-NwU">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="236" id="Tm7-XD-1VG"/>
+                                                    <constraint firstItem="JiB-Mg-5Qi" firstAttribute="centerY" secondItem="Ymj-Y5-eDA" secondAttribute="centerY" id="jei-EE-KVh"/>
+                                                    <constraint firstItem="JiB-Mg-5Qi" firstAttribute="centerX" secondItem="Ymj-Y5-eDA" secondAttribute="centerX" id="mdI-28-2sr"/>
+                                                </constraints>
+                                            </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1nB-4x-rsa" customClass="AppActionSourceView" customModule="StickerDrag" customModuleProvider="target">
+                                                <rect key="frame" x="244" y="0.0" width="236" height="120"/>
+                                                <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zYQ-hR-LaP">
-                                                        <rect key="frame" x="89" y="52" width="57" height="17"/>
+                                                        <rect key="frame" x="90" y="52" width="57" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sparkles" id="HrJ-Ni-Zus">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -185,7 +206,7 @@
                                                 </constraints>
                                             </customView>
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="FZU-k0-H28" customClass="ImageSourceView" customModule="StickerDrag" customModuleProvider="target">
-                                                <rect key="frame" x="244" y="0.0" width="236" height="120"/>
+                                                <rect key="frame" x="488" y="0.0" width="236" height="120"/>
                                                 <subviews>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gld-fm-tpg">
                                                         <rect key="frame" x="0.0" y="0.0" width="236" height="120"/>
@@ -210,8 +231,10 @@
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
+                                            <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
@@ -261,7 +284,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="1007"/>
+            <point key="canvasLocation" x="145.5" y="1007"/>
         </scene>
     </scenes>
     <resources>
