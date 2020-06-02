@@ -48,7 +48,9 @@ class DestinationView: NSView {
   let filteringOptions = [NSPasteboard.ReadingOptionKey.urlReadingContentsConformToTypes : NSImage.imageTypes]
   
   @available(OSX 10.13, *)
-  var acceptableTypes: [NSPasteboard.PasteboardType] { return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type] }
+  var acceptableTypes: [NSPasteboard.PasteboardType] {
+    return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type]
+  }
   
   @available(OSX 10.13, *)
   func setup() {
@@ -144,4 +146,5 @@ class DestinationView: NSView {
     
   }
 }
+
 

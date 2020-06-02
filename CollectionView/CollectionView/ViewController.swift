@@ -117,13 +117,13 @@ extension ViewController :  NSCollectionViewDelegate , NSCollectionViewDataSourc
         debugPrint(indexPaths)
         if let indexPath = self.lastIndexPath {
             collectionView.deselectItems(at: [indexPath])
-//            let item = collectionView.item(at: indexPath)
-//            item?.view.layer?.backgroundColor = NSColor.red.cgColor
+            let item = collectionView.item(at: indexPath)
+            item?.view.layer?.backgroundColor = NSColor.red.cgColor
         }
         
         indexPaths.forEach { (indexPath) in
-//            let item = collectionView.item(at: indexPath)
-//            item?.view.layer?.backgroundColor = NSColor.blue.cgColor
+            let item = collectionView.item(at: indexPath)
+            item?.view.layer?.backgroundColor = NSColor.blue.cgColor
             self.lastIndexPath = indexPath
         }
         
@@ -132,7 +132,7 @@ extension ViewController :  NSCollectionViewDelegate , NSCollectionViewDataSourc
         guard let appName = app.appName else { return }
         guard  let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.applicationDirectory, FileManager.SearchPathDomainMask.systemDomainMask, true).first else { return }
         let application = path + "/" +  appName
-        Script.runScript(path: "/usr/bin/open", arguments: ["-n", application])
+//        Script.runScript(path: "/usr/bin/open", arguments: ["-n", application])
     }
     
 }

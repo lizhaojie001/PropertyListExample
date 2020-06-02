@@ -32,25 +32,30 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-  <key>UTExportedTypeDeclarations</key>
-  <array>
-    <dict>
-      <key>UTTypeConformsTo</key>
-      <array>
-        <string>public.data</string>
-      </array>
-      <key>UTTypeDescription</key>
-      <string>My Custom Binary File</string>
-      <key>UTTypeIdentifier</key>
-      <string>com.mycompany.myapp.myfiletype</string>
-      <key>UTTypeTagSpecification</key>
-      <dict>
-        <key>public.filename-extension</key>
-        <array>
-          <string>fun</string>
-        </array>
-      </dict>
-    </dict>
-  </array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>My Custom Binary File</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.mycompany.myapp.myfiletype</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>fun</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

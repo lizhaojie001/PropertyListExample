@@ -22,14 +22,15 @@
 
 
 import Cocoa
-
+import WebKit
 
 class StickerBoardViewController: NSViewController {
   
   @IBOutlet var topLayer: DestinationView!
   @IBOutlet var targetLayer: NSView!
   @IBOutlet var invitationLabel: NSTextField!
-  
+  @IBOutlet weak var webView: WebK!
+    
   enum Appearance {
     static let maxStickerDimension: CGFloat = 150.0
     static let shadowOpacity: Float =  0.4
@@ -52,6 +53,7 @@ class StickerBoardViewController: NSViewController {
     super.viewDidLoad()
     topLayer.delegate = self
     configureShadow(targetLayer)
+    self.webView.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
   }
   
   
@@ -150,3 +152,21 @@ extension StickerBoardViewController: DestinationViewDelegate {
 
 }
 
+
+extension WKWebView {
+ 
+}
+
+class WebK: WKWebView {
+  open override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
+    return true
+  }
+  
+  open override func draggingUpdated(_ sender: NSDraggingInfo) -> NSDragOperation {
+    return .copy
+  }
+  
+  open override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
+    return .copy
+  }
+}

@@ -17,18 +17,13 @@ class CustomSourceView: RoundedRectView {
   
   override func mouseDown(with event: NSEvent) {
     
-    do {
 //      let data = try PropertyListEncoder().encode(self.item)
 //      let pasteboardItem = NSPasteboardItem()
+//    pasteboardItem.setDataProvider(self, forTypes: [,])
 //      pasteboardItem.setPropertyList(data, forType: TidiFile.type)
       let draggingItem = NSDraggingItem(pasteboardWriter: self.item)
       draggingItem.setDraggingFrame(self.bounds, contents:snapshot())
       beginDraggingSession(with: [draggingItem], event: event, source: self)
-    } catch  {
-      debugPrint("error" + error.localizedDescription)
-      super.mouseDown(with: event)
-    }
-
   }
 }
 

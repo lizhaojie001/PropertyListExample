@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -148,6 +149,13 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="uRT-Iy-giD" customClass="DestinationView" customModule="StickerDrag" customModuleProvider="target">
                                                 <rect key="frame" x="10" y="10" width="704" height="588"/>
                                             </customView>
+                                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQg-8T-Lrz" customClass="WebK" customModule="StickerDrag" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="724" height="608"/>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="oCF-ir-3g1" firstAttribute="centerY" secondItem="AfD-xX-Pf6" secondAttribute="centerY" id="0hr-vi-6Pa"/>
@@ -156,6 +164,7 @@
                                             <constraint firstItem="pjf-xo-OWf" firstAttribute="centerX" secondItem="oCF-ir-3g1" secondAttribute="centerX" id="BAJ-oc-gri"/>
                                             <constraint firstItem="uRT-Iy-giD" firstAttribute="centerX" secondItem="oCF-ir-3g1" secondAttribute="centerX" id="GK0-ur-Nda"/>
                                             <constraint firstItem="uRT-Iy-giD" firstAttribute="height" secondItem="oCF-ir-3g1" secondAttribute="height" constant="-20" id="GYf-A0-CfP"/>
+                                            <constraint firstItem="BQg-8T-Lrz" firstAttribute="leading" secondItem="AfD-xX-Pf6" secondAttribute="leading" id="M6Q-7e-cAr"/>
                                             <constraint firstItem="uRT-Iy-giD" firstAttribute="centerY" secondItem="oCF-ir-3g1" secondAttribute="centerY" id="QWe-Um-GgB"/>
                                             <constraint firstItem="U85-NL-6u3" firstAttribute="centerX" secondItem="AfD-xX-Pf6" secondAttribute="centerX" id="TWA-jq-4Jl"/>
                                             <constraint firstItem="pjf-xo-OWf" firstAttribute="height" secondItem="oCF-ir-3g1" secondAttribute="height" constant="-20" id="Yet-MX-Hma"/>
@@ -163,7 +172,10 @@
                                             <constraint firstItem="oCF-ir-3g1" firstAttribute="width" secondItem="AfD-xX-Pf6" secondAttribute="width" id="bqQ-yF-QI9"/>
                                             <constraint firstItem="oCF-ir-3g1" firstAttribute="centerX" secondItem="AfD-xX-Pf6" secondAttribute="centerX" id="eSx-AB-t8y"/>
                                             <constraint firstItem="pjf-xo-OWf" firstAttribute="centerY" secondItem="oCF-ir-3g1" secondAttribute="centerY" id="fWY-Ca-ser"/>
+                                            <constraint firstAttribute="bottom" secondItem="BQg-8T-Lrz" secondAttribute="bottom" id="mMl-kK-GeX"/>
+                                            <constraint firstAttribute="trailing" secondItem="BQg-8T-Lrz" secondAttribute="trailing" id="nQJ-Mk-yen"/>
                                             <constraint firstItem="uRT-Iy-giD" firstAttribute="width" secondItem="oCF-ir-3g1" secondAttribute="width" constant="-20" id="uGb-b1-o3u"/>
+                                            <constraint firstItem="BQg-8T-Lrz" firstAttribute="top" secondItem="AfD-xX-Pf6" secondAttribute="top" id="xsw-V2-V2i"/>
                                         </constraints>
                                     </customView>
                                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-t1-f12">
@@ -280,6 +292,7 @@
                         <outlet property="invitationLabel" destination="U85-NL-6u3" id="9p0-F9-y9J"/>
                         <outlet property="targetLayer" destination="pjf-xo-OWf" id="Gts-HL-0Oe"/>
                         <outlet property="topLayer" destination="uRT-Iy-giD" id="i4i-Uz-5zS"/>
+                        <outlet property="webView" destination="BQg-8T-Lrz" id="MUG-Yd-sST"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
