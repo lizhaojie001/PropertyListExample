@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='macos'>
+    <pages>
+        <page name='符串是否匹配'/>
+        <page name='练习判断回文'/>
+        <page name='mutating elemple'/>
+        <page name='237.链表去中间值'/>
+        <page name='链表翻转'/>
+        <page name='找出倒数第k个节点的值'/>
+        <page name='203.移除链表元素'/>
+        <page name='1290. 二进制链表转整数'/>
+        <page name='61. 旋转链表'/>
+        <page name='21. 合并两个有序链表'/>
+        <page name='19. 删除链表的倒数第N个节点'/>
+    </pages>
+</playground>
