@@ -45,16 +45,18 @@ class DestinationView: NSView {
     }
   }
   
-  let filteringOptions = [NSPasteboard.ReadingOptionKey.urlReadingContentsConformToTypes : NSImage.imageTypes]
+  let filteringOptions : [NSPasteboard.ReadingOptionKey : Any] = [.urlReadingContentsConformToTypes : NSImage.imageTypes, NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly: true ]
   
   @available(OSX 10.13, *)
   var acceptableTypes: [NSPasteboard.PasteboardType] {
-    return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type]
+    return []
+//    return [.fileURL,.URL,.tiff,NSPasteboard.PasteboardType(rawValue: SparkleDrag.type),TidiFile.type]
   }
   
-  @available(OSX 10.13, *)
+//  @available(OSX 10.13, *)
   func setup() {
-      registerForDraggedTypes(acceptableTypes)
+    let NSFilenamesPboardTypeTemp = NSPasteboard.PasteboardType(kUTTypeURL as String)
+    registerForDraggedTypes([NSFilenamesPboardTypeTemp])
   }
   
   override func draw(_ dirtyRect: NSRect) {
@@ -74,7 +76,6 @@ class DestinationView: NSView {
   
   
   func shouldAllowDrag(_ draggingInfo: NSDraggingInfo) -> Bool {
-    
     var canAccept = false
     
     //2.
@@ -87,6 +88,7 @@ class DestinationView: NSView {
     if pasteBoard.canReadObject(forClasses: [NSURL.self,NSImage.self], options: filteringOptions) {
       canAccept = true
     }
+    
     return canAccept
     
   }
@@ -115,9 +117,22 @@ class DestinationView: NSView {
   }
   
   override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-    isReceivingDrag = false
     let paste = sender.draggingPasteboard
     let point = convert(sender.draggingLocation, to: nil)
+    debugPrint("原地址 : \(sender.draggingSource.debugDescription)")
+    sender.enumerateDraggingItems(options: [],
+                                   for: nil,
+                                   classes: [ NSURL.self ],
+                                   searchOptions: [ .urlReadingFileURLsOnly: true ]) {  (draggingItem, _, _) in
+         guard  let url = draggingItem.item as? URL else {
+                 return
+         }
+                                    self.delegate?.processImageURLs([url], center: point)
+
+        debugPrint(url)
+    }
+    return true
+    isReceivingDrag = false
     if let urls = paste.readObjects(forClasses: [NSURL.self], options: filteringOptions) as? [URL] , urls.count > 0 {
       delegate?.processImageURLs(urls, center: point)
       return true

@@ -53,7 +53,7 @@ class StickerBoardViewController: NSViewController {
     super.viewDidLoad()
     topLayer.delegate = self
     configureShadow(targetLayer)
-    self.webView.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
+//    self.webView.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
   }
   
   

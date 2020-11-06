@@ -36,6 +36,14 @@ class ViewController: UIViewController , AVSpeechSynthesizerDelegate {
         s.rate = 0
         return s
     }()
+    
+    
+    func configAudioSession() {
+        try? AVAudioSession.sharedInstance().setPreferredSampleRate(44100.0)
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord)
+        try? AVAudioSession.sharedInstance().setActive(true, options: [])
+    }
+    
 //    mSampleRate: 22050.000000
 //            mFormatID: 'lpcm'
 //            mFormatFlags: 0xc
@@ -83,6 +91,7 @@ class ViewController: UIViewController , AVSpeechSynthesizerDelegate {
 //        self.engine.attach(self.playerNode)
 //        self.engine.connect(self.playerNode, to: self.engine.outputNode, format: self.in)
 //        setUpVideo()
+        configAudioSession()
     }
 
     @IBAction func speech(_ sender: UIButton) {
