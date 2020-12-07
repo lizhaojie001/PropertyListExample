@@ -31,11 +31,20 @@ class Person{
         self.age = age
         self.name = name
     }
+    
+   
 }
+
 
 
 struct BinarySearchTree<E> {
     
+    
+    init(_ compareBlock :  ((E,E)->Int)?) {
+        self.compareBlock = compareBlock
+    }
+    
+    var compareBlock : ((E,E)->Int)?
     var root : ListNode<E>?
     var size : Int = 0;
     mutating func add(_ element : E) {
@@ -69,15 +78,16 @@ struct BinarySearchTree<E> {
         } else {
             parent?.left = newNode
         }
+        size += 1
     }
     
     
     func isEmpty() -> Bool {
-        return false
+        return root == nil
     }
     
-    func clear() {
-        
+    mutating func clear() {
+        root = nil
     }
     
     func remove( _ element : E) {
@@ -94,7 +104,10 @@ struct BinarySearchTree<E> {
         }
     }
     func compare(_ element1 : E ,_ node : ListNode<E> ) -> Int {
-        return 1
+        if let block = self.compareBlock {
+            return block(element1,node.element)
+        }
+        return -1
     }
 }
 
