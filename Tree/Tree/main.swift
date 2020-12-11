@@ -1,7 +1,12 @@
-//: [Previous](@previous)
+//
+//  main.swift
+//  Tree
+//
+//  Created by xdf_yanqing on 12/11/20.
+//
 
 import Foundation
-import Cocoa
+
 //任意节点的值大于左子树节点的值
 //任意节点的值小于右子树节点的值
 //左右子树都是二叉搜索树
@@ -41,33 +46,73 @@ class Person : NSObject{
 
 struct BinarySearchTree<E> {
     
-    func outputTree() {
+    private func _LRDTree(_ node : ListNode<E>?){
+        if node == nil
+        {
+            return
+        }
+        _LRDTree(node?.left)
+        _LRDTree(node?.right)
+        debugPrint(node?.element)
+
+    }
+    func LRDTree(){
+        _LRDTree(root)
+    }
+    
+    private func _midTree(_ node : ListNode<E>?){
+        if node == nil
+        {
+            return
+        }
+        _midTree(node?.left)
+        debugPrint(node!.element)
+        _midTree(node?.right)
+    }
+    func midTree() {
+        _midTree(root)
+    }
+    
+   private func _frontTree(_ node : ListNode<E>?) {
+        if node == nil
+        {
+            return
+        }
+        debugPrint(node?.element)
+        _frontTree(node?.left)
+        _frontTree(node?.right)
+    }
+    
+    func frontTree() {
+        _frontTree(root)
+    }
+    
+    /// 层级遍历
+    func levelTree() {
         let capacity = 100
-        let queue = NSMutableArray(capacity: capacity)
+        let queue = NSMutableArray(array: [0])
         var tail = 0
         var head = 0
         if let node = root  {
-            debugPrint(node.element)
             tail = (tail + 1)%capacity
-            queue.insert(node, at: tail)
+            queue[tail] = node
         } else {
             debugPrint("root = nil")
             return
         }
         while tail != head {
             head = (head+1)%capacity
-            debugPrint(head)
-            let node = queue.object(at: head) as? ListNode<E>
-            if node?.left != nil {
+            let node = queue[head] as! ListNode<E>
+            debugPrint(node.element)
+            if node.left != nil {
                 tail = ( tail + 1 )%capacity
-                queue.insert(node!.left!, at: tail)
+                queue.insert(node.left!, at: tail)
                 
             }
-            if node!.right != nil {
+            if node.right != nil {
                 tail = ( tail + 1 )%capacity
-                queue.insert(node!.right!, at: tail)
+                queue.insert(node.right!, at: tail)
             }
-            debugPrint(tail)
         }
     }
     
@@ -92,7 +137,6 @@ struct BinarySearchTree<E> {
         var parent : ListNode<E>?
         var compareValue = 0
         while node != nil {
-            debugPrint(node?.element)
             let value = compare(element ,node!)
             compareValue = value
             parent = node
@@ -108,8 +152,11 @@ struct BinarySearchTree<E> {
         let newNode = ListNode(element,parent)
         if compareValue > 0 {
             parent?.right = newNode
+            debugPrint(element,"right",parent?.element)
+
         } else {
             parent?.left = newNode
+            debugPrint(element,"left",parent?.element)
         }
         size += 1
     }
@@ -155,6 +202,9 @@ for age in ages {
 }
 debugPrint("结束")
 
-//tree.outputTree()
+//tree.levelTree()
 
 
+//tree.frontTree()
+//tree.LRDTree()
+tree.midTree()
