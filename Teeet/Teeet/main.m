@@ -187,9 +187,6 @@ int os_get_executable_path(char* dst, size_t size, const char* name)
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
-        char * oldpath = "/Users/xdf_yanqing/Desktop/研发一团队+直播研发组+lizhaojie3+李赵杰.png";
-        char * newPath = "/Users/xdf_yanqing/Desktop/zuishuai.png";
-        char * backup = "/Users/xdf_yanqing/Desktop/zuishuai1111.png";
 
 //        int a = os_rename(oldpath, newPath);
 //        NSLog(@"os_rename = %d",a);
@@ -204,7 +201,8 @@ int main(int argc, const char * argv[]) {
 //        os_mkdir("/Users/xdf_yanqing/Desktop/111");
 //        char * str =   os_get_path_ptr_internal("zuishuai1111", NSUserDomainMask);
 //        NSLog(@"%s",str);
-        
+        char buffer[1024];
+       NSLog(@" %d -- %s", os_get_executable_path(buffer, sizeof(buffer), "ttt"),buffer);
         
         
     }
