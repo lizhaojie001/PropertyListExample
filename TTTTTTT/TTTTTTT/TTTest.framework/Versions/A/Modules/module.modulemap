@@ -1,0 +1,6 @@
+framework module TTTest {
+  umbrella header "TTTest.h"
+
+  export *
+  module * { export * }
+}
