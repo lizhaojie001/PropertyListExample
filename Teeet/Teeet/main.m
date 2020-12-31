@@ -6,12 +6,12 @@
 //
 #include <dlfcn.h>
 #include <mach-o/dyld.h>
-#import <Foundation/Foundation.h>
+#include <Foundation/Foundation.h>
 #define MKDIR_EXISTS 1
 #define MKDIR_SUCCESS 0
 #define MKDIR_ERROR -1
 #include <objc/runtime.h>
-
+#import <Cocoa/Cocoa.h>
 
 int os_rename(const char* old_path, const char* new_path) {
     NSString * oldPath = [[NSString alloc] initWithCString:old_path encoding: NSUTF8StringEncoding ];
@@ -184,8 +184,31 @@ int os_get_executable_path(char* dst, size_t size, const char* name)
 }
 
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
+void * os_create_process(const char* file, const char* cmd)
+{
+    NSTask * task = [[NSTask alloc] init];
+    NSString * path = [NSString stringWithCString:file encoding:NSUTF8StringEncoding];
+    [task setLaunchPath:path];
+    NSString * args = [[NSString alloc] initWithCString:cmd encoding:NSUTF8StringEncoding];
+    [task setArguments:@[args]];
+    [task launch];
+    NSLog(@"启动进程 %@",task);
+    task.terminationHandler = ^(NSTask* task) {
+        NSLog(@"进程终止 %@",task);
+    };
+    void * p = (__bridge void *)task;
+    return p;
+}
+void os_close_process(void *  handle)
+{
+    NSTask * task = (__bridge NSTask *)handle;
+    [task terminate];
+    NSLog(@"开启进程终止 %@",task);
+    task = nil;
+}
+
+//int main(int argc, const char * argv[]) {
+//    @autoreleasepool {
 
 
 //        int a = os_rename(oldpath, newPath);
@@ -201,10 +224,22 @@ int main(int argc, const char * argv[]) {
 //        os_mkdir("/Users/xdf_yanqing/Desktop/111");
 //        char * str =   os_get_path_ptr_internal("zuishuai1111", NSUserDomainMask);
 //        NSLog(@"%s",str);
-        char buffer[1024];
-       NSLog(@" %d -- %s", os_get_executable_path(buffer, sizeof(buffer), "ttt"),buffer);
+//        char buffer[1024];
+//       NSLog(@" %d -- %s", os_get_executable_path(buffer, sizeof(buffer), "ttt"),buffer);
+//
+//       void * p =  os_create_process("/Applications/Roombox.app/Contents/MacOS/Roombox", "");
+//
+//        sleep(10);
+//
+//        os_close_process(p);
+//
+//        while (1) {
+//
+//        }
         
-        
-    }
-    return 0;
-}
+//        char buffer[1024];
+//        os_get_path_internal("1233", sizeof(buffer), buffer, NSLocalDomainMask);
+//        NSLog(@"%s", buffer );
+//    }
+//    return 0;
+//}
