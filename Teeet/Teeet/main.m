@@ -207,6 +207,12 @@ void os_close_process(void *  handle)
     task = nil;
 }
 
+bool os_process_exists(void * handle){
+    return false;
+}
+
+
+
 //int main(int argc, const char * argv[]) {
 //    @autoreleasepool {
 

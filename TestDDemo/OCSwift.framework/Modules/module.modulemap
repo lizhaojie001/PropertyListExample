@@ -1,0 +1,11 @@
+framework module OCSwift {
+  umbrella header "OCSwift.h"
+
+  export *
+  module * { export * }
+}
+
+module OCSwift.Swift {
+    header "OCSwift-Swift.h"
+    requires objc
+}

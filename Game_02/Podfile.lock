@@ -1,0 +1,16 @@
+PODS:
+  - Nama-macOS-lite (7.3.2)
+
+DEPENDENCIES:
+  - Nama-macOS-lite (= 7.3.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nama-macOS-lite
+
+SPEC CHECKSUMS:
+  Nama-macOS-lite: ef1929533b996399f1584eba658ef21290b2cf40
+
+PODFILE CHECKSUM: 1a54c817b1d9a1d9fc0b9393f94e028eff8c6449
+
+COCOAPODS: 1.7.4
