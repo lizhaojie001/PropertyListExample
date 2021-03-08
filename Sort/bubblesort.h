@@ -7,7 +7,11 @@ class BubbleSort : public Sort
 {
 public:
     BubbleSort();
-    void toString() override;
+
+public:
+   std::string getName() override {
+        return typeid (this).name();
+    }
 };
 
 

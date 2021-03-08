@@ -8,7 +8,9 @@ class BubbleSort1 : public Sort
 public:
     BubbleSort1();
     void sort(std::vector <int>) override;
-    void toString() override;
+    std::string getName() override {
+         return typeid (this).name();
+     }
 };
 
 #endif // BUBBLESORT1_H

@@ -7,7 +7,7 @@ class Sort : public QObject
     Q_OBJECT
 public:
     explicit Sort(QObject *parent = nullptr);
-
+    virtual std::string getName() = 0;
 private:
      std::vector<int> array;
 public:
@@ -16,7 +16,7 @@ public:
      double time;
 public:
      virtual void sort(std::vector<int> array) ;
-     virtual void toString();
+     void toString();
 };
 
 #endif // SORT_H

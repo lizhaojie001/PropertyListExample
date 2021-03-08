@@ -8,9 +8,11 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        binaryserach.cpp \
         bubblesort.cpp \
         bubblesort1.cpp \
         bubblesort2.cpp \
+        insertionsort.cpp \
         main.cpp \
         randomint.cpp \
         sort.cpp
@@ -21,8 +23,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    binaryserach.h \
     bubblesort.h \
     bubblesort1.h \
     bubblesort2.h \
+    insertionsort.h \
     randomint.h \
     sort.h

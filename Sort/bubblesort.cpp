@@ -25,7 +25,3 @@ void Sort:: sort(std ::vector <int>  array) {
      this->time = tm;
 }
 
-void BubbleSort::toString() {
-    qDebug() << "\n耗时: " << this->time  << "交换次数" << this->swapCount << "循环次数" <<this->runCount;
-}
-
