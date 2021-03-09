@@ -11,8 +11,10 @@ SOURCES += \
         bubblesort.cpp \
         bubblesort1.cpp \
         bubblesort2.cpp \
+        insertsort.cpp \
         main.cpp \
         randomint.cpp \
+        selectionsort.cpp \
         sort.cpp
 
 # Default rules for deployment.
@@ -24,5 +26,7 @@ HEADERS += \
     bubblesort.h \
     bubblesort1.h \
     bubblesort2.h \
+    insertsort.h \
     randomint.h \
+    selectionsort.h \
     sort.h

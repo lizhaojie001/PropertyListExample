@@ -7,7 +7,11 @@ class BubbleSort : public Sort
 {
 public:
     BubbleSort();
-    void toString() override;
+    virtual ~BubbleSort() ;
+    virtual std::string getName() override {return "BubbleSort";};
+    public:
+    void sort(std::vector <int>&) override;
+//    void toString() override;
 };
 
 

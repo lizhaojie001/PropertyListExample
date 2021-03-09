@@ -9,7 +9,7 @@ std::vector <int>RandomInt::randomInt(int num , int start , int end) {
       std::vector <int > array ;
       srand((unsigned)time(NULL));
       for (int i = 0; i < num ; i++ ) {
-          int a  = rand()%(end-start) + start;
+          int a  = arc4random ()%(end-start) + start;
           array.push_back(a);
       }
       return array;
