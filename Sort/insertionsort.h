@@ -1,6 +1,6 @@
 #ifndef INSERTIONSORT_H
 #define INSERTIONSORT_H
-
+#include "sort_template.h"
 #include "sort.h"
 #include <QDebug>
 class InsertionSort : public Sort
@@ -11,12 +11,12 @@ private:
 int compare(int a , int b ) {
     return a - b;
 }
-void swap(int index1, int index2 , std::vector <int> &array){
-                    int temp = array[index1];
-                    array[index1] = array[index2];
-                    array[index2] = temp;
-                    swapCount++;
- }
+//void swap(int index1, int index2 , std::vector <int> &array){
+//                    int temp = array[index1];
+//                    array[index1] = array[index2];
+//                    array[index2] = temp;
+//                    swapCount++;
+// }
 
 
 
@@ -31,7 +31,8 @@ public:
             int value = array[begin];
              while  (begin > 0 && (compare(array[begin] ,array[begin-1] ) < 0))
             {
-                         swap(begin,begin-1,array);
+
+                         Swap (array[begin],array[begin-1]);
                          begin = begin-1;
                          runCount++;
             }

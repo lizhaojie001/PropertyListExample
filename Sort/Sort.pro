@@ -33,4 +33,5 @@ HEADERS += \
     insertionsort2.h \
     randomint.h \
     selectionsort.h \
-    sort.h
+    sort.h \
+    sort_template.h

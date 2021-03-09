@@ -15,10 +15,10 @@ void Sort::toString() {
 
 
 
-void Sort::swap(int a, int b) {
-      int temp = (*array)[a];
-       (*array)[a] = (*array)[b];
-      (*array)[b] = temp;
-      swapCount++;
+//void Sort::swap(int a, int b) {
+//      int temp = (*array)[a];
+//       (*array)[a] = (*array)[b];
+//      (*array)[b] = temp;
+//      swapCount++;
 
-}
+//}

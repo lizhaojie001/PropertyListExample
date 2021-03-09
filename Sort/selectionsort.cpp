@@ -1,5 +1,6 @@
 #include "selectionsort.h"
 #include <QDebug>
+#include "sort_template.h"
 SelectionSort::SelectionSort()
 {
 
@@ -21,7 +22,7 @@ void SelectionSort::sort (std::vector <int> &array) {
                   }
                   runCount++;
               }
-                  swap (max,end);
+                  Swap (array[max],array[end]);
 
           }
           std::time_t t1 = std::time(0);  // t is an integer type

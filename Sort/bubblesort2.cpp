@@ -1,5 +1,6 @@
 #include "bubblesort2.h"
 #include <QDebug>
+#include "sort_template.h"
 BubbleSort2::BubbleSort2()
 {
 
@@ -12,7 +13,7 @@ void BubbleSort2::sort(std::vector <int>& array) {
         int last = -1;
         for (int index = 1; index <= end ; index++) {
             if (array[index] <=array[index-1]) {
-               swap (index,index-1);
+               Swap (array[index],array[ index-1]);
                 last = index;
             }
             runCount++;

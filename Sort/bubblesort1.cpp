@@ -1,6 +1,6 @@
 #include "bubblesort1.h"
 #include <QDebug>
-
+#include <sort_template.h>
 
 void BubbleSort1::sort(std::vector <int>& array) {
     this->array = &array;
@@ -11,7 +11,7 @@ void BubbleSort1::sort(std::vector <int>& array) {
         bool sort = true;
         for (int index = 1; index <= end ; index++) {
             if (array[index] <=array[index-1]) {
-               swap (index ,index-1);
+               Swap (array[index] , array[index-1]);
                 sort = false;
              }
             runCount ++;
