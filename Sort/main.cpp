@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
      RandomInt rand ;
-     std::vector<int>  array =  rand.randomInt(100,0,200);
+     std::vector<int>  array =  rand.randomInt(102,0,200);
      array.push_back (2001);
      array.push_back (2002);
      array.push_back (2003);
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
      array2.assign (array.begin (), array.end ());
      auto array3 = array;
      array3.assign (array.begin (), array.end ());
-    qDebug() << array << array1 << array2 << "\n";
+    qDebug() << array <<"\t"<< array1 << "\t" << array2 << "\n";
 
      BubbleSort sort;
      sort.sort(array);
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     sort2.toString();
 
     SelectionSort sort3;
-   sort3.sort(array2);
+   sort3.sort(array3);
    sort3.toString();
 
     return a.exec();
