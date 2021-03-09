@@ -6,6 +6,8 @@
 #include <bubblesort2.h>
  #include "selectionsort.h"
 #include "insertionsort.h"
+#include "binaryserach.h"
+#include "insertionsort2.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -29,6 +31,9 @@ int main(int argc, char *argv[])
 
      auto array4 = array;
      array4.assign (array.begin (), array.end ());
+
+     auto array5 = array;
+     array5.assign (array.begin (), array.end ());
     qDebug() << array <<"\t"<< array1 << "\t" << array2 << "\n";
 
      BubbleSort sort;
@@ -48,5 +53,15 @@ int main(int argc, char *argv[])
    InsertionSort sort4;
    sort4.sort (array4);
    sort4.toString ();
+
+   BinarySerach serach;
+   int index = serach.indexOf (20,array4);
+   qInfo("索引: %d",index);
+
+   InsertionSort2 sort5;
+    sort5.sort (array5);
+    sort5.toString ();
+
+    qDebug() << "exe.end";
     return a.exec();
 }

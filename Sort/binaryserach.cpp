@@ -9,17 +9,18 @@ BinarySerach::BinarySerach(QObject *parent) : QObject(parent)
       int size = array.size();
       int begin = 0;
       int end = size;
-        while (begin < end ) {
-          int mid = (end+begin) >>1+ 1;
-           if (value >= array[mid]) {
-                  begin = mid;
-           } else {
+        while (begin < end  ) {
+          int mid = (end+begin)>>1;
+          qDebug() << begin << mid << end;
+           if (value >array[mid]) {
+                  begin = mid + 1;
+           } else if( value < array[mid]){
                   end = mid;
+           } else {
+               return mid;
            }
        }
-       if (value == array[begin]) {
-           return begin;
-       }
+
 
        return -1;
 

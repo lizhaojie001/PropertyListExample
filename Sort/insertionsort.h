@@ -22,6 +22,7 @@ void swap(int index1, int index2 , std::vector <int> &array){
 
 public:
     InsertionSort();
+    ~InsertionSort(){};
     void sort(std::vector<int> &array) override {
         runCount =0;
         swapCount = 0;
