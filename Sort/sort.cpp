@@ -1,7 +1,8 @@
 #include "sort.h"
 //#include <vector>
 #include <QDebug>
-using namespace std;
+ using namespace std;
+
 Sort::Sort(QObject *parent) : QObject(parent)
 {
 
@@ -19,4 +20,5 @@ void Sort::swap(int a, int b) {
        (*array)[a] = (*array)[b];
       (*array)[b] = temp;
       swapCount++;
+
 }

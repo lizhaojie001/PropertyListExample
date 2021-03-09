@@ -19,7 +19,6 @@ protected:
     void swap(int a , int b )    ;
 public:
      void toString();
-
 };
 
 #endif // SORT_H

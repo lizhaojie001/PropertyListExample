@@ -4,7 +4,8 @@
 #include <bubblesort.h>
 #include <bubblesort1.h>
 #include <bubblesort2.h>
-#include "selectionsort.h"
+ #include "selectionsort.h"
+#include "insertionsort.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -25,6 +26,9 @@ int main(int argc, char *argv[])
      array2.assign (array.begin (), array.end ());
      auto array3 = array;
      array3.assign (array.begin (), array.end ());
+
+     auto array4 = array;
+     array4.assign (array.begin (), array.end ());
     qDebug() << array <<"\t"<< array1 << "\t" << array2 << "\n";
 
      BubbleSort sort;
@@ -41,5 +45,8 @@ int main(int argc, char *argv[])
    sort3.sort(array3);
    sort3.toString();
 
+   InsertionSort sort4;
+   sort4.sort (array4);
+   sort4.toString ();
     return a.exec();
 }

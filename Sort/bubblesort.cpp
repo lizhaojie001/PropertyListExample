@@ -24,13 +24,3 @@ void BubbleSort:: sort(std ::vector <int> & array) {
     qDebug() << "\n" << array;
 
 }
-
-
-
-//void BubbleSort::toString() {
-//    qDebug()<<0<< "耗时: " << this->time  << "交换次数" << this->swapCount << "循环次数" <<this->runCount;
-//}
-
-BubbleSort:: ~BubbleSort ()  {
-
-}
