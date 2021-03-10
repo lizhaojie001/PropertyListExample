@@ -2,11 +2,12 @@
 #define BUBBLESORT_H
 
 #include "sort.h"
-
+#include <vector>
 class BubbleSort : public Sort
 {
 public:
     BubbleSort();
+    BubbleSort(std::vector <int> & array) : Sort(array){};
     virtual ~BubbleSort(){} ;
     virtual std::string getName() override {return "BubbleSort";};
     public:

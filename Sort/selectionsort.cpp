@@ -11,7 +11,6 @@ void SelectionSort::sort (std::vector <int> &array) {
     std::time_t t = std::time(0);  // t is an integer type
       runCount=0;
       swapCount = 0;
-        this->array =& array;
       qDebug() << array;
           int size = array.size ();
           for (int end = size - 1 ; end > 0 ; end-- ) {

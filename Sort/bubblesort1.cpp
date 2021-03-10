@@ -3,8 +3,6 @@
 #include <sort_template.h>
 
 void BubbleSort1::sort(std::vector <int>& array) {
-    this->array = &array;
-
     std::time_t t = std::time(0);  // t is an integer type
     int size = array.size();
     for (int end = size -1; end >0 ;  end--) {

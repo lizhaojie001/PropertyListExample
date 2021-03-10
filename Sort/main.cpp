@@ -34,11 +34,10 @@ int main(int argc, char *argv[])
 
      auto array5 = array;
      array5.assign (array.begin (), array.end ());
-    qDebug() << array <<"\t"<< array1 << "\t" << array2 << "\n";
 
-     BubbleSort sort;
-     sort.sort(array);
-     sort.toString();
+     BubbleSort * sort = new BubbleSort(array);
+     sort->sort(array);
+     sort->toString ();
      BubbleSort1 sort1;
      sort1.sort(array1);
      sort1.toString();
