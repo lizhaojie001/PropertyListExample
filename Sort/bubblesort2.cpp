@@ -27,3 +27,6 @@ void BubbleSort2::sort(std::vector <int>& array) {
 
 }
 
+void BubbleSort2::sort(){
+    sort(theArray);
+}

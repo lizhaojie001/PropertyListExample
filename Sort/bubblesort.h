@@ -12,7 +12,7 @@ public:
     virtual std::string getName() override {return "BubbleSort";};
     public:
     void sort(std::vector <int>&) override;
-
+    void sort() override ;
 };
 
 

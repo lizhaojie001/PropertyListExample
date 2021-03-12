@@ -9,9 +9,12 @@ public:
     SelectionSort();
     virtual ~SelectionSort(){};
     virtual std::string getName() override {return "SelectionSort";};
+    SelectionSort(std::vector <int> & array) : Sort(array){};
 
 public:
     void sort(std::vector<int> &) override;
+    void sort() override;
+
 };
 
 #endif // SELECTIONSORT_H

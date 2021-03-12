@@ -36,30 +36,29 @@ int main(int argc, char *argv[])
      array5.assign (array.begin (), array.end ());
 
      BubbleSort * sort = new BubbleSort(array);
-     sort->sort(array);
-     sort->toString ();
-     BubbleSort1 sort1;
-     sort1.sort(array1);
-     sort1.toString();
-     BubbleSort2 sort2;
-    sort2.sort(array2);
-    sort2.toString();
+     sort->sort ();
+     BubbleSort1* sort1 = new BubbleSort1(array1);
+     sort1->sort ();
+     sort1->toString ();
+     BubbleSort2 * sort2 = new BubbleSort2(array2);
+    sort2->sort ();
+    sort2->toString ();
 
-    SelectionSort sort3;
-   sort3.sort(array3);
-   sort3.toString();
+    SelectionSort *sort3 = new SelectionSort(array3);
+   sort3->sort ();
+   sort3->toString ();
 
-   InsertionSort sort4;
-   sort4.sort (array4);
-   sort4.toString ();
+   InsertionSort * sort4 = new InsertionSort(array4);
+   sort4->sort ();
+   sort4->toString ();
 
    BinarySerach serach;
    int index = serach.indexOf (20,array4);
    qInfo("索引: %d",index);
 
-   InsertionSort2 sort5;
-    sort5.sort (array5);
-    sort5.toString ();
+   InsertionSort2 * sort5  = new InsertionSort2(array5);
+    sort5->sort ();
+    sort5->toString ();
 
     qDebug() << "exe.end";
     return a.exec();

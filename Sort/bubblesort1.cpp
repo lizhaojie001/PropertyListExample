@@ -25,4 +25,6 @@ void BubbleSort1::sort(std::vector <int>& array) {
 
 }
 
-
+void BubbleSort1::sort(){
+    sort(theArray);
+}

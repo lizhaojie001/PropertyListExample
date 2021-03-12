@@ -7,6 +7,9 @@ SelectionSort::SelectionSort()
 }
 
 
+void SelectionSort::sort(){
+    sort(theArray);
+}
 void SelectionSort::sort (std::vector <int> &array) {
     std::time_t t = std::time(0);  // t is an integer type
       runCount=0;

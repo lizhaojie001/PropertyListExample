@@ -29,3 +29,6 @@ void InsertionSort::sort(std::vector<int> &array)
 }
 
 
+void InsertionSort::sort(){
+    sort(theArray);
+}

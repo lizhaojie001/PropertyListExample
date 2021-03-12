@@ -10,10 +10,12 @@ public:
     virtual ~BubbleSort1 (){} ;
     virtual std::string getName() override {return "BubbleSort1";};
 
-
+    //BubbleSort1(std::vector <int> & array)  = Sort::Sort(std::vector <int> & array);
+    using  Sort::Sort ;
 
 public:
     void sort(std::vector <int>&) override;
+    void sort() override;
 //    void toString() override;
 
 private:

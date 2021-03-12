@@ -7,7 +7,7 @@ BubbleSort::BubbleSort()
 }
 
 void BubbleSort::sort(){
-
+    sort(theArray);
 }
 
 void BubbleSort:: sort(std ::vector <int> & array) {

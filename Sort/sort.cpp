@@ -18,7 +18,7 @@ void Sort::toString() {
 }
 
 void Sort::sort(){
-
+            toString ();
 }
 
 

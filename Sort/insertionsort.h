@@ -12,7 +12,11 @@ class InsertionSort : public Sort
 public:
     InsertionSort();
     ~InsertionSort(){};
+    InsertionSort(std::vector <int> & array) : Sort(array){};
+
+public:
     void sort(std::vector<int> &array) override ;
+    void sort() override;
 
     std::string getName() override {
          return typeid (this).name();

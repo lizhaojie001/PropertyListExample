@@ -22,10 +22,12 @@ void InsertionSort2::sort(std::vector<int> & array) {
         }
         array[index] = value;
     }
-    qDebug() << array;
 }
 
 
+void InsertionSort2::sort(){
+    sort(theArray);
+}
 
 /*
   * author : YanQing
