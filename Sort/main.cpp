@@ -8,6 +8,7 @@
 #include "insertionsort.h"
 #include "binaryserach.h"
 #include "insertionsort2.h"
+#include "mergesort.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -35,6 +36,9 @@ int main(int argc, char *argv[])
      auto array5 = array;
      array5.assign (array.begin (), array.end ());
 
+     auto array6 = array;
+     array6.assign (array.begin (), array.end ());
+
      BubbleSort * sort = new BubbleSort(array);
      sort->sort ();
      BubbleSort1* sort1 = new BubbleSort1(array1);
@@ -60,6 +64,9 @@ int main(int argc, char *argv[])
     sort5->sort ();
     sort5->toString ();
 
+    MergeSort * sort6 = new MergeSort(array6);
+    sort6->sort();
+    sort6->toString();
     qDebug() << "exe.end";
     return a.exec();
 }
