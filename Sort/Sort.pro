@@ -14,6 +14,7 @@ SOURCES += \
         bubblesort2.cpp \
         insertionsort.cpp \
         insertionsort2.cpp \
+        quicksort.cpp\
         main.cpp \
         mergesort.cpp \
         randomint.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     bubblesort2.h \
     insertionsort.h \
     insertionsort2.h \
+    quicksort.h\
     mergesort.h \
     randomint.h \
     selectionsort.h \

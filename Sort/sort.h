@@ -21,7 +21,7 @@ public:
 protected:
      std::vector<int> theArray;
      virtual void sort( std::vector<int> &) = 0;
-     virtual void sort();
+     virtual void sort() = 0;
 //     void swap(int a , int b )    ;
 public:
      void toString();

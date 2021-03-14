@@ -9,6 +9,7 @@
 #include "binaryserach.h"
 #include "insertionsort2.h"
 #include "mergesort.h"
+#include "quicksort.h"
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
