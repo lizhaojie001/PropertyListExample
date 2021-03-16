@@ -40,6 +40,9 @@ int main(int argc, char *argv[])
      auto array6 = array;
      array6.assign (array.begin (), array.end ());
 
+     auto array7 = array;
+     array7.assign (array.begin (), array.end ());
+
      BubbleSort * sort = new BubbleSort(array);
      sort->sort ();
      BubbleSort1* sort1 = new BubbleSort1(array1);
@@ -68,6 +71,13 @@ int main(int argc, char *argv[])
     MergeSort * sort6 = new MergeSort(array6);
     sort6->sort();
     sort6->toString();
-    qDebug() << "exe.end";
+
+
+    QuickSort * sort7 = new QuickSort(array7);
+    sort7->sort ();
+    sort7->toString ();
+
+
+        qDebug() << "exe.end";
     return a.exec();
 }
