@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52D6DAA626A413730023FB59 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52D6DAA526A413730023FB59 /* main.cpp */; };
+		52CD703026AD6667001BECC9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52D6DAA526A413730023FB59 /* main.cpp */; };
 		52D6DAC226A416FA0023FB59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAC026A416FA0023FB59 /* libglfw3.a */; };
 		52D6DAD426A41C680023FB59 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAD326A41C680023FB59 /* CoreFoundation.framework */; };
 		52D6DAD726A41C920023FB59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAD626A41C920023FB59 /* CoreGraphics.framework */; };
@@ -43,6 +43,7 @@
 		52D6DAF826A41FF40023FB59 /* glad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		52D6DAFA26A4207F0023FB59 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		52D6DAFE26A4FBF40023FB59 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		52D6DB0126A5BC660023FB59 /* EBO_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EBO_main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 				52D6DABF26A416FA0023FB59 /* lib-universal */,
 				52D6DAB026A414D60023FB59 /* include */,
 				52D6DAA526A413730023FB59 /* main.cpp */,
+				52D6DB0126A5BC660023FB59 /* EBO_main.cpp */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -202,8 +204,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D6DAA626A413730023FB59 /* main.cpp in Sources */,
 				52D6DAFB26A4207F0023FB59 /* glad.c in Sources */,
+				52CD703026AD6667001BECC9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
