@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='macos'>
+<playground version='6.0' target-platform='macos' display-mode='raw'>
     <pages>
         <page name='符串是否匹配'/>
         <page name='练习判断回文'/>
@@ -13,5 +13,7 @@
         <page name='21. 合并两个有序链表'/>
         <page name='19. 删除链表的倒数第N个节点'/>
         <page name='动态数组'/>
+        <page name='排序'/>
+        <page name='剑指 Offer II 003. 前 n 个数字二进制中 1 的个数'/>
     </pages>
 </playground>
