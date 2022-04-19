@@ -1,0 +1,15 @@
+debug/binaryserach.o
+debug/bubblesort.o
+debug/bubblesort1.o
+debug/bubblesort2.o
+debug/insertionsort.o
+debug/insertionsort2.o
+debug/quicksort.o
+debug/main.o
+debug/mergesort.o
+debug/randomint.o
+debug/selectionsort.o
+debug/sort.o
+debug/moc_binaryserach.o
+debug/moc_randomint.o
+debug/moc_sort.o
