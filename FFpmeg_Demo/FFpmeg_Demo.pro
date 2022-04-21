@@ -19,25 +19,36 @@ FORMS += \
     mainwindow.ui
 
 macx {
-        LIBS+= -L $$PWD$$/ffmpeg/mac/lib/  -lavcodec \
-        -lavfilter \
-        -lavformat \
-        -lavutil \
-        -lfdk-aac \
-        -lpostproc \
-        -lswresample \
-        -lswscale \
-        -lx264
-    INCLUDEPATH +=$$PWD$$/ffmpeg/mac/include
-    DEPENDPATH +=$$PWD$$/ffmpeg/mac/include
+    FFMPEG_HOME=$$PWD$$/ffmpeg/mac
+
+    DEPENDPATH +=$${FFMPEG_HOME}/include
+
 }
 
 
 win32 {
+        FFMPEG_HOME=C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared
+
 
 }
+
+message($${FFMPEG_HOME})
+INCLUDEPATH +=$${FFMPEG_HOME}/include
+
+LIBS+= -L $${FFMPEG_HOME}/lib/  \
+        -lavcodec \
+        -lavdevice \
+        -lavfilter \
+        -lavformat \
+        -lavutil \
+        -lpostproc \
+        -lswscale \
+        -lswresample
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+
