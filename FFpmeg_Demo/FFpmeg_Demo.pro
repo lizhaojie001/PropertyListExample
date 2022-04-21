@@ -28,8 +28,6 @@ macx {
 
 win32 {
         FFMPEG_HOME=C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared
-
-
 }
 
 message($${FFMPEG_HOME})
