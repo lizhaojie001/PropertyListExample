@@ -21,8 +21,7 @@ FORMS += \
     mainwindow.ui
 
 macx {
-    FFMPEG_HOME=$$PWD$$/ffmpeg/mac
-
+    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/4.1.4_2
     DEPENDPATH +=$${FFMPEG_HOME}/include
 
 }

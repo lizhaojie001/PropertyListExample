@@ -1,4 +1,4 @@
-#include "audiothread.h"
+﻿#include "audiothread.h"
 #include  <QDebug>
 #include <QFile>
 extern "C" {
@@ -19,7 +19,7 @@ extern "C" {
     #define DEVICE_NAME "audio=麦克风 (Realtek High Definition Audio)"
 #else
     #define FMT_NAME "avfoundation"
-    #define DEVICE_NAME ":0"
+    #define DEVICE_NAME ":4"
 #endif
 
 
@@ -27,7 +27,7 @@ extern "C" {
 #ifdef Q_OS_WIN    // PCM文件的文件名
 #define FILENAME "E:/out.pcm"
 #else
-#define FILENAME "/Users/mj/Desktop/out.pcm"
+#define FILENAME "/Users/xdf_yanqing/Downloads/out.pcm"
 #endif
 
 // 从AVFormatContext中获取录音设备的相关参数
@@ -50,9 +50,14 @@ void showSpec(AVFormatContext *ctx) {
     qDebug() <<"av_get_bits_per_sample"<<av_get_bits_per_sample(params->codec_id);
 }
 
-AudioThread::AudioThread()
+AudioThread::AudioThread(QObject *parent):QThread(parent)
 {
 
+}
+
+AudioThread::~AudioThread()
+{
+    qDebug() << "销毁AudioThread";
 }
 
 void AudioThread::run()
@@ -89,9 +94,10 @@ void AudioThread::run()
 
     showSpec(ctx);
     // 暂时假定只采集50个数据包
-    int count = 50;
+    int count = 500;
     // 数据包
-    AVPacket *pkt = av_packet_alloc();while (count-- > 0) {
+    AVPacket *pkt = av_packet_alloc();
+    while (count-- > 0) {
         // 从设备中采集数据，返回值为0，代表采集数据成功
         ret = av_read_frame(ctx, pkt);
         if (ret == 0) {
