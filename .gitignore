@@ -70,4 +70,3 @@ fastlane/test_output
 build-*/
 *.pro.user*
 
-build-FFpmeg_Demo-Desktop_Qt_5_15_1_MinGW_64_bit-Debug
