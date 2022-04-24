@@ -23,6 +23,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     bool m_pNeedClose;
-   QPushButton *
+
 };
 #endif // MAINWINDOW_H

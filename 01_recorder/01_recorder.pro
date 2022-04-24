@@ -23,20 +23,22 @@ macx {
 }
 
 win32 {
-    FFMPEG_HOME=..
+        FFMPEG_HOME=C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared
 }
 
-INCLUDEPATH += $${FFMPEG_HOME}/include
-LIBS += -L $${FFMPEG_HOME}/lib \
+message($${FFMPEG_HOME})
+INCLUDEPATH +=$${FFMPEG_HOME}/include
+
+LIBS+= -L $${FFMPEG_HOME}/lib/  \
         -lavcodec \
-       -lavdevice \
-       -lavfilter \
-       -lavformat \
-       -lavutil \
-       -lpostproc \
-       -lswscale \
-       -lswresample \
-       -lavresample
+        -lavdevice \
+        -lavfilter \
+        -lavformat \
+        -lavutil \
+        -lpostproc \
+        -lswscale \
+        -lswresample
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

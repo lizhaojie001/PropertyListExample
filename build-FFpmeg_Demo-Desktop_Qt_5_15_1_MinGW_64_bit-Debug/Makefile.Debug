@@ -469,25 +469,29 @@ debug/main.o: ../FFpmeg_Demo/main.cpp ../FFpmeg_Demo/mainwindow.h \
 		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/qdesktopwidget.h \
 		../../../Qt/5.15.1/mingw81_64/include/QtGui/qguiapplication.h \
 		../../../Qt/5.15.1/mingw81_64/include/QtGui/qinputmethod.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/avcodec.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/samplefmt.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavdevice/avdevice.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavdevice/version.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/version.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/macros.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/log.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/avutil.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/common.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/attributes.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/macros.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/version.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/avconfig.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/mem.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/error.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/rational.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/mathematics.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/intfloat.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/log.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/pixfmt.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/opt.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/dict.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/samplefmt.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavformat/avformat.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/avcodec.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/buffer.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/cpu.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/channel_layout.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/dict.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/frame.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavutil/hwcontext.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/bsf.h \
@@ -496,7 +500,9 @@ debug/main.o: ../FFpmeg_Demo/main.cpp ../FFpmeg_Demo/mainwindow.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/packet.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/version.h \
 		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/codec.h \
-		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/codec_desc.h
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavcodec/codec_desc.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavformat/avio.h \
+		C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared/include/libavformat/version.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\FFpmeg_Demo\main.cpp
 
 debug/mainwindow.o: ../FFpmeg_Demo/mainwindow.cpp ../FFpmeg_Demo/mainwindow.h \
@@ -625,7 +631,12 @@ debug/mainwindow.o: ../FFpmeg_Demo/mainwindow.cpp ../FFpmeg_Demo/mainwindow.h \
 		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/qabstractbutton.h \
 		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/QStatusBar \
 		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/qstatusbar.h \
-		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/QWidget
+		../../../Qt/5.15.1/mingw81_64/include/QtWidgets/QWidget \
+		../FFpmeg_Demo/audiothread.h \
+		../../../Qt/5.15.1/mingw81_64/include/QtCore/QThread \
+		../../../Qt/5.15.1/mingw81_64/include/QtCore/qthread.h \
+		../../../Qt/5.15.1/mingw81_64/include/QtCore/qdeadlinetimer.h \
+		../../../Qt/5.15.1/mingw81_64/include/QtCore/qelapsedtimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\FFpmeg_Demo\mainwindow.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 

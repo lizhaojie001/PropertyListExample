@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
 }
 
@@ -21,16 +22,16 @@ void MainWindow::on_pushButton_clicked()
 {
     if (!m_pAudioThread) {
         m_pAudioThread = new AudioThread(this);
-    } else {
-        if (m_pAudioThread->isRunning ()) {
-            m_pAudioThread->exit ();
-        }
     }
-         m_pAudioThread->start ();
+        m_pAudioThread->start ();
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
-
+    if (m_pAudioThread) {
+//        m_pAudioThread->stop();
+        m_pAudioThread->requestInterruption();
+        m_pAudioThread = nullptr;
+    }
 }
 

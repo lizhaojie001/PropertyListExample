@@ -52,11 +52,15 @@ void showSpec(AVFormatContext *ctx) {
 
 AudioThread::AudioThread(QObject *parent):QThread(parent)
 {
+    connect(this,&AudioThread::finished,this,&AudioThread::deleteLater);
 
 }
 
 AudioThread::~AudioThread()
 {
+    requestInterruption();
+    quit();
+    wait();
     qDebug() << "销毁AudioThread";
 }
 
@@ -94,28 +98,27 @@ void AudioThread::run()
 
     showSpec(ctx);
     // 暂时假定只采集50个数据包
-    int count = 500;
     // 数据包
     AVPacket *pkt = av_packet_alloc();
-    while (count-- > 0) {
+    while ( !isInterruptionRequested() && av_read_frame(ctx, pkt) == 0) {
         // 从设备中采集数据，返回值为0，代表采集数据成功
-        ret = av_read_frame(ctx, pkt);
-        if (ret == 0) {
+        // 读取成功        // 将数据写入文件
+        file.write((const char *) pkt->data, pkt->size);
+//        if (ret == 0) {
 
-            // 读取成功        // 将数据写入文件
-            file.write((const char *) pkt->data, pkt->size);
-            // 释放资源
-            av_packet_unref(pkt);
-        } else if (ret == AVERROR(EAGAIN)) {
-            // 资源临时不可用
-            continue;
-        } else {
-            // 其他错误
-            char errbuf[1024];
-            av_strerror(ret, errbuf, sizeof (errbuf));
-            qDebug() << "av_read_frame error" << errbuf << ret;
-            break;
-        }
+
+//            // 释放资源
+//            av_packet_unref(pkt);
+//        } else if (ret == AVERROR(EAGAIN)) {
+//            // 资源临时不可用
+//            continue;
+//        } else {
+//            // 其他错误
+//            char errbuf[1024];
+//            av_strerror(ret, errbuf, sizeof (errbuf));
+//            qDebug() << "av_read_frame error" << errbuf << ret;
+//            break;
+//        }
     }
     // 关闭文件
     file.close();
@@ -126,7 +129,13 @@ void AudioThread::run()
     // 关闭设备
     avformat_close_input(&ctx);
 
+    qDebug() << "record end";
 
+}
+
+void AudioThread::stop()
+{
+       _stop = true;
 }
 
 
