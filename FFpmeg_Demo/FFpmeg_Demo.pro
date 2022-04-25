@@ -8,6 +8,8 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+COMPANY=1
+
 SOURCES += \
     audiothread.cpp \
     main.cpp \
@@ -21,7 +23,9 @@ FORMS += \
     mainwindow.ui
 
 macx {
+!isEmpty(COMPANY) {
     FFMPEG_HOME=/usr/local/Cellar/ffmpeg/4.1.4_2
+}
     DEPENDPATH +=$${FFMPEG_HOME}/include
 
 }
