@@ -139,3 +139,11 @@ void AudioThread::stop()
 }
 
 
+//播放录制的PCM数据
+/* Mac
+ *使用自带麦克风录制数据播放命令:
+ *ffplay -sample_rate 48000 -channels 1 -f f32le  out.pcm
+ *
+ *Windows
+ *ffplay -ar 44100 -ac 2 -f s16le out.pcm
+ */
