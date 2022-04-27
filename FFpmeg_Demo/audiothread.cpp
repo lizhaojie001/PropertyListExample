@@ -16,7 +16,7 @@ extern "C" {
     // 格式名称
     #define FMT_NAME "dshow"
     // 设备名称
-    #define DEVICE_NAME "audio=麦克风 (Realtek High Definition Audio)"
+    #define DEVICE_NAME "audio=麦克风 (USBAudio2.0)"
 #else
     #define FMT_NAME "avfoundation"
     #define DEVICE_NAME ":4"
