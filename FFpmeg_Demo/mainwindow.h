@@ -1,6 +1,6 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QTimer>
 #include <QMainWindow>
 class AudioThread;
 QT_BEGIN_NAMESPACE
@@ -23,5 +23,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     AudioThread * m_pAudioThread;
+    int time = 0;
+    QTimer * m_pTimer = nullptr;
 };
 #endif // MAINWINDOW_H

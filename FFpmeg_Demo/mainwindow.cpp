@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "audiothread.h"
+#include <QTimer>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -32,7 +33,22 @@ void MainWindow::on_pushButton_clicked()
          });
         ui->pushButton->setEnabled(false);
         ui->pushButton_2->setEnabled(true);
+        if (m_pTimer) {
+         m_pTimer->stop();
+         m_pTimer = nullptr;
+        }
+        QTimer * timer = new QTimer(this);
+        timer->setInterval(1000);
+        connect(timer,&QTimer::timeout,this,[=](){
+            time += 1;
+
+            ui->LabTime->setText(QString::fromStdString(std::to_string(time)) + "s");
+        });
+        timer->start();
+        m_pTimer = timer;
 }
+
+
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -42,4 +58,5 @@ void MainWindow::on_pushButton_2_clicked()
 
     }
 }
+
 
