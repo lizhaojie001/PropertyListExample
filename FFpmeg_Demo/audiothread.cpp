@@ -58,6 +58,7 @@ AudioThread::AudioThread(QObject *parent):QThread(parent)
 
 AudioThread::~AudioThread()
 {
+    disconnect();
     requestInterruption();
     quit();
     wait();

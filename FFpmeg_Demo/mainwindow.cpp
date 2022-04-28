@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
      ui->setupUi(this);
+     ui->pushButton_2->setEnabled(false);
 
 }
 
@@ -24,14 +25,21 @@ void MainWindow::on_pushButton_clicked()
         m_pAudioThread = new AudioThread(this);
     }
         m_pAudioThread->start ();
+        connect(m_pAudioThread,&AudioThread::finished,[&](){
+            m_pAudioThread = nullptr;
+            ui->pushButton->setEnabled(true);
+            ui->pushButton_2->setEnabled(false);
+         });
+        ui->pushButton->setEnabled(false);
+        ui->pushButton_2->setEnabled(true);
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
     if (m_pAudioThread) {
-//        m_pAudioThread->stop();
         m_pAudioThread->requestInterruption();
         m_pAudioThread = nullptr;
+
     }
 }
 
