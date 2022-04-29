@@ -1,6 +1,7 @@
 ﻿#include "audiothread.h"
 #include  <QDebug>
 #include <QFile>
+#include <QTime>
 extern "C" {
 // 设备相关API
 #include <libavdevice/avdevice.h>
@@ -19,15 +20,16 @@ extern "C" {
     #define DEVICE_NAME "audio=麦克风 (USBAudio2.0)"
 #else
     #define FMT_NAME "avfoundation"
-    #define DEVICE_NAME ":4"
+//0 :公司电脑是多音频输入
+    #define DEVICE_NAME ":0"
 #endif
 
 
 
 #ifdef Q_OS_WIN    // PCM文件的文件名
-#define FILENAME "E:/out.pcm"
+#define FILENAME "E:/"
 #else
-#define FILENAME "/Users/xdf_yanqing/Downloads/out.pcm"
+#define FILENAME "/Users/xdf_yanqing/Downloads/"
 #endif
 
 // 从AVFormatContext中获取录音设备的相关参数
@@ -58,10 +60,11 @@ AudioThread::AudioThread(QObject *parent):QThread(parent)
 
 AudioThread::~AudioThread()
 {
-    disconnect();
+    disconnect ();
     requestInterruption();
     quit();
     wait();
+
     qDebug() << "销毁AudioThread";
 }
 
@@ -76,8 +79,15 @@ void AudioThread::run()
 
     // 格式上下文（后面通过格式上下文操作设备）
     AVFormatContext *ctx = nullptr;
+
+    AVDictionary *dict = nullptr;
+#ifdef __APPLE__
+//    av_dict_set(&dict,"simple_rate","48000",NULL);
+//    av_dict_set (&dict,"channels","1",NULL);
+//    av_dict_set (&dict,"format","f32le",NULL);
+#endif
     // 打开设备
-    int ret = avformat_open_input(&ctx, DEVICE_NAME, fmt, nullptr);
+    int ret = avformat_open_input(&ctx, DEVICE_NAME, fmt, &dict);
     // 如果打开设备失败
     if (ret < 0) {
         char errbuf[1024] = {0};
@@ -88,10 +98,13 @@ void AudioThread::run()
     }
 
     // 文件
-    QFile file(FILENAME);
+    std::string filename = FILENAME;
+    filename += QTime::currentTime ().toString ("HH_mm_ss").toStdString ();
+    filename += ".pcm";
+    QFile file(QString::fromStdString (filename));
     // WriteOnly：只写模式。如果文件不存在，就创建文件；如果文件存在，就删除文件内容
     if (!file.open(QFile::WriteOnly)) {
-        qDebug() << "文件打开失败" << FILENAME;
+        qDebug() << "文件打开失败" << QString::fromStdString (filename);
         // 关闭设备
         avformat_close_input(&ctx);
         return;
@@ -101,25 +114,24 @@ void AudioThread::run()
     // 暂时假定只采集50个数据包
     // 数据包
     AVPacket *pkt = av_packet_alloc();
-    while ( !isInterruptionRequested() && av_read_frame(ctx, pkt) == 0) {
+    while ( !isInterruptionRequested() ) {
+        ret = av_read_frame(ctx, pkt) ;
         // 从设备中采集数据，返回值为0，代表采集数据成功
         // 读取成功        // 将数据写入文件
-        file.write((const char *) pkt->data, pkt->size);
-//        if (ret == 0) {
-
-
-//            // 释放资源
-//            av_packet_unref(pkt);
-//        } else if (ret == AVERROR(EAGAIN)) {
-//            // 资源临时不可用
-//            continue;
-//        } else {
-//            // 其他错误
-//            char errbuf[1024];
-//            av_strerror(ret, errbuf, sizeof (errbuf));
-//            qDebug() << "av_read_frame error" << errbuf << ret;
-//            break;
-//        }
+        if (ret == 0) {
+            file.write((const char *) pkt->data, pkt->size);
+            // 释放资源
+            av_packet_unref(pkt);
+        } else if (ret == AVERROR(EAGAIN)) {
+            // 资源临时不可用
+            continue;
+        } else {
+            // 其他错误
+            char errbuf[1024];
+            av_strerror(ret, errbuf, sizeof (errbuf));
+            qDebug() << "av_read_frame error" << errbuf << ret;
+            break;
+        }
     }
     // 关闭文件
     file.close();
