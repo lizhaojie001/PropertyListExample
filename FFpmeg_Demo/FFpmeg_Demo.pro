@@ -23,10 +23,17 @@ FORMS += \
     mainwindow.ui
 
 macx {
-!isEmpty(COMPANY) {
+equals(COMPANY,"1") {
     FFMPEG_HOME=/usr/local/Cellar/ffmpeg/4.1.4_2
+    SDL=/usr/local/Cellar/sdl2/2.0.10
 }
+equals(COMPANY,"0") {
+    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/
+    SDL=/usr/local/Cellar/sdl2/2.0.10
+}
+
     DEPENDPATH +=$${FFMPEG_HOME}/include
+    DEPENDPATH +=$${SDL}/include
     QMAKE_INFO_PLIST= $$PWD$$/info.plist
 
 }
@@ -37,7 +44,9 @@ win32 {
 }
 
 message($${FFMPEG_HOME})
+message ($${SDL})
 INCLUDEPATH +=$${FFMPEG_HOME}/include
+
 
 LIBS+= -L $${FFMPEG_HOME}/lib/  \
         -lavcodec \
@@ -48,6 +57,9 @@ LIBS+= -L $${FFMPEG_HOME}/lib/  \
         -lpostproc \
         -lswscale \
         -lswresample
+
+INCLUDEPATH +=$${SDL}/include
+LIBS+= -L $${SDL}/lib  -lSDL2
 
 
 # Default rules for deployment.
