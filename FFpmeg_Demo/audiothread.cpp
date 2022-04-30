@@ -2,6 +2,7 @@
 #include  <QDebug>
 #include <QFile>
 #include <QTime>
+#include "CommonDefine.h"
 extern "C" {
 // 设备相关API
 #include <libavdevice/avdevice.h>
@@ -13,24 +14,6 @@ extern "C" {
 #include <libavcodec/avcodec.h>
 }
 
-#ifdef Q_OS_WIN
-    // 格式名称
-    #define FMT_NAME "dshow"
-    // 设备名称
-    #define DEVICE_NAME "audio=麦克风 (USBAudio2.0)"
-#else
-    #define FMT_NAME "avfoundation"
-//0 :公司电脑是多音频输入
-    #define DEVICE_NAME ":0"
-#endif
-
-
-
-#ifdef Q_OS_WIN    // PCM文件的文件名
-#define FILENAME "E:/"
-#else
-#define FILENAME "/Users/xdf_yanqing/Downloads/"
-#endif
 
 // 从AVFormatContext中获取录音设备的相关参数
 void showSpec(AVFormatContext *ctx) {
@@ -99,9 +82,9 @@ void AudioThread::run()
 
     // 文件
     std::string filename = FILENAME;
-    filename += QTime::currentTime ().toString ("HH_mm_ss").toStdString ();
-    filename += ".pcm";
-    QFile file(QString::fromStdString (filename));
+//    filename += QTime::currentTime ().toString ("HH_mm_ss").toStdString ();
+//    filename += ".pcm";
+    QFile file(FILENAME);
     // WriteOnly：只写模式。如果文件不存在，就创建文件；如果文件存在，就删除文件内容
     if (!file.open(QFile::WriteOnly)) {
         qDebug() << "文件打开失败" << QString::fromStdString (filename);

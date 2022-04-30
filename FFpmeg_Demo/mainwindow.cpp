@@ -2,10 +2,14 @@
 #include "ui_mainwindow.h"
 #include "audiothread.h"
 #include <QTimer>
+#include <QDebug>
+#include "playthread.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     ,m_pAudioThread(nullptr)
+    ,m_pPlayThread(nullptr)
 {
 
      ui->setupUi(this);
@@ -55,8 +59,19 @@ void MainWindow::on_pushButton_2_clicked()
     if (m_pAudioThread) {
         m_pAudioThread->requestInterruption();
         m_pAudioThread = nullptr;
-
+    }
+    if (m_pTimer) {
+        m_pTimer->stop();
+        m_pTimer->deleteLater();
+        m_pTimer = nullptr;
     }
 }
 
 
+void MainWindow::on_pushButton_3_clicked()
+{
+    if (!m_pPlayThread) {
+       m_pPlayThread = new PlayThread(this);
+    }
+    m_pPlayThread->start();
+}

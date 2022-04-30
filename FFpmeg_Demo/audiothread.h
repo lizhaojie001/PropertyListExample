@@ -3,6 +3,9 @@
 
 #include <QThread>
 
+
+
+
 class AudioThread : public QThread
 {
 public:
