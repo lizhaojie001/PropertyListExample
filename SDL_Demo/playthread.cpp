@@ -8,12 +8,12 @@ extern "C" {
 
 #ifdef Q_OS_WIN
 #define SIMPLERATE 44100
-#define SIMPLE_SIZE 16
+#define SIMPLE_FORMAT AUDIO_S16LSB
+#define SIMPLE_SIZE   SDL_AUDIO_BITSIZE(SIMPLE_FORMAT)
 #define CHANNELS  2
 #define SIMPLES 1024
 #define BYTES_PER_SIMPLE  (SIMPLE_SIZE * CHANNELS) / 8
 #define BUFFER_SIZE  (BYTES_PER_SIMPLE * SIMPLES)
-
 #else
 
 #endif
@@ -92,7 +92,7 @@ void PlayThread::run()
     //采样率
     spec.freq = SIMPLERATE;
     //采样格式
-    spec.format = AUDIO_S16LSB;
+    spec.format = SIMPLE_FORMAT;
     //声道数
     spec.channels = CHANNELS;
     //音频缓冲区样本数  值为2的n次幂
