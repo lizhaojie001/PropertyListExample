@@ -8,9 +8,12 @@ extern "C" {
 
 #ifdef Q_OS_WIN
 #define SIMPLERATE 44100
+#define SIMPLE_SIZE 16
 #define CHANNELS  2
-#define BUFFER_SIZE 4096
 #define SIMPLES 1024
+#define BYTES_PER_SIMPLE  (SIMPLE_SIZE * CHANNELS) / 8
+#define BUFFER_SIZE  (BYTES_PER_SIMPLE * SIMPLES)
+
 #else
 
 #endif
@@ -36,6 +39,7 @@ void pull_data_AudioCallback(void *userdata,
     if (buffer_length <= 0) {
         return;
     }
+    //防止指针越界
     len = (len >buffer_length ) ? buffer_length : len;
     //填充数据
     SDL_MixAudio(stream,(Uint8 *)buffer_data,len,SDL_MIX_MAXVOLUME);
@@ -115,15 +119,19 @@ void PlayThread::run()
     //从文件读取的数据
     char data[BUFFER_SIZE];
     while (!isInterruptionRequested()) {
+
+        if (buffer_length > 0) {
+            continue;
+        }
+
        int len = file.read(data,BUFFER_SIZE);
        buffer_length = len;
+       //文件读取完毕
        if (buffer_length <= 0) {
            break;
        }
        buffer_data = data;
-       while (buffer_length > 0) {
-           SDL_Delay(1);
-       }
+
 
     }
 
