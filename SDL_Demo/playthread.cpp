@@ -6,6 +6,9 @@ extern "C" {
     #include <SDL2/SDL.h>
 }
 
+
+
+
 #ifdef Q_OS_WIN
 #define SIMPLERATE 44100
 #define SIMPLE_FORMAT AUDIO_S16LSB
@@ -16,6 +19,26 @@ extern "C" {
 #define BUFFER_SIZE  (BYTES_PER_SIMPLE * SIMPLES)
 #else
 
+#ifdef HOME
+
+#define SIMPLERATE 48000
+#define SIMPLE_FORMAT AUDIO_F32LSB
+#define SIMPLE_SIZE   SDL_AUDIO_BITSIZE(SIMPLE_FORMAT)
+#define CHANNELS  1
+#define SIMPLES 1024
+#define BYTES_PER_SIMPLE  (SIMPLE_SIZE * CHANNELS) / 8
+#define BUFFER_SIZE  (BYTES_PER_SIMPLE * SIMPLES)
+#else
+
+#define SIMPLERATE 48000
+#define SIMPLE_FORMAT AUDIO_S32LSB
+#define SIMPLE_SIZE   SDL_AUDIO_BITSIZE(SIMPLE_FORMAT)
+#define CHANNELS  1
+#define SIMPLES 1024
+#define BYTES_PER_SIMPLE  (SIMPLE_SIZE * CHANNELS) / 8
+#define BUFFER_SIZE  (BYTES_PER_SIMPLE * SIMPLES)
+#endif
+
 #endif
 
 //全局变量默认会初始化
@@ -23,9 +46,9 @@ extern "C" {
 //char * buffer_data;
 
 typedef struct {
-    int len = 0;
-    char * data = nullptr;
-    int pullLen = 0;
+    int len ;
+    char * data ;
+    int pullLen ;
 } AudioBuffer;
 
 //子线程

@@ -8,7 +8,7 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-COMPANY=1
+COMPANY=0
 
 SOURCES += \
     audiothread.cpp \
@@ -28,11 +28,13 @@ FORMS += \
 macx {
 equals(COMPANY,"1") {
     FFMPEG_HOME=/usr/local/Cellar/ffmpeg/4.1.4_2
-    SDL=/usr/local/Cellar/sdl2/2.0.10
+    SDL_HOME=/usr/local/Cellar/sdl2/2.0.10
 }
 equals(COMPANY,"0") {
-    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/
-    SDL=/usr/local/Cellar/sdl2/2.0.10
+    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/5.0.1
+    SDL_HOME=/usr/local/Cellar/sdl2/2.0.22
+#   INCLUDEPATH += /Library/Frameworks/SDL2.framework/Headers
+#   LIBS += -F/Library/Frameworks/  -framework  SDL2
 }
 
     DEPENDPATH +=$${FFMPEG_HOME}/include
@@ -45,10 +47,12 @@ equals(COMPANY,"0") {
 win32 {
         FFMPEG_HOME=C:/Users/pc/Downloads/Compressed/ffmpeg-4.3.2-2021-02-27-full_build-shared
         SDL_HOME=D:/SDL2-devel-2.0.22-mingw/SDL2-2.0.22/x86_64-w64-mingw32
+
+
 }
 
 message($${FFMPEG_HOME})
-message ($${SDL_HOME})
+#message ($${SDL_HOME})
 INCLUDEPATH +=$${FFMPEG_HOME}/include
 
 

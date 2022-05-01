@@ -76,6 +76,7 @@ void MainWindow::on_pushButton_3_clicked()
        ui->pushButton_3->setText("停止播放");
        connect(m_pPlayThread,&PlayThread::finished,this,[=](){
           ui->pushButton_3->setText("播放");
+          m_pPlayThread = nullptr;
        });
     } else {
         m_pPlayThread->requestInterruption();
