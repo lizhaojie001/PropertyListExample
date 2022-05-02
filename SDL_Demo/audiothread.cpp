@@ -33,6 +33,8 @@ void showSpec(AVFormatContext *ctx) {
     qDebug() << "codec_id"<<params->codec_id;
     // 每一个样本的一个声道占用多少位（这个函数需要用到avcodec库）
     qDebug() <<"av_get_bits_per_sample"<<av_get_bits_per_sample(params->codec_id);
+
+
 }
 
 AudioThread::AudioThread(QObject *parent):QThread(parent)

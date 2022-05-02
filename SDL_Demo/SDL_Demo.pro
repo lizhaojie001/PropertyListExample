@@ -12,6 +12,7 @@ COMPANY=0
 
 SOURCES += \
     audiothread.cpp \
+    ffmpegs.cpp \
     main.cpp \
     mainwindow.cpp \
     playthread.cpp
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     CommonDefine.h \
     audiothread.h \
+    ffmpegs.h \
     mainwindow.h \
     playthread.h
 

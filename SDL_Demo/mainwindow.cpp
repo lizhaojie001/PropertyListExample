@@ -4,7 +4,8 @@
 #include <QTimer>
 #include <QDebug>
 #include "playthread.h"
-
+#include "ffmpegs.h"
+#include "CommonDefine.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -85,3 +86,15 @@ void MainWindow::on_pushButton_3_clicked()
         ui->pushButton_3->setText("播放");
     }
 }
+
+void MainWindow::on_pushButton_4_clicked()
+{
+        WAVHeader header;
+        header.NumChannels = 1;
+        header.SampleRate = 48000;
+        header.BitsPerSample = 32;
+
+
+        FFmpegs::pcm2wav(header,FILENAME,OUTWAVFILENAME);
+}
+
