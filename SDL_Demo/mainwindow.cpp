@@ -98,6 +98,8 @@ void MainWindow::on_pushButton_4_clicked()
         header.NumChannels = 1;
         header.SampleRate = 48000;
         header.BitsPerSample = 32;
+        header.AudioFormat = 3; //f32le 对应的格式是0x0003
+        //参考地址  http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html
 #endif
 
         FFmpegs::pcm2wav(header,FILENAME,OUTWAVFILENAME);
