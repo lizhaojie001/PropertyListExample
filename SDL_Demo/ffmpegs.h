@@ -2,7 +2,7 @@
 #define FFMPEGS_H
 #include <QObject>
 
-#define AUDIO_PCM_FORMAT 3
+#define AUDIO_PCM_FORMAT 1
 struct WAVHeader {
        uint8_t ChunkID[4] = { 'R','I','F','F'};
        uint32_t ChunkSize;

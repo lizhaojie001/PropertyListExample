@@ -90,10 +90,15 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
         WAVHeader header;
+#ifdef Q_OS_WIN
+        header.NumChannels = 2;
+        header.SampleRate = 44100;
+        header.BitsPerSample = 16;
+#else
         header.NumChannels = 1;
         header.SampleRate = 48000;
         header.BitsPerSample = 32;
-
+#endif
 
         FFmpegs::pcm2wav(header,FILENAME,OUTWAVFILENAME);
 }
