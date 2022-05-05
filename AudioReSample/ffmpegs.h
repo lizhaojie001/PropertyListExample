@@ -1,7 +1,13 @@
 #ifndef FFMPEGS_H
 #define FFMPEGS_H
 #include <QObject>
-
+#include <QDebug>
+#include "CommonDefine.h"
+#include <QFile>
+extern "C" {
+#include <libavutil/avutil.h>
+#include <libswresample/swresample.h>
+}
 #define AUDIO_PCM_FORMAT 1
 struct WAVHeader {
        uint8_t ChunkID[4] = { 'R','I','F','F'};
@@ -27,11 +33,21 @@ struct WAVHeader {
 };
 
 
+struct ResampleAudioSpec
+{
+    std::string filename;
+    int  chLayout;
+    int sample_rate;
+   AVSampleFormat  sample_format;
+};
+
 class FFmpegs : public QObject
 {
 public:
     explicit FFmpegs(QObject *parent = nullptr);
     static void pcm2wav(WAVHeader &header , const char * pcmFilename , const char * wavFilename);
+
+    static void resampleAudio(ResampleAudioSpec in, ResampleAudioSpec out);
 signals:
 
 };
