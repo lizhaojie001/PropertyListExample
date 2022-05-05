@@ -24,13 +24,32 @@ AudioReSampleThread::~AudioReSampleThread()
 void AudioReSampleThread::run()
 {
 
-    QString outFilename = "/Users/macbookpro/Downloads/out_44100_s16le_1.pcm";
+    QString outFilename = OUTPCMFILENAME;
     QFile out_file(outFilename);
     QString intFilename = FILENAME;
     QFile in_file(intFilename);
+#ifdef Q_OS_WIN
+    int out_ch_layout = AV_CH_LAYOUT_MONO;
+    AVSampleFormat out_sample_format  = AV_SAMPLE_FMT_FLT;
+    int out_sample_rate = 48000;
 
+    uint8_t ** out_audio_data = nullptr;
+    int out_linesize = 0;
+    int out_nb_channels = av_get_channel_layout_nb_channels(out_ch_layout);
+    int out_nb_samples = 1024;
+    int out_align = 1;
 
+    int in_ch_layout = AV_CH_LAYOUT_STEREO;
+    AVSampleFormat in_sample_format = AV_SAMPLE_FMT_S16;
+    int in_sample_rate = 44100;
+    int out_bytes_per_sample = av_get_bytes_per_sample(out_sample_format) * out_nb_channels;
+    uint8_t ** in_audio_data = nullptr;
+    int in_linesize = 0;
+    int in_nb_channels = av_get_channel_layout_nb_channels(in_ch_layout);
+    int in_nb_samples = 1024;
+    int in_align = 1;
 
+#else
 
      //创建上下文
     int out_ch_layout = AV_CH_LAYOUT_MONO;
@@ -52,6 +71,7 @@ void AudioReSampleThread::run()
     int in_nb_channels = av_get_channel_layout_nb_channels(in_ch_layout);
     int in_nb_samples = 1024;
     int in_align = 1;
+#endif
 
     SwrContext  *cxt = swr_alloc_set_opts(nullptr,
                                           out_ch_layout,
@@ -65,7 +85,6 @@ void AudioReSampleThread::run()
 
      int ret = 0;
      int len = 0;
-     char data_buffer[1024];
 
     if(!cxt) {
         qDebug() << "swr_alloc_set_opts error";
