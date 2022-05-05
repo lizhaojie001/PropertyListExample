@@ -150,8 +150,14 @@ void AudioReSampleThread::run()
      //资源释放
      out_file.close();
      in_file.close();
-     av_freep(&out_audio_data[0]);
-     av_freep(&in_audio_data[0]);
+     if(out_audio_data){
+      av_freep(&out_audio_data[0]);
+     }
+     av_freep(&out_audio_data);
+     if (in_audio_data) {
+             av_freep(&in_audio_data[0]);
+     }
+    av_freep(&in_audio_data);
      swr_free(&cxt);
 
 }
