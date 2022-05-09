@@ -23,13 +23,24 @@ AudioReSampleThread::~AudioReSampleThread()
 void AudioReSampleThread::run()
 {
 
-    std::string inFilename =  "E:/out.pcm";;
+#ifdef Q_OS_WIN
+    std::string prefFile = "E:/";
+    std::string inFilename =  "E:/out.pcm";
     int in_ch_layout = AV_CH_LAYOUT_STEREO;
     AVSampleFormat in_sample_format = AV_SAMPLE_FMT_S16;
     int in_sample_rate = 44100;
     ResampleAudioSpec in = {inFilename,in_ch_layout,in_sample_rate,in_sample_format };
+#else
+    std::string prefFile = "/Users/macbookpro/Downloads/";
+    std::string inFilename =  prefFile + "out.pcm";
+    int in_ch_layout = AV_CH_LAYOUT_MONO;
+    AVSampleFormat in_sample_format = AV_SAMPLE_FMT_FLT;
+    int in_sample_rate = 48000;
+    ResampleAudioSpec in = {inFilename,in_ch_layout,in_sample_rate,in_sample_format };
+#endif
 
-    std::string outFilename = "E:/out_1_f32le_48000.pcm";
+
+    std::string outFilename = prefFile + "out_1_f32le_48000.pcm";
     int out_ch_layout = AV_CH_LAYOUT_MONO;
     AVSampleFormat out_sample_format  = AV_SAMPLE_FMT_FLT;
     int out_sample_rate = 48000;
@@ -39,14 +50,15 @@ void AudioReSampleThread::run()
     FFmpegs::resampleAudio(in,out);
 
 
-    std::string out1Filename = "E:/out_1_s32le_48000.pcm";
+
+    std::string out1Filename = prefFile + "out_1_s32le_48000.pcm";
     int out1_ch_layout = AV_CH_LAYOUT_MONO;
     AVSampleFormat out1_sample_format  = AV_SAMPLE_FMT_S32;
     int out1_sample_rate = 48000;
     ResampleAudioSpec out1= {out1Filename,out1_ch_layout,out1_sample_rate,out1_sample_format };
     FFmpegs::resampleAudio(out,out1);
 
-    std::string in1Filename =  "E:/out_new.pcm";;
+    std::string in1Filename = prefFile + "out_2_s16le_44100.pcm";;
     int in1_ch_layout = AV_CH_LAYOUT_STEREO;
     AVSampleFormat in1_sample_format = AV_SAMPLE_FMT_S16;
     int in1_sample_rate = 44100;

@@ -68,23 +68,18 @@ void FFmpegs::resampleAudio(ResampleAudioSpec in, ResampleAudioSpec out)
 #else
 
      //创建上下文
-    int out_ch_layout = AV_CH_LAYOUT_MONO;
-    AVSampleFormat out_sample_format  = AV_SAMPLE_FMT_S16;
-    int out_sample_rate = 44100;
+
 
     uint8_t ** out_audio_data = nullptr;
     int out_linesize = 0;
-    int out_nb_channels = av_get_channel_layout_nb_channels(out_ch_layout);
+    int out_nb_channels = av_get_channel_layout_nb_channels(out.chLayout);
 
     int out_align = 1;
 
-    int in_ch_layout = AV_CH_LAYOUT_MONO;
-    AVSampleFormat in_sample_format = AV_SAMPLE_FMT_FLT;
-    int in_sample_rate = 48000;
-    int out_bytes_per_sample = av_get_bytes_per_sample(out_sample_format) * out_nb_channels;
+    int out_bytes_per_sample = av_get_bytes_per_sample(out.sample_format) * out_nb_channels;
     uint8_t ** in_audio_data = nullptr;
     int in_linesize = 0;
-    int in_nb_channels = av_get_channel_layout_nb_channels(in_ch_layout);
+    int in_nb_channels = av_get_channel_layout_nb_channels(in.chLayout);
     int in_nb_samples = 1024;
     int in_align = 1;
 #endif
@@ -148,8 +143,9 @@ void FFmpegs::resampleAudio(ResampleAudioSpec in, ResampleAudioSpec out)
      }
 
      while ((len = in_file.read((char *)in_audio_data[0],in_linesize)) > 0) {
+         //实际读取的长度
          int in_count = len / (av_get_bytes_per_sample(in.sample_format) * in_nb_channels);
-         //放回采样数量
+         //返回采样数量
          ret = swr_convert(cxt,out_audio_data,out_nb_samples,
                            (const uint8_t**)in_audio_data,in_count);
          if(ret < 0) {
@@ -180,7 +176,7 @@ void FFmpegs::resampleAudio(ResampleAudioSpec in, ResampleAudioSpec out)
              av_freep(&in_audio_data[0]);
      }
     av_freep(&in_audio_data);
-     swr_free(&cxt);
+    swr_free(&cxt);
 
 }
 
