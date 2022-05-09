@@ -9,7 +9,7 @@ FFmpegs::FFmpegs(QObject *parent)
 
 void FFmpegs::pcm2wav(WAVHeader &header, const char *pcmFilename, const char *wavFilename)
 {
-    header.BlockAlign = header.SampleRate * header.NumChannels * header.BitsPerSample >> 3;
+    header.BlockAlign = header.NumChannels * header.BitsPerSample >> 3;
     header.ByteRate = header.SampleRate * header.BlockAlign >> 3;
     //打开文件pcm
     QFile pcmFile(pcmFilename);
