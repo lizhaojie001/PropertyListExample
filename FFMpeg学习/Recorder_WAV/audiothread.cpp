@@ -40,7 +40,7 @@ void showSpec(AVFormatContext *ctx) {
 AudioThread::AudioThread(QObject *parent):QThread(parent)
 {
     connect(this,&AudioThread::finished,this,&AudioThread::deleteLater);
-
+    emit recoder_time_changed(0);
 }
 
 AudioThread::~AudioThread()
@@ -104,7 +104,9 @@ void AudioThread::run()
 
 //    写入头部数据
     WAVHeader header;
-    header.AudioFormat = 0x0003;
+    if(params->codec_id >= AV_CODEC_ID_PCM_F32BE){
+          header.AudioFormat = 0x0003;
+    }
     header.BitsPerSample = av_get_bits_per_sample(params->codec_id);
     header.SampleRate = params->sample_rate;
     header.NumChannels = params->channels;
@@ -125,6 +127,9 @@ void AudioThread::run()
             file.write((const char *) pkt->data, pkt->size);
             // 释放资源
             header.DatachunkSize += pkt->size;
+            //计算时间
+            unsigned long long time = 1000.0 * header.DatachunkSize / header.ByteRate;
+            emit recoder_time_changed(time);
             av_packet_unref(pkt);
         } else if (ret == AVERROR(EAGAIN)) {
             // 资源临时不可用

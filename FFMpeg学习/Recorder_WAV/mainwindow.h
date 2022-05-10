@@ -31,7 +31,6 @@ private:
     Ui::MainWindow *ui;
     AudioThread * m_pAudioThread;
     PlayThread * m_pPlayThread;
-    int time = 0;
-    QTimer * m_pTimer = nullptr;
+
 };
 #endif // MAINWINDOW_H

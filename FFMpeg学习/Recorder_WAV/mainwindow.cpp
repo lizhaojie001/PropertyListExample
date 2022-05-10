@@ -1,7 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "audiothread.h"
-#include <QTimer>
+#include <QTime>
 #include <QDebug>
 #include "playthread.h"
 #include "ffmpegs.h"
@@ -30,27 +30,23 @@ void MainWindow::on_pushButton_clicked()
     if (!m_pAudioThread) {
         m_pAudioThread = new AudioThread(this);
     }
-        m_pAudioThread->start ();
-        connect(m_pAudioThread,&AudioThread::finished,[&](){
-            m_pAudioThread = nullptr;
-            ui->pushButton->setEnabled(true);
-            ui->pushButton_2->setEnabled(false);
-         });
-        ui->pushButton->setEnabled(false);
-        ui->pushButton_2->setEnabled(true);
-        if (m_pTimer) {
-         m_pTimer->stop();
-         m_pTimer = nullptr;
-        }
-        QTimer * timer = new QTimer(this);
-        timer->setInterval(1000);
-        connect(timer,&QTimer::timeout,this,[=](){
-            time += 1;
+    m_pAudioThread->start ();
+    connect(m_pAudioThread,&AudioThread::finished,[&](){
+        m_pAudioThread = nullptr;
+        ui->pushButton->setEnabled(true);
+        ui->pushButton_2->setEnabled(false);
+    });
 
-            ui->LabTime->setText(QString::fromStdString(std::to_string(time)) + "s");
-        });
-        timer->start();
-        m_pTimer = timer;
+    connect(m_pAudioThread,&AudioThread::recoder_time_changed,[this](unsigned long long ms) {
+        QTime time(0,0,0,0);
+        QString text = time.addMSecs(ms).toString("hh:mm:ss.zzz");
+        ui->LabTime->setText(text) ;
+    });
+
+    ui->pushButton->setEnabled(false);
+    ui->pushButton_2->setEnabled(true);
+
+
 }
 
 
@@ -60,11 +56,6 @@ void MainWindow::on_pushButton_2_clicked()
     if (m_pAudioThread) {
         m_pAudioThread->requestInterruption();
         m_pAudioThread = nullptr;
-    }
-    if (m_pTimer) {
-        m_pTimer->stop();
-        m_pTimer->deleteLater();
-        m_pTimer = nullptr;
     }
 }
 
