@@ -43,6 +43,9 @@ equals(COMPANY,"0") {
     DEPENDPATH +=$${SDL}/include
     QMAKE_INFO_PLIST= $$PWD$$/info.plist
 
+    DISTFILES += \
+                     info.plist
+
 }
 
 
@@ -76,8 +79,5 @@ LIBS+= -L$${SDL_HOME}/lib \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    info.plist
 
 
