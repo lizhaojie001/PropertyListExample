@@ -12,6 +12,8 @@
 #define FILENAME "E:/out.pcm"
 #define OUTWAVFILENAME "E:/out2.wav"
 #define OUTPCMFILENAME "E:/out_48000_f32le_1.pcm"
+#define OUTAACFILENAME "/Users/macbookpro/Downloads/"
+
 // 格式名称
 #define FMT_NAME "dshow"
 // 设备名称
@@ -23,8 +25,8 @@
 #ifdef HOME
 #define FILENAME "/Users/macbookpro/Downloads/out.pcm"
 #define OUTWAVFILENAME "/Users/macbookpro/Downloads/out2.wav"
-#define OUTPCMFILENAME "/Users/macbookpro/Downloads/out_44100_s16le_1.pcm"
-
+#define OUTPCMFILENAME "/Users/macbookpro/Downloads/out_2_s16le_44100.pcm"
+#define OUTAACFILENAME "/Users/macbookpro/Downloads/out.aac"
 #define DEVICE_NAME ":0"
 #else
 #define FILENAME "/Users/xdf_yanqing/Downloads/out.pcm"

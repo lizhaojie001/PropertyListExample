@@ -31,8 +31,6 @@ int FFmpegs::encode(AVCodecContext *ctx, AVFrame *frame, AVPacket *pkt, QFile &o
           outFile.write((char*)pkt->data,pkt->size);
           av_packet_unref(pkt);
     }
-
-    return ret;
 }
 
 
@@ -72,12 +70,12 @@ void FFmpegs::aacEncode(EncodeAudioSpec &spec, EncodeAudioOutSpec &outSpec)
          goto end;
      }
 
-    if (inFile.open(QFile::ReadOnly)) {
+    if (!inFile.open(QFile::ReadOnly)) {
         qDebug() << "inFile open error";
         goto end;
     }
 
-    if (outFile.open(QFile::WriteOnly)) {
+    if (!outFile.open(QFile::WriteOnly)) {
         qDebug() << "outFile open error";
         goto end;
     }
@@ -85,6 +83,25 @@ void FFmpegs::aacEncode(EncodeAudioSpec &spec, EncodeAudioOutSpec &outSpec)
     ctx->sample_rate = spec.sample_rate;
     ctx->ch_layout = spec.chLayout;
 
+    //打开设备
+    ret = avcodec_open2(ctx,codec,nullptr);
+    if(ret < 0) {
+        ERROR(ret);
+        qDebug() << "avcodec_open2 error" << errbuf;
+        goto end;
+    }
+
+    frame->sample_rate = ctx->sample_rate;
+    frame->nb_samples = ctx->frame_size;
+    frame->ch_layout = ctx->ch_layout;
+    frame->format = ctx->sample_fmt;
+    // 创建AVFrame内部的缓冲区
+    ret = av_frame_get_buffer(frame, 0);
+    if (ret < 0) {
+        ERROR(ret);
+        qDebug() << "av_frame_get_buffer error" << errbuf;
+        goto end;
+    }
     while ( (ret = inFile.read(( char *)frame->data[0],frame->linesize[0])) >0) {
            if (encode(ctx,frame,pkt,outFile) != 0) {
                goto end;

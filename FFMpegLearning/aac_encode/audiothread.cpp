@@ -57,13 +57,22 @@ AudioThread::~AudioThread()
 
 void AudioThread::run()
 {
+
+#ifdef Q_OS_WIN
 EncodeAudioSpec spec;
 spec.chLayout = AV_CHANNEL_LAYOUT_STEREO ;
 spec.sample_rate = 44100;
 spec.filename = FILENAME;
 spec.sample_format = AV_SAMPLE_FMT_S16;
+#else
+    EncodeAudioSpec spec;
+    spec.chLayout = AV_CHANNEL_LAYOUT_STEREO ;
+    spec.sample_rate = 44100;
+    spec.filename = OUTPCMFILENAME;
+    spec.sample_format = AV_SAMPLE_FMT_S16;
 
-const char * outFIle = "E:/bout.aac";
+#endif
+const char * outFIle = OUTAACFILENAME;
 EncodeAudioOutSpec outSpec;
 outSpec.outFile = outFIle;
 FFmpegs::aacEncode(spec,outSpec);

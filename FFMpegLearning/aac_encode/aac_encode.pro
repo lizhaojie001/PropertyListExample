@@ -31,7 +31,8 @@ equals(COMPANY,"1") {
     SDL_HOME=/usr/local/Cellar/sdl2/2.0.10
 }
 equals(COMPANY,"0") {
-    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/5.0.1
+#    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/5.0.1
+    FFMPEG_HOME=/usr/local/opt/ffmpegPlus
     SDL_HOME=/usr/local/Cellar/sdl2/2.0.22
 #   INCLUDEPATH += /Library/Frameworks/SDL2.framework/Headers
 #   LIBS += -F/Library/Frameworks/  -framework  SDL2
@@ -60,12 +61,12 @@ INCLUDEPATH +=$${FFMPEG_HOME}/include
 LIBS+= -L $${FFMPEG_HOME}/lib/  \
         -lavcodec \
         -lavdevice \
-#        -lavfilter \
+        -lavfilter \
         -lavformat \
-        -lavutil
-#        -lpostproc \
-#        -lswscale \
-#        -lswresample
+        -lavutil \
+        -lpostproc \
+        -lswscale \
+        -lswresample
 
 INCLUDEPATH +=$${SDL_HOME}/include
 LIBS+= -L$${SDL_HOME}/lib \
