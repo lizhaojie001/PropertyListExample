@@ -62,7 +62,7 @@ void AudioThread::run()
 EncodeAudioSpec spec;
 spec.chLayout = AV_CHANNEL_LAYOUT_STEREO ;
 spec.sample_rate = 44100;
-spec.filename = FILENAME;
+spec.filename = OUTPCMFILENAME;
 spec.sample_format = AV_SAMPLE_FMT_S16;
 #else
     EncodeAudioSpec spec;

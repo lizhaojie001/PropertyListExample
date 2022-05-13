@@ -55,11 +55,7 @@ AudioThread::~AudioThread()
 
 void AudioThread::run()
 {
-  #ifdef Q_OS_WIN
-    AVInputFormat *fmt = av_find_input_format(FMT_NAME);
-  #else
     const AVInputFormat *fmt = av_find_input_format(FMT_NAME);
-#endif
     if (!fmt) {
         // 如果找不到输入格式
         qDebug() << "找不到输入格式" << FMT_NAME;

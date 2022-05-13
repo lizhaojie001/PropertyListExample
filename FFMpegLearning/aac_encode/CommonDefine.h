@@ -11,7 +11,7 @@
 #ifdef Q_OS_WIN    // PCM文件的文件名
 #define FILENAME "E:/out.pcm"
 #define OUTWAVFILENAME "E:/out2.wav"
-#define OUTPCMFILENAME "E:/out_48000_f32le_1.pcm"
+#define OUTPCMFILENAME "E:/out_2_s16le_44100.pcm"
 #define OUTAACFILENAME "E:/out.aac"
 
 // 格式名称
