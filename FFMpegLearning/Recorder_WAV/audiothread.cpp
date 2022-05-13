@@ -142,6 +142,7 @@ void AudioThread::run()
             break;
         }
     }
+    av_packet_unref(pkt);
     header.ChunkSize = header.DatachunkSize + sizeof(WAVHeader) - 8;
 
 //    完善数据头信息

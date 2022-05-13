@@ -122,6 +122,7 @@ void AudioThread::run()
             break;
         }
     }
+    av_packet_unref(pkt);
     // 关闭文件
     file.close();
 

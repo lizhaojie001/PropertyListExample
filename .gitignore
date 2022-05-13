@@ -70,5 +70,5 @@ fastlane/test_output
 /build-*
 *.pro.user*
 .DS_Store
-FFMpeg学习/build-*
+FFMpeg*/build-*
 
