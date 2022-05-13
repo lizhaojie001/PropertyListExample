@@ -8,7 +8,7 @@ class AudioThread : public QThread
 public:
     AudioThread(QObject * parent  = nullptr);
     ~AudioThread();
-    void run() override;
+   virtual  void run() override;
 
 };
 
