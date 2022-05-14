@@ -1,4 +1,4 @@
-#include "ffmpegs.h"
+﻿#include "ffmpegs.h"
 #include <QFile>
 #include <QDebug>
 
@@ -103,6 +103,13 @@ void FFmpegs::aacEncode(EncodeAudioSpec &spec, EncodeAudioOutSpec &outSpec)
         goto end;
     }
     while ( (ret = inFile.read(( char *)frame->data[0],frame->linesize[0])) >0) {
+            if(ret < frame->linesize[0]) {
+                //最后一次填充数据没有填满
+//                重新设置一下样本数量
+                int bytePerSample = av_get_bytes_per_sample(ctx->sample_fmt);
+                int ch_num = ctx->ch_layout.nb_channels;
+                frame->nb_samples = ret / (bytePerSample * ch_num);
+            }
            if (encode(ctx,frame,pkt,outFile) != 0) {
                goto end;
            }
