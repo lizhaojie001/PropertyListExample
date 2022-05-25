@@ -1,17 +1,16 @@
-#ifndef COMMONDEFINE_H
+﻿#ifndef COMMONDEFINE_H
 #define COMMONDEFINE_H
 #include <stdint.h>
 
 #define HOME
 
 #ifdef Q_OS_WIN    // PCM文件的文件名
-#define FILENAME "E:/out.pcm"
-#define OUTWAVFILENAME "E:/out2.wav"
+#define FILENAME "E:/out.yuv"
 
 // 格式名称
-#define FMT_NAME "dshow"
+#define FMT_NAME "gdigrab"
 // 设备名称
-#define DEVICE_NAME "audio=麦克风 (USBAudio2.0)"
+#define DEVICE_NAME "desktop"
 #else
 
 #define FMT_NAME "avfoundation"

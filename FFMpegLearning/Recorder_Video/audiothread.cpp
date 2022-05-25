@@ -75,6 +75,10 @@ void AudioThread::run()
     av_dict_set(&dict,"framerate","30",0);
     av_dict_set (&dict,"video_size","640x480",0);
     av_dict_set (&dict,"pixel_format","uyvy422",0);
+#else
+    av_dict_set(&dict,"framerate","30",0);
+    av_dict_set (&dict,"video_size","1920x1080",0);
+//    av_dict_set (&dict,"pixel_format","uyvy422",0);
 #endif
     // 打开设备
     int ret = avformat_open_input(&ctx, DEVICE_NAME, fmt, &dict);
@@ -112,7 +116,12 @@ void AudioThread::run()
         // 从设备中采集数据，返回值为0，代表采集数据成功
         // 读取成功        // 将数据写入文件
         if (ret == 0) {
+
+#ifdef Q_OS_WINDOWS
+            file.write((const char *) pkt->data, pkt->size);
+#else
             file.write((const char *) pkt->data, frameSize);
+#endif
             qDebug() << pkt->size;
 
             av_packet_unref(pkt);
