@@ -77,7 +77,7 @@ void AudioThread::run()
     av_dict_set (&dict,"pixel_format","uyvy422",0);
 #else
     av_dict_set(&dict,"framerate","30",0);
-    av_dict_set (&dict,"video_size","1920x1080",0);
+    av_dict_set (&dict,"video_size","1",0);
 //    av_dict_set (&dict,"pixel_format","uyvy422",0);
 #endif
     // 打开设备
