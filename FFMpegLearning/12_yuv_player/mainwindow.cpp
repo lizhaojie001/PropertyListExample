@@ -1,4 +1,5 @@
-﻿#include "mainwindow.h"
+﻿
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTimer>
 #include <QDebug>
@@ -43,9 +44,16 @@ MainWindow::MainWindow(QWidget *parent)
     //设置yuv数据
 
     YUV yuv;
+#ifdef Q_OS_MAC
+    yuv.filename = QString("/Users/macbookpro/Desktop/out.yuv");
+    yuv.size = QSize(1920,1028);
+
+#else
     yuv.filename = QString("E:/outBD1280.yuv");
-    yuv.fmt = AV_FMT;
     yuv.size = QSize(1280,720);
+
+#endif
+        yuv.fmt = AV_PIX_FMT_YUV420P;
     yuv.fps = 30;
 
     _player->setYUV(yuv);
