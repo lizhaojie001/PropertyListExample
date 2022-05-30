@@ -34,10 +34,11 @@ MainWindow::MainWindow(QWidget *parent)
 
      ui->setupUi(this);
     _player = new YUVplayer(this);
-    int x = 50;
-    int y = 50;
-    int w = this->width() - 50*2;
-    int h = this->height() - 50*2;
+
+    int w = 500;
+    int h = 500;
+    int x = (width() - w)>>1;
+    int y = (height() - h)>>1;
     _player->setGeometry(x,y,w,h);
 
     //设置yuv数据

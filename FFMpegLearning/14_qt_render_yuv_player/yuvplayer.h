@@ -43,7 +43,8 @@ protected:
 
     void paintEvent(QPaintEvent *event);
 
-
+private:
+    void releaseImage();
 private:
     YUVPlayState _state = ::isPaused;
     YUV _yuv;

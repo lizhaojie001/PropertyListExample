@@ -18,14 +18,16 @@ extern "C" {
 YUVplayer::YUVplayer(QWidget *parent)
     : QWidget{parent}
 {
-
+    setAttribute(Qt::WA_StyledBackground);
+    setStyleSheet("background:#7F0000");
 
 }
 
 YUVplayer::~YUVplayer()
 {
+    releaseImage();
     _file.close();
-
+    qDebug() << "~YUVplayer()";
 }
 
 void YUVplayer::play()
@@ -88,6 +90,7 @@ void YUVplayer::timerEvent(QTimerEvent *event)
         };
 
         FFmpegs::transformFile(in,out);
+        releaseImage();
         _image = new QImage((uchar *)out.pixels,_yuv.size.width(),_yuv.size.height(),QImage::Format_RGB888);
         update();
     }else{
@@ -104,5 +107,36 @@ void YUVplayer::paintEvent(QPaintEvent *event)
 {
     if(!_image) return;
     QPainter painter(this);
-    painter.drawImage(QRect(0,0,this->width(),this->height()),*_image);
+
+    //尺寸最终位置
+    int dx = 0;
+    int dy = 0;
+    int dw = _image->width();
+    int dh = _image->height();
+
+    if (width() < _image->width() || height() < _image->height()) {
+        if (width() * dh > dw * height()) {
+            dw = dw * height() / dh;
+            dh = height();
+        } else {
+            dh = dh * width() / dw;
+            dw = width();
+        }
+
+    }
+
+
+
+    dx = (width() - dw)>>1;
+    dy = (height() - dh)>>1;
+    painter.drawImage(QRect(dx,dy,dw,dh),*_image);
+}
+
+void YUVplayer::releaseImage()
+{
+    if (_image) {
+        free(_image->bits());
+        delete _image;
+        _image = nullptr;
+    }
 }
