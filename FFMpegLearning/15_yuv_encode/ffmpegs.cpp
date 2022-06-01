@@ -114,9 +114,13 @@ void FFmpegs::yuvEncode(YUVEncodeSpec &spec, const char *outFilename)
     }
     encode(ctx,nullptr,pkt,outFile);
 end:
+
     inFile.close();
     outFile.close();
     av_packet_free(&pkt);
+    if (frame) {
+        av_freep(&frame_data[0]);
+    }
     av_frame_free(&frame);
     avcodec_free_context(&ctx);
 
