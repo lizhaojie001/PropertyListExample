@@ -21,6 +21,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete _player;
+
 }
 
 
