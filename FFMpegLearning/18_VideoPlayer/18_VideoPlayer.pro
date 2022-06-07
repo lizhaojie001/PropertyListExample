@@ -2,48 +2,27 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-COMPANY=0
-
 SOURCES += \
-    audiothread.cpp \
-    demuxer.cpp \
+    customslider.cpp \
     main.cpp \
     mainwindow.cpp \
+    videoplayer.cpp \
+    videowidget.cpp
 
 HEADERS += \
-    audiothread.h \
-    demuxer.h \
+    customslider.h \
     mainwindow.h \
+    videoplayer.h \
+    videowidget.h
 
 FORMS += \
     mainwindow.ui
-
-macx {
-equals(COMPANY,"1") {
-    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/4.1.4_2
-    SDL_HOME=/usr/local/Cellar/sdl2/2.0.10
-}
-equals(COMPANY,"0") {
-#    FFMPEG_HOME=/usr/local/Cellar/ffmpeg/5.0.1
-    FFMPEG_HOME=/usr/local/opt/ffmpegPlus
-    SDL_HOME=/usr/local/Cellar/sdl2/2.0.22
-#   INCLUDEPATH += /Library/Frameworks/SDL2.framework/Headers
-#   LIBS += -F/Library/Frameworks/  -framework  SDL2
-}
-
-    DEPENDPATH +=$${FFMPEG_HOME}/include
-    DEPENDPATH +=$${SDL}/include
-    QMAKE_INFO_PLIST= $$PWD$$/info.plist
-    DISTFILES += \
-        info.plist
-}
-
 
 win32 {
         FFMPEG_HOME=C:/msys64/usr/local/ffmpeg
@@ -70,12 +49,7 @@ LIBS+= -L $${FFMPEG_HOME}/lib/  \
 INCLUDEPATH +=$${SDL_HOME}/include
 LIBS+= -L$${SDL_HOME}/lib \
        -lSDL2
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-
-
-

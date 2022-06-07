@@ -9,7 +9,7 @@ extern "C" {
 }
 enum YUVPlayState
 {
-   isPlaying,
+    isPlaying,
     isPaused,
     isStoped
 };

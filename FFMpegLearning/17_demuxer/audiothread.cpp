@@ -2,7 +2,7 @@
 #include  <QDebug>
 #include <QFile>
 #include <QTime>
-#include "CommonDefine.h"
+//#include "CommonDefine.h"
 #include "demuxer.h"
 extern "C" {
 
