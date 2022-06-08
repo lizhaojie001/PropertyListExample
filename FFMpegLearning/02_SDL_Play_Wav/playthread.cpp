@@ -1,4 +1,4 @@
-#include "playthread.h"
+﻿#include "playthread.h"
 #include <QtDebug>
 #include <QFile>
 #include "CommonDefine.h"
@@ -75,7 +75,6 @@ void PlayThread::run()
         qDebug() << err ;
         SDL_Quit();
         return;
-
     }
     SDL_AudioSpec spec;
     Uint8 * data;

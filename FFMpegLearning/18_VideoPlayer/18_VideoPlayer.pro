@@ -12,12 +12,16 @@ SOURCES += \
     customslider.cpp \
     main.cpp \
     mainwindow.cpp \
+    qmutexcond.cpp \
     videoplayer.cpp \
+    videoplayer_audio.cpp \
+    videoplayer_video.cpp \
     videowidget.cpp
 
 HEADERS += \
     customslider.h \
     mainwindow.h \
+    qmutexcond.h \
     videoplayer.h \
     videowidget.h
 

@@ -35,8 +35,8 @@ void MainWindow::on_BtnFileOpen_clicked()
     if(filename.isEmpty()) return;
     qDebug() << filename;
     enableControlUI(true);
-    ui->stackedWidget->setCurrentWidget(ui->VideoPlayerWidiget);
-    _player->setFile(filename.toStdString().c_str());
+    std::string name = filename.toStdString();
+    _player->setFile(name);
     _player->play();
 }
 

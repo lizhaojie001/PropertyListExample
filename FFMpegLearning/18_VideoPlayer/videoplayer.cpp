@@ -1,37 +1,37 @@
 ﻿#include "videoplayer.h"
 #include <QDebug>
-
-extern "C"{
-#include <libavutil/imgutils.h>
-}
-
-#define ERROR_BUF \
-char errbuf[1024]; \
-    av_strerror(ret, errbuf, sizeof (errbuf));
-
-#define END(func) \
-if (ret < 0) { \
-        ERROR_BUF; \
-        qDebug() << #func << "error" << errbuf; \
-        goto end; \
-}
-
-#define RET(func) \
-if (ret < 0) { \
-        ERROR_BUF; \
-        qDebug() << #func << "error" << errbuf; \
-        return ret; \
-}
+#include "thread"
 
 VideoPlayer::VideoPlayer(QObject *parent)
     : QObject{parent}
 {
 
+    //初始化子系统
+    int ret = SDL_Init(SDL_INIT_AUDIO);
+    if (ret != 0) {
+        const char * err = SDL_GetError();
+        qDebug() << err ;
+        SDL_Quit();
+        playFailed(this);
+        return;
+    }
+    _vMutex = new QMutexCond();
+    _aMutex = new QMutexCond();
+    _aPktList = new std::list<AVPacket>();
+    _vPktList = new std::list<AVPacket>();
+
 }
 
 VideoPlayer::~VideoPlayer()
 {
+    delete _vMutex;
+    delete _aMutex;
+    delete _aPktList;
+    delete _vPktList;
 
+    //关闭设备
+    SDL_CloseAudio();
+    SDL_Quit();
 }
 
 
@@ -39,51 +39,12 @@ void VideoPlayer::play()
 {
   if (isPlaying()) return;
   setState(Playing);
-
-  int ret = 0;
-  AVPacket pkt;
-
-
-  // 创建解封装上下文、打开文件
-  ret = avformat_open_input(&_fmtCtx, _filename, nullptr, nullptr);
-  END(avformat_open_input);
-
-  // 检索流信息
-  ret = avformat_find_stream_info(_fmtCtx, nullptr);
-  END(avformat_find_stream_info);
-
-  // 打印流信息到控制台
-  av_dump_format(_fmtCtx, 0, _filename, 0);
-  fflush(stderr);
-
-  _duration = _fmtCtx->duration;
-  emit videoDuration(this);
-  //初始化视频模块
-  ret = initVideoInfo();
-  END(initVideoInfo);
-
-  //初始化音频模块
-  ret = initAudioInfo();
-  END(initAudioInfo);
-
-
-  //读取数据
-  while (av_read_frame(_fmtCtx,&pkt) == 0) {
-      if(pkt.stream_index == _aStream->index) {
-
-      } else if(pkt.stream_index == _vStream->index) {
-      }
-
-  }
-
-end:
-
-
-    avcodec_close(_aCodecCtx);
-    avcodec_close(_vCodecCtx);
-    avformat_close_input(&_fmtCtx);
-
-
+  qDebug() <<"文件名" << QString::fromStdString(_filename);
+  std::thread  rg([this]() {
+      qDebug() <<"子线程" <<"文件名" << QString::fromStdString(_filename);
+        readFile();
+  });
+  rg.detach();
 }
 
 void VideoPlayer::pause()
@@ -114,36 +75,14 @@ bool VideoPlayer::isPlaying()
     return _state == Playing;
 }
 
-void VideoPlayer::setFile(const char *filename)
+void VideoPlayer::setFile(std::string &filename)
 {
     _filename = filename;
+//    sprintf(_filename,filename);
 
 }
 
-int VideoPlayer::initVideoInfo()
-{
-    int ret = 0;
-    ret = initDecoder(&_vCodecCtx,AVMEDIA_TYPE_VIDEO,&_vStream);
 
-    //一帧大小
-    _imageSize = av_image_get_buffer_size(_vCodecCtx->pix_fmt,_vCodecCtx->width,_vCodecCtx->height,1);
-
-    return ret;
-}
-
-int VideoPlayer::initAudioInfo()
-{
-    initDecoder(&_aCodecCtx,AVMEDIA_TYPE_AUDIO,&_aStream);
-
-    //计算单声道采样数据大小
-    _per_sample_size = av_get_bytes_per_sample(_aCodecCtx->sample_fmt);
-    _per_sample_frame_size = _per_sample_size * _aCodecCtx->ch_layout.nb_channels;
-    //是否是planar
-    _is_planar = av_sample_fmt_is_planar(_aCodecCtx->sample_fmt);
-    qDebug() << "_is_planar:  " << _is_planar;
-
-    return 0;
-}
 
 int VideoPlayer::initDecoder(AVCodecContext **ctx, AVMediaType type, AVStream **stream)
 {
@@ -186,4 +125,58 @@ void VideoPlayer::setState(PlayState state)
 {
     _state = state;
     emit playStateChanged(this);
+}
+
+void VideoPlayer::readFile()
+{
+    int ret = 0;
+
+
+    // 创建解封装上下文、打开文件
+    ret = avformat_open_input(&_fmtCtx, _filename.c_str(), nullptr, nullptr);
+    END(avformat_open_input);
+
+    // 检索流信息
+    ret = avformat_find_stream_info(_fmtCtx, nullptr);
+    END(avformat_find_stream_info);
+
+    // 打印流信息到控制台
+    av_dump_format(_fmtCtx, 0, _filename.c_str(), 0);
+    fflush(stderr);
+
+    _duration = _fmtCtx->duration;
+    emit videoDuration(this);
+    //初始化视频模块
+    ret = initVideoInfo();
+    END(initVideoInfo);
+
+    //初始化音频模块
+    ret = initAudioInfo();
+    END(initAudioInfo);
+
+
+    //读取数据
+    while (true) {
+        AVPacket pkt;
+        ret = av_read_frame(_fmtCtx,&pkt) ;
+        if (ret == 0) {
+            if(pkt.stream_index == _aStream->index) {
+               addAudioPkt(pkt);
+            } else if(pkt.stream_index == _vStream->index) {
+               addVideoPkt(pkt);
+            }
+        }else {
+            continue;
+        }
+    }
+
+
+end:
+
+
+    avcodec_close(_aCodecCtx);
+    avcodec_close(_vCodecCtx);
+    avformat_close_input(&_fmtCtx);
+
+
 }
