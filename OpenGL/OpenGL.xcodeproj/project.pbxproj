@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52CD703026AD6667001BECC9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52D6DAA526A413730023FB59 /* main.cpp */; };
+		1F786CB4293DE03D00B1C07F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 52D6DAA526A413730023FB59 /* main.cpp */; };
 		52D6DAC226A416FA0023FB59 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAC026A416FA0023FB59 /* libglfw3.a */; };
 		52D6DAD426A41C680023FB59 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAD326A41C680023FB59 /* CoreFoundation.framework */; };
 		52D6DAD726A41C920023FB59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6DAD626A41C920023FB59 /* CoreGraphics.framework */; };
@@ -30,6 +30,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F0B9566294081F600CE8F36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1F0B956A29408DC400CE8F36 /* FragmentShaderSource.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FragmentShaderSource.strings; sourceTree = "<group>"; };
+		1F0B956B29408DC400CE8F36 /* VertexShaderSource.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = VertexShaderSource.strings; sourceTree = "<group>"; };
+		1F0B956C29408FD500CE8F36 /* OpenGL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenGL.entitlements; sourceTree = "<group>"; };
+		1F0B956D2940B48400CE8F36 /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
 		52D6DAA226A413730023FB59 /* OpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DAA526A413730023FB59 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		52D6DAB226A414D60023FB59 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
@@ -63,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0B956929408DC400CE8F36 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				1F0B956A29408DC400CE8F36 /* FragmentShaderSource.strings */,
+				1F0B956B29408DC400CE8F36 /* VertexShaderSource.strings */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
 		52D6DA9926A413730023FB59 = {
 			isa = PBXGroup;
 			children = (
@@ -83,9 +97,12 @@
 		52D6DAA426A413730023FB59 /* OpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				1F0B956C29408FD500CE8F36 /* OpenGL.entitlements */,
+				1F0B956929408DC400CE8F36 /* resource */,
 				52D6DABF26A416FA0023FB59 /* lib-universal */,
 				52D6DAB026A414D60023FB59 /* include */,
 				52D6DAA526A413730023FB59 /* main.cpp */,
+				1F0B956D2940B48400CE8F36 /* shader.h */,
 				52D6DB0126A5BC660023FB59 /* EBO_main.cpp */,
 			);
 			path = OpenGL;
@@ -123,6 +140,7 @@
 		52D6DAD226A41C680023FB59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F0B9566294081F600CE8F36 /* Foundation.framework */,
 				52D6DAFE26A4FBF40023FB59 /* OpenGL.framework */,
 				52D6DADC26A41CBB0023FB59 /* Cocoa.framework */,
 				52D6DAD926A41CA80023FB59 /* IOKit.framework */,
@@ -205,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D6DAFB26A4207F0023FB59 /* glad.c in Sources */,
-				52CD703026AD6667001BECC9 /* main.cpp in Sources */,
+				1F786CB4293DE03D00B1C07F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +344,10 @@
 		52D6DAAA26A413730023FB59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenGL/OpenGL.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E6K5C633N4;
+				DEVELOPMENT_TEAM = WV5UP98J28;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "";
@@ -344,8 +364,10 @@
 		52D6DAAB26A413730023FB59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OpenGL/OpenGL.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E6K5C633N4;
+				DEVELOPMENT_TEAM = WV5UP98J28;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "";

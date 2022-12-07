@@ -6,9 +6,13 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "include/GLFW/glfw3.h"
 #include "include/glad/glad.h"
 #include <OpenGL/OpenGL.h>
+#include <math.h>
+
+using namespace std;
 void createWidow();
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -28,10 +32,33 @@ const char *fragmentShaderSource = "#version 330 core\n"
 "{\n"
 "   FragColor = ourColor;\n"
 "}\n\0";
+
+void getSharderSource(const char * path , std::string & source) {
+    ifstream  afile;
+    afile.open(path, ios::out | ios::in );
+    if (afile.is_open()) {
+        source.erase();
+        char c;
+        while (afile.get(c))
+        source.push_back(c);
+        afile.close();
+        std::cout << source << std::endl;
+    } else {
+        std::cout << "文件打开失败" << std::endl;
+    }
+   
+}
+
 void processInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+}
+//获取顶点属性的个数
+void getIntegerv() {
+    int nrAttributes;
+    glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+    std::cout << "Maximum nr of vertex attributes supported: " << nrAttributes << std::endl;
 }
 
 int main(int argc, const char * argv[]) {
@@ -58,12 +85,16 @@ int main(int argc, const char * argv[]) {
     
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     
+    //获取vertexShaderSource
+    std::string path = "/Users/xdf_yanqing/Desktop/MacDemo/PropertyListExample/OpenGL/OpenGL/resource/VertexShaderSource.strings";
     
-    
+    std::string source ;
+    getSharderSource(path.c_str(),source);
+    const char *vertexSource = source.c_str();
     //创建并编译顶点着色器
     unsigned int vertexShader;
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+    glShaderSource(vertexShader, 1, &(vertexSource), NULL);
     glCompileShader(vertexShader);
     
     int  success;
@@ -77,9 +108,12 @@ int main(int argc, const char * argv[]) {
     }
     
     //创建并编译片段着色器
-    
+    path = "/Users/xdf_yanqing/Desktop/MacDemo/PropertyListExample/OpenGL/OpenGL/resource/FragmentShaderSource.strings";
+    getSharderSource(path.c_str(),source);
+    const char *fragmentSource = source.c_str();
+
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+    glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
     glCompileShader(fragmentShader);
     // check for shader compile errors
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
@@ -106,10 +140,16 @@ int main(int argc, const char * argv[]) {
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     
+//    float vertices[] = {
+//        -0.5f, -0.5f, 0.0f, // left
+//        0.5f, -0.5f, 0.0f, // right
+//        0.0f,  0.5f, 0.0f  // top
+//    };
     float vertices[] = {
-        -0.5f, -0.5f, 0.0f, // left
-        0.5f, -0.5f, 0.0f, // right
-        0.0f,  0.5f, 0.0f  // top
+        // 位置              // 颜色
+         0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // 右下
+        -0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // 左下
+         0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // 顶部
     };
     
     unsigned int VBO,VAO;
@@ -119,13 +159,20 @@ int main(int argc, const char * argv[]) {
     //复制到顶点缓冲对象设置属性
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    //设置读取规则
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+//    //设置读取规则
+//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+//    glEnableVertexAttribArray(0);
+    
+    // 位置属性
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+    // 颜色属性
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+    glEnableVertexAttribArray(1);
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-    
+
     
     //渲染循环
     while(!glfwWindowShouldClose(window))
@@ -135,7 +182,7 @@ int main(int argc, const char * argv[]) {
         glClear(GL_COLOR_BUFFER_BIT);
         
         glUseProgram(shaderProgram);
-        
+
         //更新uniform
         float timeValue = glfwGetTime();
         float greenValue = sin(timeValue) / 2.0f + 0.5f;
