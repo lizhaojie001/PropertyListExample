@@ -8,7 +8,8 @@
 #ifndef shader_h
 #define shader_h
 
-#include <glad/glad.h>; // 包含glad来获取所有的必须OpenGL头文件
+// 包含glad来获取所有的必须OpenGL头文件
+#include "include/glad/glad.h"
 
 #include <string>
 #include <fstream>
